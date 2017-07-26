@@ -148,7 +148,7 @@ public class EmpController {
 		return model;
 	}
 
-	// 待完成...一群員工移動至另外一個部門.....
+	// 待完成...一群員工移動至另外一個部門
 	@RequestMapping(value = "/updateEmpsDeptno", method = RequestMethod.POST)
 	public ModelAndView updateEmpsDeptno() {
 		ModelAndView model = new ModelAndView("emps");
