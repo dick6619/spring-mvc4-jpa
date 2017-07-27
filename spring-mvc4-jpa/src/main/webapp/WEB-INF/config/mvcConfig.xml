@@ -40,6 +40,6 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="validation" />
 	</bean>
-	<bean id="EmpParamValidator" class="com.iii.emp.vo.EmpParamValidator" />
+	<bean id="EmpParamValidator" class="com.iii.emp.vo.validator.EmpParamValidator" />
 
 </beans>
