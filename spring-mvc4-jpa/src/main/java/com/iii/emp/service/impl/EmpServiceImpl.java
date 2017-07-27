@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.EmpDAO;
+import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
-import com.iii.emp.vo.EmpVO;
 
 @Service("empService")
 @Transactional

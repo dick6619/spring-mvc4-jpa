@@ -2,7 +2,7 @@ package com.iii.emp.service;
 
 import java.util.List;
 
-import com.iii.emp.vo.EmpVO;
+import com.iii.emp.model.EmpVO;
 
 public interface EmpService {
 	EmpVO getEmp(Integer empno);

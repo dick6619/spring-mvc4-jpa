@@ -41,6 +41,6 @@
 		<!-- 找validation.properties -->
 		<property name="basename" value="validation" />
 	</bean>
-	<bean id="EmpParamValidator" class="com.iii.emp.vo.validator.EmpParamValidator" />
+	<bean id="EmpValidator" class="com.iii.emp.model.validator.EmpValidator" />
 
 </beans>

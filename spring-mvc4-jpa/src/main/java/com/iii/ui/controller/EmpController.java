@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iii.dept.model.DeptVO;
 import com.iii.dept.service.DeptService;
-import com.iii.dept.vo.DeptVO;
+import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
-import com.iii.emp.vo.EmpVO;
 
 @Controller
 @RequestMapping("/emp")

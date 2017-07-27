@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.iii.dept.dao.DeptDAO;
-import com.iii.dept.vo.DeptVO;
-import com.iii.emp.vo.EmpVO;
+import com.iii.dept.model.DeptVO;
+import com.iii.emp.model.EmpVO;
 
 public class DeptDAOImpl implements DeptDAO {
 

@@ -2,7 +2,7 @@ package com.iii.emp.dao;
 
 import java.util.*;
 
-import com.iii.emp.vo.EmpVO;
+import com.iii.emp.model.EmpVO;
 
 public interface EmpDAO {
 	// get one

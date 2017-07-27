@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.EmpDAO;
-import com.iii.emp.vo.EmpVO;
+import com.iii.emp.model.EmpVO;
 
 @Repository("empDAO")
 @Transactional

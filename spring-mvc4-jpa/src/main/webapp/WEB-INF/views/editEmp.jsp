@@ -43,7 +43,7 @@
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
 							class="form-control" name="sal" value="${emp.sal}"
-							placeholder="Enter Sal" required>
+							placeholder="Enter Sal">
 					</div>
 				</div>
 				<div class="form-group">

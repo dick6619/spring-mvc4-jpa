@@ -1,17 +1,19 @@
-package com.iii.emp.vo.validator;
+package com.iii.emp.model.validator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.iii.emp.vo.EmpVO;
-
-public class EmpParamValidator implements Validator {
+import com.iii.emp.model.EmpVO;
+/**
+ * spring validation
+ * */
+public class EmpValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
+		//
 		return EmpVO.class.equals(clazz);
 	}
 
@@ -19,13 +21,14 @@ public class EmpParamValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		EmpVO empVO = (EmpVO) obj;
 
-		// 1. 使用ValidationUtils, 是null或空字串
+		// 1. 使用ValidationUtils的方法．簡單判別是否為null或空字串
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "ename", "valid.ename");
-		// 2. 自行判斷使用properties內的錯誤訊息
+		
+		// 2. 自行撰寫邏輯判斷是否錯誤
 		if (StringUtils.isBlank(empVO.getEname())) {
 			errors.rejectValue("ename", "valid.ename");
 		}
-		// 3. 自行判斷並於此自訂
+		// 3. 自行判斷於properties negativeValue{0}自行塞入定義訊息
 		if (StringUtils.isBlank(empVO.getEname())) {
 			errors.rejectValue("ename", "negativeValue", new Object[]{"'ename'"}, "ename can't be empty");
 		}

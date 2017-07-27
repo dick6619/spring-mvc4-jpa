@@ -2,8 +2,8 @@ package com.iii.dept.dao;
 
 import java.util.*;
 
-import com.iii.dept.vo.DeptVO;
-import com.iii.emp.vo.EmpVO;
+import com.iii.dept.model.DeptVO;
+import com.iii.emp.model.EmpVO;
 
 public interface DeptDAO {
 	// add

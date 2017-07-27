@@ -1,4 +1,4 @@
-package com.iii.dept.vo;
+package com.iii.dept.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import com.iii.emp.vo.EmpVO;
+import com.iii.emp.model.EmpVO;
 
 @Entity
 @Table(name = "dept2")
