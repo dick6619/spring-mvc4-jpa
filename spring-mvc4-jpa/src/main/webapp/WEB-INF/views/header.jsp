@@ -1,4 +1,7 @@
+<%-- <%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib uri="http://www.springframework.org/tags/form" --%>
+<%-- 	prefix="springForm"%> --%>
 <%-- <c:set var="appPath" value="${pageContext.request.contextPath}"/> --%>
 <%
  String contextPath = request.getContextPath();
