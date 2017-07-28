@@ -25,7 +25,6 @@ public class EmpVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer empno;
-
 	private String ename;
 	private String job;
 	// @Temporal(TemporalType.DATE) sql.Date, Timestamp 可不用． sql.Util一定要加

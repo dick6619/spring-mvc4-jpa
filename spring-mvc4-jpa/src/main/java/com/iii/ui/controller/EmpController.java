@@ -76,7 +76,7 @@ public class EmpController {
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
 	public ModelAndView editEmpVO( // 如果在參數內加@valid 會直接再進入時就去驗證
 			// 自動將頁面上的參數注入POJO內
-			@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam, BindingResult result) {
+			@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam, BindingResult result) {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
 		//
