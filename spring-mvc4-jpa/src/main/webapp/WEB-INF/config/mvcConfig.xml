@@ -35,12 +35,12 @@
 	<bean
 		class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
 
-	<!-- spring validation test -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<!-- 找validation.properties -->
-		<property name="basename" value="validation" />
-	</bean>
-	<bean id="EmpValidator" class="com.iii.emp.model.validator.EmpValidator" />
+	<!-- spring validation test --><!-- 找validation.properties -->
+	<!-- <bean id="messageSource" -->
+	<!-- class="org.springframework.context.support.ResourceBundleMessageSource"> -->
+	<!-- <property name="basename" value="validation" /> -->
+	<!-- </bean> -->
+	<!-- <bean id="EmpValidator" class="com.iii.emp.model.validator.EmpValidator" 
+		/> -->
 
 </beans>

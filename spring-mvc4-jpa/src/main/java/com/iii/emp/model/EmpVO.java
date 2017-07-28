@@ -30,7 +30,7 @@ public class EmpVO {
 	private String job;
 	// @Temporal(TemporalType.DATE) sql.Date, Timestamp 可不用． sql.Util一定要加
 	private Date hiredate;
-	// 自訂驗證
+	// 自訂驗證標註
 	@Sal
 	private Double sal;
 	private Double comm;

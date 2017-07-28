@@ -4,6 +4,7 @@ import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,11 +28,12 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/emp")
 public class EmpController {
 
-	@Autowired(required = true)
-	@Qualifier("empService")
+	// @Autowired(required = true)
+	// @Qualifier("empService")
+	@Resource(name = "empService")
 	private EmpService empService;
 
-	@Autowired(required = false) // dept目前都是空的，設為false沒有也不噴錯
+	@Autowired(required = false) // 驗證
 	@Qualifier("deptService")
 	private DeptService deptService;
 	/*
@@ -110,6 +112,8 @@ public class EmpController {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
 		EmpVO empvo = empService.updateEmp(empParam);
+		System.out.println("4. 還沒到這段，就已經走入自訂驗證的validator, 並噴出錯誤");
+		//
 		if (empvo != null) {
 			model.addObject("saveSuccess", "emp Added SuccessFully:" + empvo.getEname());
 		} else {

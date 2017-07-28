@@ -58,6 +58,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Transactional(readOnly = false)
 	@Override
 	public EmpVO update(EmpVO empVO) {
+		System.out.println("2. service 請求");
 		entityManager.merge(empVO);
 		// 尚未commit，就關掉entity週期，導致沒更新
 		// entityManager.clear();

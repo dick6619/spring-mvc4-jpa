@@ -31,7 +31,10 @@ public class EmpServiceImpl implements EmpService {
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public EmpVO updateEmp(EmpVO empVO) {
-		return empDAO.update(empVO);
+		System.out.println("1. controller請求");
+		EmpVO emp = empDAO.update(empVO);
+		System.out.println("3. dao update但尚未commit");
+		return emp;
 	}
 
 	@Override
