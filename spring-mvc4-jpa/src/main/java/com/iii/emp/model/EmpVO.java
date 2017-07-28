@@ -33,6 +33,7 @@ public class EmpVO {
 	// 自訂驗證標註
 	@Sal
 	private Double sal;
+	
 	private Double comm;
 	@ManyToOne
 	@JoinColumn(name = "deptno")

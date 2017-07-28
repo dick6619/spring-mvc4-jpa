@@ -7,10 +7,12 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +30,9 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/emp")
 public class EmpController {
 
-	// @Autowired(required = true)
-	// @Qualifier("empService")
-	@Resource(name = "empService")
+	@Autowired(required = true)
+	@Qualifier("empService")
+	// @Resource(name = "empService")
 	private EmpService empService;
 
 	@Autowired(required = false) // 驗證
@@ -65,54 +67,23 @@ public class EmpController {
 		return model;
 	}
 
-	// 中文字加密過變長，spring先後再?
+	// @RequestParam
+	// @RequestParam(value = "empno", required = true) Integer empno
 	// value可以不寫，會自動對應前端的name去set，required沒有傳也不要錯就設為false
-	// update and go to all emps view
-	// @RequestMapping(value = "editEmp", method = RequestMethod.POST)
-	// public ModelAndView editEmpVO(
-	// @RequestParam(value = "empno") Integer empno,
-	// @RequestParam("ename" required = false) String ename,
-	// @RequestParam("job") String job,
-	// @RequestParam("hiredate") Date hiredate,
-	// @RequestParam("sal") Double sal,
-	// @RequestParam("comm") Double comm,
-	// @RequestParam("deptno") Integer deptno
-	// ) {
-	// ModelAndView model = new ModelAndView("emps");
-	// EmpVO empParam = new EmpVO();
-	// empParam.setEmpno(empno);
-	// empParam.setEname(ename);
-	// empParam.setJob(job);
-	// empParam.setHiredate(hiredate);
-	// empParam.setSal(sal);
-	// empParam.setComm(comm);
-	// DeptVO deptParam = new DeptVO();
-	// deptParam.setDeptno(deptno);
-	// empParam.setDeptVO(deptParam);
-	// //
-	// EmpVO empvo = empService.updateEmp(empParam);
-	// if (empvo != null) {
-	// model.addObject("saveSuccess", "emp Added SuccessFully:" +
-	// empvo.getEname());
-	// } else {
-	// model.addObject("saveError", "emp creation failed");
-	// }
-	// //
-	// List<EmpVO> list = empService.getEmps();
-	// model.addObject("emps", list);
-	// return model;
-	//
-	// }
-
+	
 	// update emp and go emps view
+	// 方法上加@valid跟不加都走以下流程
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
-	public ModelAndView editEmpVO(
+	public ModelAndView editEmpVO( // 如果在參數內加@valid 會直接去驗證
 			// 自動將頁面上的參數注入POJO內
-			@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+			@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam, BindingResult result) {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
+		//
 		EmpVO empvo = empService.updateEmp(empParam);
-		System.out.println("4. 還沒到這段，就已經走入自訂驗證的validator, 並噴出錯誤");
+		if (result.hasErrors()) {
+			System.out.println("4. 還沒到這段，就已經走入自訂驗證的validator, 並噴出錯誤");
+		}
 		//
 		if (empvo != null) {
 			model.addObject("saveSuccess", "emp Added SuccessFully:" + empvo.getEname());
