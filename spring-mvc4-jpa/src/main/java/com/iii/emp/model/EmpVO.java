@@ -31,7 +31,7 @@ public class EmpVO {
 	// @Temporal(TemporalType.DATE) sql.Date, Timestamp 可不用． sql.Util一定要加
 	private Date hiredate;
 	// 自訂驗證標註
-	@Sal
+	@Sal(message = "金額錯誤")
 	private Double sal;
 	
 	private Double comm;

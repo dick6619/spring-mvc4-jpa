@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
 public @interface Sal {
 
 	// 訊息
-	String message() default "is not valid";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 
