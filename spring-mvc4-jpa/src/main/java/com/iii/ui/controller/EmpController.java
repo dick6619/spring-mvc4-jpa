@@ -1,18 +1,13 @@
 package com.iii.ui.controller;
 
-import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -76,14 +71,11 @@ public class EmpController {
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
 	public ModelAndView editEmpVO( // 如果在參數內加@valid 會直接再進入時就去驗證
 			// 自動將頁面上的參數注入POJO內
-			@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam, BindingResult result) {
+			@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
 		//
 		EmpVO empvo = empService.updateEmp(empParam);
-		if (result.hasErrors()) {
-			System.out.println("4. 還沒到這段，就已經走入自訂驗證的validator, 並噴出錯誤");
-		}
 		//
 		if (empvo != null) {
 			model.addObject("saveSuccess", "emp Added SuccessFully:" + empvo.getEname());
@@ -99,7 +91,7 @@ public class EmpController {
 
 	// add emp and go to emps view
 	@RequestMapping(value = "addEmp", method = RequestMethod.POST)
-	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+	public ModelAndView addEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
 		EmpVO empvo = empService.addEmp(empParam);

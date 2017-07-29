@@ -17,6 +17,7 @@
 	<!-- scan Service -->
 	<context:component-scan base-package="com.iii.emp.service" />
 	<context:component-scan base-package="com.iii.dept.service" />
+	
 	<!-- scan DAO -->
 	<context:component-scan base-package="com.iii.emp.dao" />
 	<context:component-scan base-package="com.iii.dept.dao" />
@@ -29,6 +30,8 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
+    <!-- 永續曾框架 -->
+    <!-- JPA 提供一個統一規範(interface)  -->
 	<!-- JPA Factory Config -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -60,6 +63,8 @@
 		<!-- <property name="dataSource" ref="dataSource" /> -->
 	</bean>
 	<!-- JPA Factory End -->
+	<!-- 永續層框架 -->
+	
 	<!-- DataSource 測試用 -->
 	<!-- <bean id="dataSource" -->
 	<!-- class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->

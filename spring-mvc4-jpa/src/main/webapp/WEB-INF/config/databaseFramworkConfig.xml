@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 設定檔也可以做好規劃拆開來寫，由web.xml ContextLoaderListener 及其中contextConfigLocation 去掃application設定檔 -->
