@@ -17,7 +17,8 @@ import com.iii.emp.service.EmpService;
 public class EmpServiceImpl implements EmpService {
 
 	@Autowired(required = true)
-	@Qualifier("empDAO")
+//	@Qualifier("empDAO")
+	@Qualifier("empTest")
 	private EmpDAO empDAO;
 
 	// transactional default : if hava error rollback
