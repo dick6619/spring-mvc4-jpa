@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iii.dept.model.DeptVO;
@@ -30,7 +29,7 @@ public class EmpController {
 	// @Resource(name = "empService")
 	private EmpService empService;
 
-	@Autowired(required = false) // 驗證
+	@Autowired(required = false) // 沒有的話就不調用，不會噴錯
 	@Qualifier("deptService")
 	private DeptService deptService;
 	/*
@@ -64,7 +63,7 @@ public class EmpController {
 
 	// @RequestParam
 	// @RequestParam(value = "empno", required = true) Integer empno
-	// value可以不寫，會自動對應前端的name去set，required沒有傳也不要錯就設為false
+	// 會自動對應前端的name去set，沒有對應就別調用導致噴錯就設為false
 	
 	// update emp and go emps view
 	// 方法上加@valid跟不加都走以下流程
