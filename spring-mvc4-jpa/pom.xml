@@ -7,9 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-mvc4-jpa</name>
 	<url>http://maven.apache.org</url>
-<!-- 	<modules> -->
-<!-- 		<module>spring-mvc4-jpa-service</module> -->
-<!-- 	</modules> -->
+	<!-- <modules> -->
+	<!-- <module>spring-mvc4-jpa-service</module> -->
+	<!-- </modules> -->
 	<properties>
 		<spring.version>4.3.9.RELEASE</spring.version>
 		<hibernate.version>5.2.4.Final</hibernate.version>

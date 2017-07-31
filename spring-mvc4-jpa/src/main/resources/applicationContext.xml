@@ -23,8 +23,8 @@
 	<context:component-scan base-package="com.iii.dept.dao" />
 
 	<!-- test 要用的時候才生成實例 -->
-	<!-- <bean id="empTest" class="com.iii.emp.dao.impl.EmpDAOImpl" -->
-	<!-- lazy-init="true" /> -->
+	<bean id="empTest" class="com.iii.emp.dao.impl.EmpDAOImpl"
+		lazy-init="true" />
 
 	<!-- Enable Transaction -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -80,7 +80,5 @@
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
-
 
 </beans>
