@@ -20,7 +20,7 @@
 		<!-- dispatcher init configLocation -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/config/mvcConfig.xml</param-value>
+			<param-value>/WEB-INF/mvcConfig/mvcConfig.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -35,9 +35,14 @@
 	</listener>
 
 	<!-- contextLoaderListener context configLocation -->
+	<!-- 設定檔有很多種設定方式，規劃好就好． -->
+	<!-- 1. 可以都寫在同個XML裡面． -->
+	<!-- 2. 也可以分開寫，在同個XML內import其他設定． -->
+	<!-- 3. 也可以分開寫在這邊空格隔開去讀取多個XML設定檔 -->
+	<!-- 最後只需了解一個spring只會有一個application設定 -->
+	<!-- 這個設定也就是所謂spring是個容器框架的概念，定義了許多bean跟bean之間的關係，包含了也控管了其他的框架-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:applicationContext.xml</param-value>
-		<!-- <param-value>/WEB-INF/config/*.xml</param-value> -->
+		<param-value>classpath*:/spring/applicationContext.xml</param-value>
 	</context-param>
 </web-app>

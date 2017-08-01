@@ -58,7 +58,6 @@ public class EmpDAOImpl implements EmpDAO {
 	@Transactional(readOnly = false)
 	@Override
 	public EmpVO update(EmpVO empVO) {
-		System.out.println("2. service 請求");
 		entityManager.merge(empVO);
 		// 尚未commit，就關掉entity週期，導致沒更新
 		// entityManager.clear();
@@ -86,11 +85,8 @@ public class EmpDAOImpl implements EmpDAO {
 
 	// ...
 	@Override
-	public void updateCheckedEmpsDeptno(List<EmpVO> empsParams) {
-		// TODO Auto-generated method stub
-		// 無法辨識集合內的java entity
-		// entityManager.merge(empsParams);
-		for (EmpVO emp : empsParams) {
+	public void updateCheckedEmpsDeptno(List<EmpVO> emps) {
+		for (EmpVO emp : emps) {
 			entityManager.merge(emp);
 		}
 	}

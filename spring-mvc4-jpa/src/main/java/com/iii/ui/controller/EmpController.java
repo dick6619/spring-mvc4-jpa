@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iii.dept.model.DeptVO;
-import com.iii.dept.service.DeptService;
 import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
 
@@ -28,20 +27,6 @@ public class EmpController {
 	@Qualifier("empService")
 	// @Resource(name = "empService")
 	private EmpService empService;
-
-	@Autowired(required = false) // 沒有的話就不調用，不會噴錯
-	@Qualifier("deptService")
-	private DeptService deptService;
-	/*
-	 * url會先找controller再找config路徑 說明: header.jsp 有段連結會連結到
-	 * config內設置的一段路徑emp/empForm.action 再轉到此controller 的addEmp
-	 * 把以下註解打開就會先對應以下方法而不到config
-	 */
-	// home
-	// @GetMapping("*")
-	// public String getHome() {
-	// return "home";
-	// }
 
 	// all emps
 	@GetMapping("/emps")
@@ -61,15 +46,9 @@ public class EmpController {
 		return model;
 	}
 
-	// @RequestParam
-	// @RequestParam(value = "empno", required = true) Integer empno
-	// 會自動對應前端的name去set，沒有對應就別調用導致噴錯就設為false
-	
 	// update emp and go emps view
-	// 方法上加@valid跟不加都走以下流程
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
-	public ModelAndView editEmpVO( // 如果在參數內加@valid 會直接再進入時就去驗證
-			// 自動將頁面上的參數注入POJO內
+	public ModelAndView editEmpVO( // 如果在參數前加@valid 進入此方法前validator就會驗證
 			@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
@@ -114,10 +93,4 @@ public class EmpController {
 		return model;
 	}
 
-	// 待完成...一群員工移動至另外一個部門.....
-	@RequestMapping(value = "/updateEmpsDeptno", method = RequestMethod.POST)
-	public ModelAndView updateEmpsDeptno() {
-		ModelAndView model = new ModelAndView("emps");
-		return model;
-	}
 }
