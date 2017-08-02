@@ -5,28 +5,28 @@
 	   xmlns:tx="http://www.springframework.org/schema/tx"
 	   xsi:schemaLocation=
 	      "http://www.springframework.org/schema/beans
-	       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	       http://www.springframework.org/schema/beans/spring-beans.xsd
 	       http://www.springframework.org/schema/jee
-	       http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+	       http://www.springframework.org/schema/jee/spring-jee.xsd
 	       http://www.springframework.org/schema/tx
-	       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+	       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- Enable Transaction -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- JPATransactionManage -->
+	<!-- JPA Transaction Manage -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<!-- JPA -->
+	<!-- JPA Entity Manager Factory -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
 		<!-- 1. Persistence Unit -->
 		<property name="persistenceUnitName" value="spring-jpa-unit" />
 
-		<!-- 2. JPA Vendor Adapter (use Hibernate) -->
+		<!-- 2. JPA Vendor Adapter -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
