@@ -22,7 +22,52 @@
 	<context:component-scan base-package="com.iii.emp.dao" />
 	<context:component-scan base-package="com.iii.dept.dao" />
 
-    <!-- persistent framework -->
-	<import resource="database/database.xml"/>
-	
+	<!-- Enable Transaction -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- Transaction Manager Config -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- JPA Config -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+		<!-- 1. persistence.xml -->
+		<property name="persistenceUnitName" value="spring-jpa-unit" />
+
+		<!-- 2. JPA Vendor Adapter (use Hibernate) -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+
+		<!-- 3. Hibernate Config -->
+		<property name="jpaProperties">
+			<props>
+				<!-- SQL方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 是否顯示實際操作資料庫時的SQL -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 是否將顯示的SQL排版 -->
+				<prop key="hibernate.format_sql">false</prop>
+				<!-- JNDI連線池 -->
+				<prop key="hibernate.connection.datasource">java:/comp/env/jdbc/TestDB</prop>
+			</props>
+		</property>
+		<!-- DataSource 本機測試 -->
+		<!-- <property name="dataSource" ref="dataSource" /> -->
+	</bean>
+
+	<!-- <bean id="dataSource" -->
+	<!-- class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+	<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> -->
+	<!-- <property name="url" value="jdbc:mysql://localhost:3306/test" /> -->
+	<!-- <property name="username" value="root" /> -->
+	<!-- <property name="password" value="123456" /> -->
+	<!-- </bean> -->
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
 </beans>
