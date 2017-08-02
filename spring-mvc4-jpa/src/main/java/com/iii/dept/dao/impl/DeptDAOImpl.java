@@ -17,39 +17,35 @@ public class DeptDAOImpl implements DeptDAO {
 
 	@Override
 	public DeptVO insert(DeptVO deptVO) {
-		// TODO Auto-generated method stub
-		return null;
+		entityManager.persist(deptVO);
+		return deptVO;
 	}
 
 	@Override
 	public DeptVO update(DeptVO deptVO) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.merge(deptVO);
 
 	}
 
 	@Override
 	public void delete(Integer deptno) {
-		// TODO Auto-generated method stub
 		DeptVO deptVO = entityManager.find(DeptVO.class, deptno);
 		entityManager.remove(deptVO);
 	}
 
 	@Override
 	public DeptVO getDept(Integer deptno) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(DeptVO.class, deptno);
 	}
 
 	@Override
 	public List<DeptVO> getDepts() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select dept2 from DeptVO dept2";
+		return entityManager.createQuery(sql).getResultList();
 	}
 
 	@Override
 	public Set<EmpVO> getEmpsByDeptno(Integer deptno) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -4,15 +4,12 @@
 	<groupId>iii</groupId>
 	<artifactId>spring-mvc4-jpa</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.8.2-SNAPSHOT</version>
 	<name>spring-mvc4-jpa</name>
 	<url>http://maven.apache.org</url>
-	<!-- <modules> -->
-	<!-- <module>spring-mvc4-jpa-service</module> -->
-	<!-- </modules> -->
 	<properties>
-		<spring.version>4.3.9.RELEASE</spring.version>
-		<hibernate.version>5.2.4.Final</hibernate.version>
+		<spring.version>4.3.10.RELEASE</spring.version>
+		<hibernate.version>5.2.10.Final</hibernate.version>
 		<junit.version>3.8.1</junit.version>
 		<!-- java version -->
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -95,7 +92,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.4.Final</version>
+			<version>5.4.1.Final</version>
 		</dependency>
 		<!-- javax.validation 不用加原因是因為hibernate-validator 也是去實作以下， 所以當加入上面的jar時就會自動加入 -->
 		<!-- <dependency> -->

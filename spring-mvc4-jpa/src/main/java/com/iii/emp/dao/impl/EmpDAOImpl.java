@@ -59,9 +59,8 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public EmpVO update(EmpVO empVO) {
 		entityManager.merge(empVO);
-		// 尚未commit，就關掉entity週期，導致沒更新
+		// 這行還尚未commit，就讓entity分離，導致沒更新
 		// entityManager.clear();
-		// 估計是return這行commit
 		return empVO;
 	}
 
@@ -69,7 +68,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public EmpVO insert(EmpVO empVO) {
 		entityManager.persist(empVO);
-		// 不會影響到新增，上一行已經commit
+		// 已經commit新增
 		// entityManager.clear();
 		return empVO;
 
@@ -83,7 +82,6 @@ public class EmpDAOImpl implements EmpDAO {
 		entityManager.remove(empVO);
 	}
 
-	// ...
 	@Override
 	public void updateCheckedEmpsDeptno(List<EmpVO> emps) {
 		for (EmpVO emp : emps) {
