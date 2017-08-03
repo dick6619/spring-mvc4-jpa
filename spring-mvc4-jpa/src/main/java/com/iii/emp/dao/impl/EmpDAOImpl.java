@@ -30,8 +30,6 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public EmpVO insert(EmpVO empVO) {
 		entityManager.persist(empVO);
-		// 已經commit新增
-		// entityManager.clear();
 		return empVO;
 
 	}
@@ -40,15 +38,16 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public EmpVO update(EmpVO empVO) {
 		entityManager.merge(empVO);
-		// ....尚未commit，就讓entity分離，導致沒更新
-		// entityManager.clear();
+		// ....
+		// .... entity lifeCycle is managed, not yet commit
+		// ....
 		return empVO;
 	}
 
 	@Transactional(readOnly = false)
 	@Override
 	public void delete(Integer empno) {
-		// 得先讓生命週期變為managed，才能刪除
+		// entity lifeCycle must be managed
 		EmpVO empVO = entityManager.find(EmpVO.class, empno);
 		entityManager.remove(empVO);
 	}
@@ -67,9 +66,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Transactional(readOnly = true)
 	@Override
 	public EmpVO getEmp(Integer empno) {
-		// EmpVO empVO = entityManager.find(EmpVO.class, empno);
 		return entityManager.find(EmpVO.class, empno);
-
 	}
 
 	@Transactional(readOnly = true)
@@ -77,6 +74,7 @@ public class EmpDAOImpl implements EmpDAO {
 	public List<EmpVO> getEmps() {
 		// SELECT + Table name FROM Class name + Table name;
 		String sql = "select emp2 from EmpVO emp2";
+//		entityManager.createNativeQuery("");
 		return entityManager.createQuery(sql).getResultList();
 	}
 

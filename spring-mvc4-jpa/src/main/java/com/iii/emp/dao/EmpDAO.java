@@ -6,22 +6,42 @@ import com.iii.emp.model.EmpVO;
 
 public interface EmpDAO {
 
-	// add
+	/**
+	 * add employee
+	 * @param EmpVO
+	 * @return EmpVO
+	 */
 	EmpVO insert(EmpVO empVO);
 
-	// update
+	/**
+	 * update employee
+	 * @param EmpVO
+	 * @return EmpVO
+	 */
 	EmpVO update(EmpVO empVO);
 
-	// delete
+	/**
+	 * delete employee
+	 * @param EmpVO
+	 */
 	void delete(Integer empno);
 
-	// get one
+	/**
+	 * query employee
+	 * @param Integer
+	 * @return EmpVO
+	 */
 	EmpVO getEmp(Integer empno);
 
-	// get all
+	/**
+	 * query all employees
+	 * @return List<EmpVO>
+	 */
 	List<EmpVO> getEmps();
 
-	// ....
+	/**
+	 *
+	 * */
 	void updateCheckedEmpsDeptno(List<EmpVO> empParams);
 
 }
