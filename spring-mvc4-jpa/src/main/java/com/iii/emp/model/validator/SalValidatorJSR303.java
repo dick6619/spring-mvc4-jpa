@@ -3,21 +3,17 @@ package com.iii.emp.model.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class SalValidatorJSR303 implements ConstraintValidator<Sal, Double> { // Double
-																				// 為要驗證欄位的型態，
-																				// Sal為要使用得類別
+//Double為要驗證欄位的型態
+public class SalValidatorJSR303 implements ConstraintValidator<Sal, Double> {
 
 	@Override
 	public void initialize(Sal sal) {
-		// 類別初始化
 	}
 
-	// Double 同上一致為要驗證的欄位
 	/**
-	 * 經測試，前端請求參數近來，controller呼叫service, service呼叫dao, dao對資料庫做請求這段都還是會做． 
-	 * 而由dao將資料傳回service也會做, 再由service到最後contoller，才會驗證有被此標註標註的VO(到最後一段)
-	 * 除非前面加@Valid
-	 * */
+	 * 經測試，當屬性成員有被標註，Controller -> Service -> DAO, DAO對資料庫做請求交易都還是會做．
+	 * 而最後資料回傳到Controller，才會開始做驗證，如一開始就在傳入參數的方法前面加@Valid，則一開始就會做
+	 */
 	@Override
 	public boolean isValid(Double value, ConstraintValidatorContext arg1) {
 

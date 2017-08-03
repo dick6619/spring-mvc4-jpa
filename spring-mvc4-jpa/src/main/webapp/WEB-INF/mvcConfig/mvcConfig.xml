@@ -23,16 +23,15 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- 會先以controller的URI mapping先 -->
 	<mvc:view-controller path="/home" view-name="home" />
-	<!-- 變post?? -->
-	<mvc:view-controller path="/emp/empForm.action"
-		view-name="addEmp" />
+	<mvc:view-controller path="/emp/empForm.action" view-name="addEmp" />
 
 	<!-- 靜態資源目錄resources，存放如 CSS/JavaScript...等 -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Spring3.1開始支援-方法級別驗證 (JSR-349 Bean Validation 1.1) -->
-	<bean
-		class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
+	<bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
 
 </beans>

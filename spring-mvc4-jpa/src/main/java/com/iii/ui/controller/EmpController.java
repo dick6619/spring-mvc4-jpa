@@ -3,10 +3,9 @@ package com.iii.ui.controller;
 //import java.sql.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,16 +18,21 @@ import com.iii.dept.model.DeptVO;
 import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
 
+/**
+ * 
+ * 專案路徑 + emp = call this controller 並進行URI mapping，決定要呼叫哪個方法，由此 controller 來存取view資源
+ * 
+ * @author LIN
+ * */
 @Controller
 @RequestMapping("/emp")
 public class EmpController {
 
-	@Autowired(required = true)
-	@Qualifier("empService")
-	// @Resource(name = "empService")
+	// 等於 @Autowired + @Qualifier("") 但不為Spring的組件
+	@Resource(name = "empService")
 	private EmpService empService;
 
-	// all emps
+	// read all employee
 	@GetMapping("/emps")
 	public ModelAndView getEmps() {
 		ModelAndView model = new ModelAndView("emps");
@@ -37,7 +41,7 @@ public class EmpController {
 		return model;
 	}
 
-	// go to emp edit view
+	// go to edit view
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("editEmp");
@@ -46,10 +50,12 @@ public class EmpController {
 		return model;
 	}
 
-	// update emp and go emps view
+	// update employee and go all employee view
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
-	public ModelAndView editEmpVO( // 如果在參數前加@valid 進入此方法前validator就會驗證
+	public ModelAndView editEmpVO( 
+			// 在參數前加@valid 進入此方法前就會驗證
 			@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+		//
 		ModelAndView model = new ModelAndView("emps");
 		empParam.setDeptVO(deptParam);
 		//
@@ -64,10 +70,9 @@ public class EmpController {
 		List<EmpVO> list = empService.getEmps();
 		model.addObject("emps", list);
 		return model;
-
 	}
 
-	// add emp and go to emps view
+	// create new employee and go to all employee view
 	@RequestMapping(value = "addEmp", method = RequestMethod.POST)
 	public ModelAndView addEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emps");

@@ -22,7 +22,6 @@ import javax.validation.constraints.Size;
 // ([0-9]){4}| 0~9 4碼 或
 // @Pattern(regexp =
 // "([a-zA-Z])([0-9])(-)([0-9]){4}|([0-9]){3}(-)([0-9]){3}|([a-zA-Z]){2}(-)([0-9]){4}")
-// 好像不能用在double
 // @Size(min = 0, max = 10000)
 public @interface Sal {
 

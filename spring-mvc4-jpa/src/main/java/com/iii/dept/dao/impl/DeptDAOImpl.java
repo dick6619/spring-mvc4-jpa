@@ -22,20 +22,19 @@ public class DeptDAOImpl implements DeptDAO {
 	}
 
 	@Override
+	public DeptVO getDept(Integer deptno) {
+		return entityManager.find(DeptVO.class, deptno);
+	}
+
+	@Override
 	public DeptVO update(DeptVO deptVO) {
 		return entityManager.merge(deptVO);
-
 	}
 
 	@Override
 	public void delete(Integer deptno) {
 		DeptVO deptVO = entityManager.find(DeptVO.class, deptno);
 		entityManager.remove(deptVO);
-	}
-
-	@Override
-	public DeptVO getDept(Integer deptno) {
-		return entityManager.find(DeptVO.class, deptno);
 	}
 
 	@Override

@@ -7,34 +7,39 @@ import com.iii.emp.model.EmpVO;
 public interface EmpDAO {
 
 	/**
-	 * add employee
+	 * Create new employee
+	 * 
 	 * @param EmpVO
 	 * @return EmpVO
 	 */
 	EmpVO insert(EmpVO empVO);
 
 	/**
-	 * update employee
-	 * @param EmpVO
-	 * @return EmpVO
-	 */
-	EmpVO update(EmpVO empVO);
-
-	/**
-	 * delete employee
-	 * @param EmpVO
-	 */
-	void delete(Integer empno);
-
-	/**
-	 * query employee
+	 * Reed selected employee
+	 * 
 	 * @param Integer
 	 * @return EmpVO
 	 */
 	EmpVO getEmp(Integer empno);
 
 	/**
-	 * query all employees
+	 * Update selected employee
+	 * 
+	 * @param EmpVO
+	 * @return EmpVO
+	 */
+	EmpVO update(EmpVO empVO);
+
+	/**
+	 * Delete selected employee
+	 * 
+	 * @param Integer
+	 */
+	void delete(Integer empno);
+
+	/**
+	 * Read all employee
+	 * 
 	 * @return List<EmpVO>
 	 */
 	List<EmpVO> getEmps();

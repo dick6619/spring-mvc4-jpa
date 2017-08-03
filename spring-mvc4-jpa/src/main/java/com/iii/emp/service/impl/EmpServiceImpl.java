@@ -26,6 +26,11 @@ public class EmpServiceImpl implements EmpService {
 		return empDAO.insert(empVO);
 	}
 
+	@Override
+	public EmpVO getEmp(Integer empno) {
+		return empDAO.getEmp(empno);
+	}
+
 	// default is required
 	@Transactional
 	@Override
@@ -36,11 +41,6 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public void delete(Integer empno) {
 		empDAO.delete(empno);
-	}
-
-	@Override
-	public EmpVO getEmp(Integer empno) {
-		return empDAO.getEmp(empno);
 	}
 
 	@Override
