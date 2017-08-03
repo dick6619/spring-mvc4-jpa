@@ -1,10 +1,11 @@
 # spring-mvc4-jpa<br>
-project build : maven <br>
+server : Tomcat 8.0 <br>
+project build : Maven <br>
 version control : Git <br>
 container framework : Spring (4.3.10) <br>
 view framework : Spring (4.3.10) <br>
 persistence framework : JPA-Hibernate (5.2.10) <br>
 other : JSR303 Validator <br>
 database : MySQL <br>
-fuction : employee create, read, update, delete (CRUD)<br>
-not yet completed : spring webService(SOAP, RESTFUL), spring batch<br>
+fuction : Employee Create, Read, Update, Delete (CRUD)<br>
+not yet completed : Spring WebService(SOAP, RESTFUL), Spring Batch<br>
