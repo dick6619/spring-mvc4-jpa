@@ -20,19 +20,17 @@ public class EmpServiceImpl implements EmpService {
 	@Qualifier("empDAO")
 	private EmpDAO empDAO;
 
-	// transactional default : if hava error rollback
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public EmpVO addEmp(EmpVO empVO) {
 		return empDAO.insert(empVO);
 	}
 
-	// default
-	@Transactional(propagation = Propagation.REQUIRED)
+	// default is required
+	@Transactional
 	@Override
 	public EmpVO updateEmp(EmpVO empVO) {
-		EmpVO emp = empDAO.update(empVO);
-		return emp;
+		return empDAO.update(empVO);
 	}
 
 	@Override

@@ -73,9 +73,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public List<EmpVO> getEmps() {
 		// SELECT + Table name FROM Class name + Table name;
-		String sql = "select emp2 from EmpVO emp2";
-//		entityManager.createNativeQuery("");
-		return entityManager.createQuery(sql).getResultList();
+		return entityManager.createQuery("select emp2 from EmpVO emp2").getResultList();
 	}
 
 	@Override

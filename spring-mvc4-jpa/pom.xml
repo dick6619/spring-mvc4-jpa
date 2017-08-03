@@ -88,7 +88,7 @@
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
 		</dependency>
-		<!-- 不加會導致方法級別驗證載入失敗，試過加最新的版本也會失敗 -->
+		<!-- validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -102,7 +102,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- -->
+		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
