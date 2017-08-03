@@ -1,12 +1,12 @@
-# spring-mvc4-jpa
-
+# spring-mvc4-jpa<br>
+//<br>
 project build : maven <br>
-version control : Git
-container framework : Spring (4.3.10)
-view framework : Spring (4.3.10)
-persistence framework : JPA-Hibernate (5.2.10)
-database : MySQL
-
-fuction : employee create, read, update, delete
-
-not yet completed : spring webService(SOAP, RESTFUL), spring batch
+version control : Git <br>
+container framework : Spring (4.3.10) <br>
+view framework : Spring (4.3.10) <br>
+persistence framework : JPA-Hibernate (5.2.10) <br>
+database : MySQL <br>
+//<br>
+fuction : employee create, read, update, delete <br>
+//<br>
+not yet completed : spring webService(SOAP, RESTFUL), spring batch<br>
