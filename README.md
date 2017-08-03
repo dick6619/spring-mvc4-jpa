@@ -8,4 +8,3 @@ persistence framework : JPA-Hibernate (5.2.10) <br>
 other : JSR303 Validator <br>
 database : MySQL <br>
 fuction : Employee Create, Read, Update, Delete (CRUD)<br>
-not yet completed : Spring WebService(SOAP, RESTFUL), Spring Batch<br>
