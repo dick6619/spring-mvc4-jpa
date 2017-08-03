@@ -21,10 +21,37 @@ public class EmpDAOImpl implements EmpDAO {
 	 * 此時Entity任一屬性有更動則會一起更動 3. detached : 使用clear() 可進入此狀態, 已經對應至資料庫, 但為分離狀態,
 	 * 此時Entity任一屬性不會影響 4. removed : 使用remove() 刪除脫離
 	 * 
-	 * 
 	 */
+
 	@PersistenceContext
 	public EntityManager entityManager;
+
+	@Transactional(readOnly = false)
+	@Override
+	public EmpVO insert(EmpVO empVO) {
+		entityManager.persist(empVO);
+		// 已經commit新增
+		// entityManager.clear();
+		return empVO;
+
+	}
+
+	@Transactional(readOnly = false)
+	@Override
+	public EmpVO update(EmpVO empVO) {
+		entityManager.merge(empVO);
+		// ....尚未commit，就讓entity分離，導致沒更新
+		// entityManager.clear();
+		return empVO;
+	}
+
+	@Transactional(readOnly = false)
+	@Override
+	public void delete(Integer empno) {
+		// 得先讓生命週期變為managed，才能刪除
+		EmpVO empVO = entityManager.find(EmpVO.class, empno);
+		entityManager.remove(empVO);
+	}
 
 	// 查詢
 	// @Transactional(readOnly = true)
@@ -40,9 +67,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Transactional(readOnly = true)
 	@Override
 	public EmpVO getEmp(Integer empno) {
-		// 不確定要不要關
 		// EmpVO empVO = entityManager.find(EmpVO.class, empno);
-		// entityManager.clear();
 		return entityManager.find(EmpVO.class, empno);
 
 	}
@@ -53,33 +78,6 @@ public class EmpDAOImpl implements EmpDAO {
 		// SELECT + Table name FROM Class name + Table name;
 		String sql = "select emp2 from EmpVO emp2";
 		return entityManager.createQuery(sql).getResultList();
-	}
-
-	@Transactional(readOnly = false)
-	@Override
-	public EmpVO update(EmpVO empVO) {
-		entityManager.merge(empVO);
-		// 這行還尚未commit，就讓entity分離，導致沒更新
-		// entityManager.clear();
-		return empVO;
-	}
-
-	@Transactional(readOnly = false)
-	@Override
-	public EmpVO insert(EmpVO empVO) {
-		entityManager.persist(empVO);
-		// 已經commit新增
-		// entityManager.clear();
-		return empVO;
-
-	}
-
-	@Transactional(readOnly = false)
-	@Override
-	public void delete(Integer empno) {
-		// 得先讓生命週期變為managed，才能刪除
-		EmpVO empVO = entityManager.find(EmpVO.class, empno);
-		entityManager.remove(empVO);
 	}
 
 	@Override

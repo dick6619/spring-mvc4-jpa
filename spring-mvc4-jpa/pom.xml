@@ -94,12 +94,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.4.1.Final</version>
 		</dependency>
-		<!-- javax.validation 不用加原因是因為hibernate-validator 也是去實作以下， 所以當加入上面的jar時就會自動加入 -->
-		<!-- <dependency> -->
-		<!-- <groupId>javax.validation</groupId> -->
-		<!-- <artifactId>validation-api</artifactId> -->
-		<!-- <version>1.1.0.Final</version> -->
-		<!-- </dependency> -->
 
 		<!-- junit -->
 		<dependency>

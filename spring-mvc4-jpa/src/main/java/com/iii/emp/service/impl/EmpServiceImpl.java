@@ -36,6 +36,11 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
+	public void delete(Integer empno) {
+		empDAO.delete(empno);
+	}
+
+	@Override
 	public EmpVO getEmp(Integer empno) {
 		return empDAO.getEmp(empno);
 	}
@@ -43,11 +48,6 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public List<EmpVO> getEmps() {
 		return empDAO.getEmps();
-	}
-	
-	@Override
-	public void delete(Integer empno) {
-		empDAO.delete(empno);
 	}
 
 	@Override
