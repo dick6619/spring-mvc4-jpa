@@ -48,11 +48,11 @@ public class DatabaseConfig {
 		emf.setJpaVendorAdapter(getHibernateAdapter());
 		Properties jpaProperties = new Properties();
 		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-		// jpaProperties.put("hibernate.hbm2ddl.auto", "update");
 		jpaProperties.put("hibernate.show_sql", "true");
 		jpaProperties.put("hibernate.format_sql", "true");
 		jpaProperties.put("hibernate.connection.datasource", "java:/comp/env/jdbc/TestDB");
 		emf.setJpaProperties(jpaProperties);
+		// 測試用
 		// emf.setDataSource(getDataSource());
 		return emf;
 	}
