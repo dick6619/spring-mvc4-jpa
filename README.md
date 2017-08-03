@@ -1,10 +1,10 @@
 # spring-mvc4-jpa<br>
-server : Tomcat 8.0 <br>
-project build : Maven <br>
-version control : Git <br>
-container framework : Spring (4.3.10) <br>
-view framework : Spring (4.3.10) <br>
-persistence framework : JPA-Hibernate (5.2.10) <br>
-other : JSR303 Validator <br>
-database : MySQL <br>
-fuction : Employee Create, Read, Update, Delete (CRUD)<br>
+Server : Tomcat 8.0 <br>
+Project Build : Maven <br>
+Version Control : Git <br>
+Container Framework : Spring (4.3.10) <br>
+View Framework : Spring (4.3.10) <br>
+Persistence Framework : JPA-Hibernate (5.2.10) <br>
+Other : JSR303 Validator <br>
+Database : MySQL <br>
+Fuction : Employee Create, Read, Update, Delete (CRUD)<br>
