@@ -5,6 +5,6 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<a href="<%=contextPath%>/home">go</a>
+<a href="<%=contextPath%>/employee/emps">go</a>
 </body>
 </html>

@@ -31,8 +31,8 @@
  <ul class="nav navbar-nav">
  
  <li><a href="<%=contextPath%>/">Home</a></li>
- <li><a href="<%=contextPath%>/emp/emps">Emps</a></li> 
- <li><a href="<%=contextPath%>/emp/empForm.action">Add Emp</a></li> 
+ <li><a href="<%=contextPath%>/test/json">Test</a></li> 
+ <li><a href="#">Page 2</a></li> 
  <li><a href="#">Page 3</a></li> 
  </ul>
  <ul class="nav navbar-nav navbar-right">

@@ -9,13 +9,15 @@
 				<table id="mytable" class="table table-bordered"
 					style="margin: 10px; width: 60%;">
 					<thead>
-						<th>empno</th>
-						<th>ename</th>
-						<th>job</th>
-						<th>hiredate</th>
-						<th>sal</th>
-						<th>comm</th>
-						<th>deptno</th>
+						<th>EMPNO</th>
+						<th>ENAME</th>
+						<th>JOB</th>
+						<th>HIREDATE</th>
+						<th>SAL</th>
+						<th>COMM</th>
+						<th>DEPTNO</th>
+						<th><a class="btn btn-default"
+							href="<%=contextPath%>/addView">ADD</a></th>
 					</thead>
 					<tbody>
 						<c:forEach var="emp" items="${emps}">
@@ -28,9 +30,9 @@
 								<td>${emp.comm}</td>
 								<td>${emp.deptVO.deptno}</td>
 								<td><a class="btn btn-primary"
-									href="<%=contextPath%>/emp/editEmpView/${emp.empno}">Edit</a> <a
-									class="btn btn-warning"
-									href="<%=contextPath%>/emp/deleteEmp/${emp.empno}">Delete</a></td>
+									href="<%=contextPath%>/employee/editEmpView/${emp.empno}">EDIT</a>
+									<a class="btn btn-warning"
+									href="<%=contextPath%>/employee/deleteEmp/${emp.empno}">DELETE</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

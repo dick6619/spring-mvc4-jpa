@@ -1,5 +1,6 @@
 package com.iii.emp.model;
 
+import java.lang.reflect.Field;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -12,13 +13,18 @@ import javax.persistence.Table;
 //import javax.persistence.Temporal;
 //import javax.persistence.TemporalType;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.iii.dept.model.DeptVO;
 import com.iii.emp.model.validator.Sal;
+
+import net.bytebuddy.description.field.FieldDescription;
 
 @Entity
 @Table(name = "emp2")
 public class EmpVO {
-    //
+	//
 	public EmpVO() {
 	}
 
@@ -32,7 +38,7 @@ public class EmpVO {
 	// 自訂驗證
 	// @Sal(message = "金額錯誤")
 	private Double sal;
-	
+
 	private Double comm;
 	@ManyToOne
 	@JoinColumn(name = "deptno")
@@ -94,4 +100,15 @@ public class EmpVO {
 		this.deptVO = deptVO;
 	}
 
+	/**
+	 * 將VO轉為JSON
+	 * */
+	public JSONObject toJSON() throws Exception {
+		//
+		JSONObject json = new JSONObject();
+		for (Field field :  EmpVO.class.getDeclaredFields()) {
+			json.put(field.getName(), field.get(this));
+		}
+		return json;
+	}
 }

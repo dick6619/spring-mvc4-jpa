@@ -7,7 +7,7 @@
 		<div class="col-md-10">
 			<h2>Add Emp</h2>
 			<form class="form-horizontal"
-				action="<%=request.getContextPath()%>/emp/addEmp" method="post"
+				action="<%=request.getContextPath()%>/employee/addEmp" method="post"
 				role="form">
 				<div class="form-group">
 					<label for="title">Ename</label>

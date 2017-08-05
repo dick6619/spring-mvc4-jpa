@@ -7,7 +7,7 @@
 		<div class="col-md-10">
 			<h2>Edit Emp: ${emp.ename}</h2>
 			<form class="form-horizontal"
-				action="<%=request.getContextPath()%>/emp/editEmp" method="post"
+				action="<%=request.getContextPath()%>/employee/editEmp" method="post"
 				role="form">
 				<input type="hidden" value="${emp.empno}" name="empno" id="empno">
 				<div class="form-group">
