@@ -31,9 +31,9 @@
  <ul class="nav navbar-nav">
  
  <li><a href="<%=contextPath%>/">Home</a></li>
- <li><a href="<%=contextPath%>/test/json">Test</a></li> 
- <li><a href="<%=contextPath%>/test/json2">Test2</a></li> 
- <li><a href="#">Page 3</a></li> 
+ <li><a href="<%=contextPath%>/test/json">RESTFUL-JSON</a></li> 
+ <li><a href="<%=contextPath%>/test/json3">RESTFUL-JSON(G)</a></li> 
+ <li><a href="<%=contextPath%>/soap">SOAP</a></li> 
  </ul>
  <ul class="nav navbar-nav navbar-right">
  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

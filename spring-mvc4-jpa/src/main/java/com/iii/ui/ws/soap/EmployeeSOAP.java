@@ -9,6 +9,6 @@ import com.iii.emp.model.EmpVO;
 @WebService
 public interface EmployeeSOAP {
 	@WebMethod
-	EmpVO getEmp(EmpVO empVO);
+	EmpVO getEmp(Integer empno);
 
 }
