@@ -13,13 +13,9 @@ import javax.persistence.Table;
 //import javax.persistence.Temporal;
 //import javax.persistence.TemporalType;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.iii.dept.model.DeptVO;
-import com.iii.emp.model.validator.Sal;
-
-import net.bytebuddy.description.field.FieldDescription;
 
 @Entity
 @Table(name = "emp2")
@@ -102,13 +98,24 @@ public class EmpVO {
 
 	/**
 	 * 將VO轉為JSON
-	 * */
+	 */
 	public JSONObject toJSON() throws Exception {
 		//
 		JSONObject json = new JSONObject();
-		for (Field field :  EmpVO.class.getDeclaredFields()) {
-			json.put(field.getName(), field.get(this));
+		for (Field field : EmpVO.class.getDeclaredFields()) {
+			if ("deptVO".equals(field.getName())) {
+				DeptVO dept = (DeptVO) field.get(this);
+				json.put(field.getName(), dept.toJSON());
+			} else {
+				json.put(field.getName(), field.get(this));
+			}
 		}
 		return json;
 	}
+
 }
+
+// Method method = EmpVO.class.getMethod("getDeptVO", null); // 取得這方法沒任何的型態,
+// Class[] paramType = {Integer.TYPE};
+// DeptVO dept = (DeptVO) method.invoke(this, new Object()); // 調用這方法沒任何的參數,
+// Object[] param.. = {new Integer(90)};

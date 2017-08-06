@@ -20,19 +20,16 @@ public class EmpServiceImpl implements EmpService {
 	@Qualifier("empDAO")
 	private EmpDAO empDAO;
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public EmpVO addEmp(EmpVO empVO) {
 		return empDAO.insert(empVO);
 	}
-
+	
 	@Override
 	public EmpVO getEmp(Integer empno) {
 		return empDAO.getEmp(empno);
 	}
 
-	// default is required
-	@Transactional
 	@Override
 	public EmpVO updateEmp(EmpVO empVO) {
 		return empDAO.update(empVO);

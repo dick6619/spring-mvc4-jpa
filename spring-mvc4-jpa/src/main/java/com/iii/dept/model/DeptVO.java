@@ -1,5 +1,6 @@
 package com.iii.dept.model;
 
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+import org.json.JSONObject;
 
 import com.iii.emp.model.EmpVO;
 
@@ -34,9 +37,11 @@ public class DeptVO {
 	 */
 	// @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =
 	// "deptVO")
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "deptVO")
-	@OrderBy("empno asc")
-	private Set<EmpVO> emps = new HashSet<EmpVO>();
+	
+	// Gson -> org.hibernate.LazyInitializationException ???先註解
+	// @OneToMany(cascade = CascadeType.ALL, mappedBy = "deptVO")
+	// @OrderBy("empno asc")
+	// private Set<EmpVO> emps = new HashSet<EmpVO>();
 
 	public Integer getDeptno() {
 		return deptno;
@@ -62,12 +67,24 @@ public class DeptVO {
 		this.loc = loc;
 	}
 
-	public Set<EmpVO> getEmps() {
-		return emps;
-	}
+	// public Set<EmpVO> getEmps() {
+	// return emps;
+	// }
+	//
+	// public void setEmps(Set<EmpVO> emps) {
+	// this.emps = emps;
+	// }
 
-	public void setEmps(Set<EmpVO> emps) {
-		this.emps = emps;
+	/**
+	 * 將VO轉為JSON
+	 */
+	public JSONObject toJSON() throws Exception {
+		//
+		JSONObject json = new JSONObject();
+		for (Field field : DeptVO.class.getDeclaredFields()) {
+			json.put(field.getName(), field.get(this));
+		}
+		return json;
 	}
 
 }

@@ -32,7 +32,7 @@
  
  <li><a href="<%=contextPath%>/">Home</a></li>
  <li><a href="<%=contextPath%>/test/json">Test</a></li> 
- <li><a href="#">Page 2</a></li> 
+ <li><a href="<%=contextPath%>/test/json2">Test2</a></li> 
  <li><a href="#">Page 3</a></li> 
  </ul>
  <ul class="nav navbar-nav navbar-right">

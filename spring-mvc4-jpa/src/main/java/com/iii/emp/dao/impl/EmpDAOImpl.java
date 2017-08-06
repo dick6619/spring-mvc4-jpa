@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.EmpDAO;
@@ -18,22 +19,22 @@ public class EmpDAOImpl implements EmpDAO {
 	/**
 	 * ## JPA Entity LifeCycle
 	 * 
-	 * 1. new :      new出的VO, 尚未與資料庫有任何關係
+	 * 1. new : new出的VO, 尚未與資料庫有任何關係
 	 * 
-	 * 2. managed :  使用persist(新增), merge(更新), find(查詢), 會讓 Entity從detached 變為此狀態,
-	 *               此時Entity任一屬性有更動則會一起更動
-	 *               
-	 * 3. detached : 使用clear() 可進入此狀態, 已經對應至資料庫, 但為分離狀態,
-	 *               此時Entity任一屬性不會影響
-	 *               
-	 * 4. removed :  使用remove() 刪除脫離
+	 * 2. managed : 使用persist(新增), merge(更新), find(查詢), 會讓 Entity從detached 變為此狀態,
+	 * 此時Entity任一屬性有更動則會一起更動
+	 * 
+	 * 3. detached : 使用clear() 可進入此狀態, 已經對應至資料庫, 但為分離狀態, 此時Entity任一屬性不會影響
+	 * 
+	 * 4. removed : 使用remove() 刪除脫離
 	 * 
 	 */
 
 	@PersistenceContext
 	public EntityManager entityManager;
 
-	@Transactional(readOnly = false)
+	// propagation預設就為REQUIRED, 有錯就rollback
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	@Override
 	public EmpVO insert(EmpVO empVO) {
 		entityManager.persist(empVO);
