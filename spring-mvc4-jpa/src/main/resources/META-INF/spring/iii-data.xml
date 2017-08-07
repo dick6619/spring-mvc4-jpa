@@ -49,7 +49,8 @@
 	<!-- Local DB -->
 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
 	<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> -->
-	<!-- <property name="url" value="jdbc:mysql://localhost:3306/test" /> -->
+	<!-- 不加?characterEncoding=utf-8"，處理好的中文到DB又會亂碼 -->
+	<!-- <property name="url" value="jdbc:mysql://localhost:3306/emp?characterEncoding=utf-8" /> -->
 	<!-- <property name="username" value="root" /> -->
 	<!-- <property name="password" value="123456" /> -->
 	<!-- </bean> -->

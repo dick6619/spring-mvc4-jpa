@@ -46,7 +46,9 @@
 	</context-param>
 
 	<!-- # encoding filter -->
-	<!-- encoding 用來設置編碼格式，forceEncoding用來設置是否理會 request.getCharacterEncoding()方法，true則強制覆蓋先前之設定 -->
+	<!-- 1. encoding 用來設置編碼格式，forceEncoding用來設置是否理會request.getCharacterEncoding("語系")方法，true則強制覆蓋先前之設定 -->
+	<!-- 2. 先前版本的貓，URI參數(get)使用ISO-8859-1編碼，所以需另外處理編碼 -->
+	<!-- 3. tomcat8 則預設為utf8，所以不用再做處理，但JSP都需charset=UTF-8 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

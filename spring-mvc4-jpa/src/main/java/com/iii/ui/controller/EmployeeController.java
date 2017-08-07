@@ -110,13 +110,8 @@ public class EmployeeController {
 	// 中文編碼測試
 	@GetMapping("/hello")
 	public @ResponseBody String test() {
-		String str = "";
-		try {
-			str = new String("世界你好".getBytes("ISO-8859-1"), "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return str;
+		
+		return "世界你好";
 	}
 
 }
