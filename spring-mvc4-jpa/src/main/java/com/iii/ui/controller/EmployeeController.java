@@ -107,17 +107,16 @@ public class EmployeeController {
 		return model;
 	}
 
-	// 中文測試
+	// 中文編碼測試
 	@GetMapping("/hello")
 	public @ResponseBody String test() {
 		String str = "";
 		try {
 			str = new String("世界你好".getBytes("ISO-8859-1"), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "世界你好";
+		return str;
 	}
 
 }
