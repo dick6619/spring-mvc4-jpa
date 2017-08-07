@@ -1,5 +1,6 @@
 package com.iii.ui.controller;
 
+import java.io.UnsupportedEncodingException;
 //import java.sql.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iii.dept.model.DeptVO;
@@ -103,6 +105,19 @@ public class EmployeeController {
 		List<EmpVO> list = empService.getEmps();
 		model.addObject("emps", list);
 		return model;
+	}
+
+	// 中文測試
+	@GetMapping("/hello")
+	public @ResponseBody String test() {
+		String str = "";
+		try {
+			str = new String("世界你好".getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "世界你好";
 	}
 
 }

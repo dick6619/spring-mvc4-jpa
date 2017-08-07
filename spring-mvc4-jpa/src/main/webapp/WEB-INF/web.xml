@@ -23,7 +23,7 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- # Apache CXF -->
 	<servlet>
 		<servlet-name>CXFService</servlet-name>
@@ -44,5 +44,24 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:/META-INF/spring/*.xml</param-value>
 	</context-param>
+
+	<!-- # encoding filter -->
+	<!-- encoding 用來設置編碼格式，forceEncoding用來設置是否理會 request.getCharacterEncoding()方法，true則強制覆蓋先前之設定 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>
