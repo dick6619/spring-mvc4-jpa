@@ -11,7 +11,23 @@
 	<context:component-scan base-package="com.iii.ui.*" />
 
 	<!-- Enable @Controller Annotation support -->
-	<mvc:annotation-driven />
+	<!-- <mvc:annotation-driven /> -->
+	<mvc:annotation-driven>
+	    <!-- 解決 ResponseBody String亂碼 -->
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+	<!-- <bean -->
+	<!-- class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> -->
+	<!-- <property name="supportedMediaTypes"> -->
+	<!-- <list> -->
+	<!-- <value>text/html;charset=UTF-8</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- Internal Resource View (內部資源視圖): -->
 	<!-- Views或JSP文件放在"WEB-INF"目錄底下， 以保護其免受透過手動輸入網址而直接存取。只能由透過控制器類別來存取。 -->

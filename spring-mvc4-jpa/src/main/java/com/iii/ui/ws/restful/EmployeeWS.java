@@ -52,10 +52,10 @@ public class EmployeeWS {
 	}
 
 	/**
-	 * get all employee : use google Gson
-	 * toJson, fromJson POJO and JSON可以方便地互相轉換．連EmpVO內的DeptVO都能解析
+	 * get all employee : use google Gson toJson, fromJson POJO and
+	 * JSON可以方便地互相轉換．連EmpVO內的DeptVO都能解析，charset已在mvcCfg設定好
 	 */
-	@GetMapping(value = "/json3", produces = "application/json")
+	@GetMapping(value = "/json3", produces = "application/json; charset=UTF-8")
 	public @ResponseBody String getEmps3() throws Exception {
 		Gson gson = new Gson();
 		return gson.toJson(empService.getEmps());
