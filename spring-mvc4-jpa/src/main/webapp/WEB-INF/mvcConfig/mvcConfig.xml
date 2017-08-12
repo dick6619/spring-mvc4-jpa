@@ -8,12 +8,12 @@
  	http://www.springframework.org/schema/context
  	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<context:component-scan base-package="com.iii.ui.*" />
+	<context:component-scan base-package="com.iii.emp.controller" />
 
 	<!-- Enable @Controller Annotation support -->
 	<!-- <mvc:annotation-driven /> -->
 	<mvc:annotation-driven>
-	    <!-- 解決 ResponseBody String亂碼 -->
+	    <!-- ResponseBody Encoding -->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
@@ -30,15 +30,11 @@
 	</mvc:annotation-driven>
 
 	<!-- Internal Resource View (內部資源視圖): -->
-	<!-- Views或JSP文件放在"WEB-INF"目錄底下， 以保護其免受透過手動輸入網址而直接存取。只能由透過控制器類別來存取。 -->
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- 以Controller的URI Mapping先 -->
 	<mvc:view-controller path="/home" view-name="home" />
 	<mvc:view-controller path="/addView" view-name="addEmp" />
 

@@ -1,22 +1,14 @@
 package com.iii.dept.model;
 
 import java.lang.reflect.Field;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.json.JSONObject;
-
-import com.iii.emp.model.EmpVO;
 
 @Entity
 @Table(name = "dept2")
@@ -37,7 +29,7 @@ public class DeptVO {
 	 */
 	// @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy =
 	// "deptVO")
-	
+
 	// Gson -> org.hibernate.LazyInitializationException ???先註解
 	// @OneToMany(cascade = CascadeType.ALL, mappedBy = "deptVO")
 	// @OrderBy("empno asc")

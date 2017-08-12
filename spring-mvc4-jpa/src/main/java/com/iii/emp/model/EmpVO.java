@@ -29,13 +29,10 @@ public class EmpVO {
 	private Integer empno;
 	private String ename;
 	private String job;
-	// @Temporal(TemporalType.DATE) sql.Date, Timestamp 可不用． sql.Util一定要加
 	private Date hiredate;
-	// 自訂驗證
-	// @Sal(message = "金額錯誤")
 	private Double sal;
-
 	private Double comm;
+	
 	@ManyToOne
 	@JoinColumn(name = "deptno")
 	private DeptVO deptVO;
@@ -103,12 +100,7 @@ public class EmpVO {
 		//
 		JSONObject json = new JSONObject();
 		for (Field field : EmpVO.class.getDeclaredFields()) {
-			if ("deptVO".equals(field.getName())) {
-				DeptVO dept = (DeptVO) field.get(this);
-				json.put(field.getName(), dept.toJSON());
-			} else {
-				json.put(field.getName(), field.get(this));
-			}
+			json.put(field.getName(), field.get(this));
 		}
 		return json;
 	}

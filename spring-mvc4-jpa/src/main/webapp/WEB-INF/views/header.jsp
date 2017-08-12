@@ -30,8 +30,8 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="<%=contextPath%>/">Home</a></li>
-					<li><a href="<%=contextPath%>/test/json">REST-JSON</a></li>
-					<li><a href="<%=contextPath%>/test/json3">REST-JSON(G)</a></li>
+					<li><a href="<%=contextPath%>/rest/json1">REST1</a></li>
+					<li><a href="<%=contextPath%>/rest/json2">REST2</a></li>
 					<li><a href="<%=contextPath%>/soap">SOAP</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
