@@ -25,14 +25,11 @@ import javax.validation.constraints.Size;
 // @Size(min = 0, max = 10000)
 public @interface Sal {
 
-	// 訊息
 	String message() default "";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
-
-	// xxx value()是特殊的變數會被xxx取代
 
 	/** 1000.0 */
 	Double MIN = 1000.0;

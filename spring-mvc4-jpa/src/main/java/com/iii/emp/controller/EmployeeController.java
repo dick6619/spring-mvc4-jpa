@@ -33,7 +33,7 @@ public class EmployeeController {
 	 */
 	@GetMapping("/emps")
 	public ModelAndView getEmps() {
-		ModelAndView model = new ModelAndView("emps");
+		ModelAndView model = new ModelAndView("emp/emps");
 		List<EmpVO> list = empService.getEmps();
 		model.addObject("emps", list);
 		return model;
@@ -44,7 +44,7 @@ public class EmployeeController {
 	 */
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
-		ModelAndView model = new ModelAndView("editEmp");
+		ModelAndView model = new ModelAndView("emp/editEmp");
 		EmpVO emp = empService.getEmp(Integer.valueOf(empno));
 		model.addObject("emp", emp);
 		return model;
@@ -55,7 +55,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
 	public ModelAndView editEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		ModelAndView model = new ModelAndView("emps");
+		ModelAndView model = new ModelAndView("emp/emps");
 		empParam.setDeptVO(deptParam);
 		EmpVO empvo = empService.updateEmp(empParam);
 		if (empvo != null) {
@@ -72,7 +72,7 @@ public class EmployeeController {
 	 * */
 	@RequestMapping(value = "addEmp", method = RequestMethod.POST)
 	public ModelAndView addEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		ModelAndView model = new ModelAndView("emps");
+		ModelAndView model = new ModelAndView("emp/emps");
 		empParam.setDeptVO(deptParam);
 		EmpVO empvo = empService.addEmp(empParam);
 		if (empvo != null) {
@@ -89,7 +89,7 @@ public class EmployeeController {
 	 *  */
 	@GetMapping("/deleteEmp/{empno}")
 	public ModelAndView deleteEmp(@PathVariable("empno") String empno) {
-		ModelAndView model = new ModelAndView("emps");
+		ModelAndView model = new ModelAndView("emp/emps");
 		empService.delete(Integer.valueOf(empno));
 		model.addObject("emps", empService.getEmps());
 		return model;
