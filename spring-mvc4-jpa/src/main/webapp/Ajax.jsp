@@ -27,6 +27,7 @@
 			                   '<td>' + data[i].ename + '</td>' + 
 			                   '<td>' + data[i].job + '</td>' + 
 			                   '<td>' + data[i].hiredate + '</td>' + 
+			                   '<td>' + data[i].birthday + '</td>' + 
 			                   '<td>' + data[i].sal + '</td>' + 
 			                   '<td>' + data[i].comm + '</td>' + 
 			                   '<td>' + data[i].deptVO.dname + '</td>' + 
@@ -57,6 +58,7 @@
 				                   '<td>' + data.ename + '</td>' + 
 				                   '<td>' + data.job + '</td>' + 
 				                   '<td>' + data.hiredate + '</td>' + 
+				                   '<td>' + data[i].birthday + '</td>' + 
 				                   '<td>' + data.sal + '</td>' + 
 				                   '<td>' + data.comm + '</td>' + 
 				                   '<td>' + data.deptVO.dname + '</td>' + 
@@ -81,6 +83,7 @@
 				<th>員工姓名</th>
 				<th>職稱</th>
 				<th>任職日期</th>
+				<th>生日</th>
 				<th>薪水</th>
 				<th>獎金</th>
 				<th>部門名稱</th>

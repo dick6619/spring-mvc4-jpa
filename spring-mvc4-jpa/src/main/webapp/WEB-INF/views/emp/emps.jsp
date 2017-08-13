@@ -14,6 +14,7 @@
 							<th>ENAME</th>
 							<th>JOB</th>
 							<th>HIREDATE</th>
+							<th>BIRTHDAY</th>
 							<th>SAL</th>
 							<th>COMM</th>
 							<th>DEPTNO</th>
@@ -28,9 +29,10 @@
 								<td>${emp.ename}</td>
 								<td>${emp.job}</td>
 								<td>${emp.hiredate}</td>
+								<td>${emp.birthday}</td>
 								<td>${emp.sal}</td>
 								<td>${emp.comm}</td>
-								<td>${emp.deptVO.deptno}</td>
+								<td>${emp.deptVO.dname}</td>
 								<td><a class="btn btn-primary"
 									href="<%=contextPath%>/employee/editEmpView/${emp.empno}">EDIT</a>
 									<a class="btn btn-warning"

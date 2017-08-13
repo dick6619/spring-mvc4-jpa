@@ -6,10 +6,15 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.iii.dept.dao.DeptDAO;
 import com.iii.dept.model.DeptVO;
 import com.iii.emp.model.EmpVO;
 
+@Repository("deptDAO")
+@Transactional
 public class DeptDAOImpl implements DeptDAO {
 
 	@PersistenceContext
@@ -37,6 +42,7 @@ public class DeptDAOImpl implements DeptDAO {
 		entityManager.remove(deptVO);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<DeptVO> getDepts() {
 		String sql = "select dept2 from DeptVO dept2";

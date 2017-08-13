@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iii.dept.model.DeptVO;
+import com.iii.dept.service.DeptService;
 import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
 
@@ -27,6 +28,9 @@ public class EmployeeController {
 
 	@Resource(name = "empService")
 	private EmpService empService;
+
+	@Resource(name = "deptService")
+	private DeptService deptService;
 
 	/**
 	 * All employee view
@@ -54,7 +58,7 @@ public class EmployeeController {
 	 * Update employee and go to all employee view
 	 */
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
-	public ModelAndView editEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emp/emps");
 		empParam.setDeptVO(deptParam);
 		EmpVO empvo = empService.updateEmp(empParam);
@@ -67,9 +71,9 @@ public class EmployeeController {
 		return model;
 	}
 
-	/** 
+	/**
 	 * Create new employee and go to all employee view
-	 * */
+	 */
 	@RequestMapping(value = "addEmp", method = RequestMethod.POST)
 	public ModelAndView addEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		ModelAndView model = new ModelAndView("emp/emps");
@@ -85,8 +89,8 @@ public class EmployeeController {
 	}
 
 	/**
-	 * delete 
-	 *  */
+	 * delete
+	 */
 	@GetMapping("/deleteEmp/{empno}")
 	public ModelAndView deleteEmp(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("emp/emps");

@@ -30,9 +30,10 @@ public class EmpVO {
 	private String ename;
 	private String job;
 	private Date hiredate;
+	private Date birthday;
 	private Double sal;
 	private Double comm;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "deptno")
 	private DeptVO deptVO;
@@ -67,6 +68,14 @@ public class EmpVO {
 
 	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public Double getSal() {
