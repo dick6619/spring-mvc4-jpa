@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>iii</groupId>
+		<artifactId>iii-pom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>iii-web</artifactId>
+	<packaging>war</packaging>
+	
+	<properties>
+		<!-- business logic -->
+		<iii-emp.version>0.0.1-SNAPSHOT</iii-emp.version>
+		<iii-dept.version>0.0.1-SNAPSHOT</iii-dept.version>
+		
+		<!-- bridge service and common entity -->
+		<iii-common-service.version>0.0.1-SNAPSHOT</iii-common-service.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>iii</groupId>
+			<artifactId>iii-emp-server</artifactId>
+			<version>${iii-emp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>iii</groupId>
+			<artifactId>iii-dept-server</artifactId>
+			<version>${iii-dept.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>iii</groupId>
+			<artifactId>iii-common-service</artifactId>
+			<version>${iii-common-service.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>iii-web</finalName>
+	</build>
+</project>
