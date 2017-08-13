@@ -21,6 +21,7 @@
 	function test1() {
 		alert("111");
 	}
+	// 	test restful ws use ajax get
 	function test2() {
 		$.ajax({
 			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json2',
