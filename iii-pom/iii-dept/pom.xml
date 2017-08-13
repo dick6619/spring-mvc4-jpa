@@ -6,7 +6,7 @@
 		<artifactId>iii-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
+	<!-- dept系統 -->
 	<artifactId>iii-dept</artifactId>
 	<packaging>pom</packaging>
 	<modules>

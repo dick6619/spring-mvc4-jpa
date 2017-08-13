@@ -7,11 +7,4 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>iii-dept-server</artifactId>
-	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>iii</groupId> -->
-<!-- 			<artifactId>iii-emp</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
-	</dependencies>
 </project>

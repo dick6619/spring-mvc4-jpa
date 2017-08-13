@@ -2,8 +2,8 @@ package com.iii.emp.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +15,7 @@ import com.iii.emp.service.EmpService;
 @Transactional
 public class EmpServiceImpl implements EmpService {
 
-	@Autowired(required = true)
-	@Qualifier("empDAO")
+	@Resource(name = "empDAO")
 	private EmpDAO empDAO;
 
 	@Override

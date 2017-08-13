@@ -2,10 +2,9 @@ package com.iii.emp.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,8 +25,7 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-	@Autowired
-	@Qualifier("empService")
+	@Resource(name = "empService")
 	private EmpService empService;
 
 	/**

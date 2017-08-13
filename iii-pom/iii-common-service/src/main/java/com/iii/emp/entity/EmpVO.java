@@ -1,6 +1,5 @@
 package com.iii.emp.entity;
 
-import java.lang.reflect.Field;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -10,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-//import javax.persistence.Temporal;
-//import javax.persistence.TemporalType;
 
 import com.iii.dept.entity.DeptVO;
 
@@ -92,8 +89,3 @@ public class EmpVO {
 	}
 
 }
-
-// Method method = EmpVO.class.getMethod("getDeptVO", null); // 取得這方法沒任何的型態,
-// Class[] paramType = {Integer.TYPE};
-// DeptVO dept = (DeptVO) method.invoke(this, new Object()); // 調用這方法沒任何的參數,
-// Object[] param.. = {new Integer(90)};
