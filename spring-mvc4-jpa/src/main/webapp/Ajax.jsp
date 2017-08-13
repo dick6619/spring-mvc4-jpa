@@ -58,7 +58,7 @@
 				                   '<td>' + data.ename + '</td>' + 
 				                   '<td>' + data.job + '</td>' + 
 				                   '<td>' + data.hiredate + '</td>' + 
-				                   '<td>' + data[i].birthday + '</td>' + 
+				                   '<td>' + data.birthday + '</td>' + 
 				                   '<td>' + data.sal + '</td>' + 
 				                   '<td>' + data.comm + '</td>' + 
 				                   '<td>' + data.deptVO.dname + '</td>' + 
