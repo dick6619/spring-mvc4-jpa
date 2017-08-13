@@ -18,9 +18,6 @@
 	src="<%=request.getContextPath() + "/resources/js/bootstrap.min.js"%>"></script>
 
 <script>
-	function test1() {
-		alert("111");
-	}
 	// 	test restful ws use ajax get
 	function test2() {
 		$.ajax({
@@ -28,12 +25,12 @@
 			type : 'GET',
 			dataType : 'json',
 			success : function(data) {
-				// 				for (var i = 0; i < data.length; i++) {
-				// 					alert(data[i].ename);
-				// 				}
-				$.each(data, function() {
-					alert(this.ename);
-				});
+				for (var i = 0; i < data.length; i++) {
+					alert(data[i].ename);
+				}
+				// 				$.each(data, function() {
+				// 					alert(this.empno + ',' + this.ename);
+				// 				});
 				// 				$.each(data, function(i) {
 				// 					alert(data[i].ename);
 				// 				});
@@ -43,10 +40,51 @@
 			}
 		});
 	}
+	function test3() {
+		$.ajax({
+			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json3/' + $('#empno').val(),
+			type : 'GET',
+			dataType : 'json',
+			success : function(data) {
+				alert(data.ename	)
+			},
+			error : function() {
+				alert('ERROR!!!');
+			}
+		});
+	}
 </script>
 </head>
 <body>
-	<button onclick='test1()'>alert</button>
-	<button onclick='test2()'>ajax</button>
+	<!-- get all -->
+	<button onclick='test2()'>所有員工</button><br>
+	<!-- get one -->
+	<input type='text' id='empno'>
+	<button onclick='test3()'>搜尋</button>
+	<table>
+		<!-- 		<thead> -->
+		<!-- 			<tr> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 				<th></th> -->
+		<!-- 			</tr> -->
+		<!-- 		</thead> -->
+
+		<!-- 		<tbody> -->
+		<!-- 			<tr> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 				<td></td> -->
+		<!-- 			</tr> -->
+		<!-- 		</tbody> -->
+	</table>
 </body>
 </html>

@@ -9,15 +9,17 @@
 				<table id="mytable" class="table table-bordered"
 					style="margin: 10px; width: 60%;">
 					<thead>
-						<th>EMPNO</th>
-						<th>ENAME</th>
-						<th>JOB</th>
-						<th>HIREDATE</th>
-						<th>SAL</th>
-						<th>COMM</th>
-						<th>DEPTNO</th>
-						<th><a class="btn btn-default"
-							href="<%=contextPath%>/addView">ADD</a></th>
+						<tr>
+							<th>EMPNO</th>
+							<th>ENAME</th>
+							<th>JOB</th>
+							<th>HIREDATE</th>
+							<th>SAL</th>
+							<th>COMM</th>
+							<th>DEPTNO</th>
+							<th><a class="btn btn-default"
+								href="<%=contextPath%>/addView">ADD</a></th>
+						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="emp" items="${emps}">

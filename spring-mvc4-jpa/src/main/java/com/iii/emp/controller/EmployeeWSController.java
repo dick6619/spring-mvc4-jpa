@@ -43,9 +43,8 @@ public class EmployeeWSController {
 	 * get employee
 	 */
 	@GetMapping(value = "/json3/{empno}", produces = "application/json")
-	public @ResponseBody String getEmp1(@PathVariable("empno") Integer empno) throws Exception {
+	public @ResponseBody String getEmp1(@PathVariable("empno") String empno) {
 		Gson gson = new Gson();
-		return gson.toJson(empService.getEmp(empno));
+		return gson.toJson(empService.getEmp(Integer.valueOf(empno)));
 	}
-
 }

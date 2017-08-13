@@ -20,8 +20,7 @@ import javax.validation.constraints.Size;
 // 表示annotation是在run-time時reflection取得
 @Retention(RetentionPolicy.RUNTIME)
 // ([0-9]){4}| 0~9 4碼 或
-// @Pattern(regexp =
-// "([a-zA-Z])([0-9])(-)([0-9]){4}|([0-9]){3}(-)([0-9]){3}|([a-zA-Z]){2}(-)([0-9]){4}")
+// @Pattern(regexp = "([a-zA-Z])([0-9])(-)([0-9]){4}|([0-9]){3}(-)([0-9]){3}|([a-zA-Z]){2}(-)([0-9]){4}")
 // @Size(min = 0, max = 10000)
 public @interface Sal {
 
