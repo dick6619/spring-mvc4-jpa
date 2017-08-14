@@ -11,12 +11,15 @@ import javax.servlet.ServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class CharsetFilter implements Filter {
+/**
+ * spring 自己的濾器實作的內容跟最後一樣
+ * */
+public class CharacterEncodingFilter implements Filter {
 	private String encoding;
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
-		encoding = config.getInitParameter("charset");
+		encoding = config.getInitParameter("encoding");
 		if (StringUtils.isBlank(encoding)) {
 			encoding = "UTF-8";
 		}
@@ -25,7 +28,13 @@ public class CharsetFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		res.setContentType("charset=" + encoding);
+		// request
+		if (null == req.getCharacterEncoding()) {
+			req.setCharacterEncoding(encoding);
+		}
+		// response
+		res.setCharacterEncoding(encoding);
+		// do
 		chain.doFilter(req, res);
 	}
 

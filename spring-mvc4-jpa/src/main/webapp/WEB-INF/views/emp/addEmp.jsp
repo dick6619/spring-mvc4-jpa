@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
+<!-- include 導致charset編碼吃不到 -->
 <div class="container-fluid">
 
 	<div class="row">

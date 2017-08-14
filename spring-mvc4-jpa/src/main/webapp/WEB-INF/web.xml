@@ -65,19 +65,26 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- test 自訂濾器 -->
 	<!-- <filter> -->
-	<!-- <filter-name>charsetEncoding</filter-name> -->
-	<!-- <filter-class>com.iii.filter.CharsetFilter</filter-class> -->
+	<!-- <filter-name>CharacterEncoding</filter-name> -->
+	<!-- <filter-class>com.iii.filter.CharacterEncodingFilter</filter-class> -->
 	<!-- <init-param> -->
 	<!-- <param-name>encoding</param-name> -->
 	<!-- <param-value>UTF-8</param-value> -->
 	<!-- </init-param> -->
 	<!-- </filter> -->
 	<!-- <filter-mapping> -->
-	<!-- <filter-name>charsetEncoding</filter-name> -->
+	<!-- <filter-name>CharacterEncoding</filter-name> -->
 	<!-- <url-pattern>/*</url-pattern> -->
 	<!-- </filter-mapping> -->
 
+	<!-- jsp encodig -->
+	<!-- <jsp-config> -->
+	<!-- <jsp-property-group> -->
+	<!-- <url-pattern>*.jsp</url-pattern> -->
+	<!-- <page-encoding>UTF-8</page-encoding> -->
+	<!-- </jsp-property-group> -->
+	<!-- </jsp-config> -->
 </web-app>
