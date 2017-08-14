@@ -15,6 +15,7 @@ import javax.persistence.Table;
 
 import org.json.JSONObject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iii.dept.model.DeptVO;
 
 @Entity
@@ -29,7 +30,9 @@ public class EmpVO {
 	private Integer empno;
 	private String ename;
 	private String job;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
 	private Date hiredate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
 	private Date birthday;
 	private Double sal;
 	private Double comm;
@@ -103,7 +106,7 @@ public class EmpVO {
 	}
 
 	/**
-	 * 將VO轉為JSON
+	 * 將VO轉為JSON，已經沒必這樣了，jackson與gson太強大
 	 */
 	public JSONObject toJSON() throws Exception {
 		//

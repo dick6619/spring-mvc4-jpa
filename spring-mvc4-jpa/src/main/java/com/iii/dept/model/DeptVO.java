@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.json.JSONObject;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
 @Entity
 @Table(name = "dept2")
 public class DeptVO {
@@ -68,7 +70,7 @@ public class DeptVO {
 	// }
 
 	/**
-	 * 將VO轉為JSON
+	 * 將VO轉為JSON，已經沒必這樣了，jackson與gson太強大
 	 */
 	public JSONObject toJSON() throws Exception {
 		//

@@ -45,10 +45,13 @@
 		<param-value>classpath*:/META-INF/spring/*.xml</param-value>
 	</context-param>
 
-	<!-- # encoding filter -->
-	<!-- 1. encoding 用來設置編碼格式，forceEncoding用來設置是否理會request.getCharacterEncoding("語系")方法，true則強制覆蓋先前之設定 -->
-	<!-- 2. 先前版本的貓，URI參數(get)使用ISO-8859-1編碼，所以需另外處理編碼 -->
-	<!-- 3. tomcat8 則預設為utf8，所以不用再做處理，但JSP都需charset=UTF-8 -->
+	<!-- # spring encoding filter -->
+	<!-- POST --><!-- spring filter do -->
+	<!-- 1.request.setCharacterEncoding("XXX"), response.setCharacterEncoding("XXX") -->
+	<!-- 2.forceEncoding = true, any request.setCharacterEncoding("XXX") forced coverage -->
+	<!-- GET -->
+	<!-- 3. before tomcat8, tomcat5,6,7 default use ISO-8859-1 encoding get URI parameter -->
+	<!-- 4. tomcat8 default use utf8，so don't have to deal with -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String contextPath = request.getContextPath();
+    String pageEncoding = request.getCharacterEncoding();
+    String charset = response.getCharacterEncoding();
 %>
 <html>
 <head>
@@ -11,6 +13,10 @@
 <script src="<%=request.getContextPath() + "/resources/js/jquery-3.2.1.min.js"%>"></script>
 <script src="<%=request.getContextPath() + "/resources/js/bootstrap.min.js"%>"></script>
 <script>
+    //
+    function test1() {
+    	    alert('req=' + '<%=pageEncoding%>' + ', ' + 'res=' + '<%=charset%>');
+    }
 	// 	test restful ws use ajax get
 	function test2() {
 		$.ajax({
@@ -46,7 +52,7 @@
 	}
 	function test3() {
 		$.ajax({
-			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json3/' + $('#empno').val(),
+			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json4/' + $('#empno').val(),
 			type : 'GET',
 			dataType : 'json',
 			cache : false,
@@ -71,9 +77,14 @@
 </script>
 </head>
 <body>
+<h4>charset = UTF-8:</h4> <p>-->下指令給瀏覽器，用UTF-8解碼．等於response.setCharacterEncoding("UTF-8")
+<h4>pageEncoding = UTF-8:</h4> <p>-->下指令給server，用UTF-8解碼．等於resquest.setCharacterEncoding("UTF-8")
+<h4>Template Data:</h4> <p>-->HTML的部分container不會處理，直接送到client端，charset沒設定編碼預設是用西歐語系解碼
+<h4>Elements:</h4> <p>-->java code的部分container會處理，會使用到編碼濾器
 	<input type='text' id='empno'>
 	<button onclick='test3()'>搜尋</button>
 	<button onclick='test2()'>所有員工</button>
+	<button onclick='test1()'>encoding</button>
 
 	<table class='table table-bordered' style='margin: 10px; width: 60%;'>
 		<thead>
