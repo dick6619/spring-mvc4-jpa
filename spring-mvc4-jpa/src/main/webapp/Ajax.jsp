@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="Big5"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String contextPath = request.getContextPath();
@@ -73,20 +72,20 @@
 </head>
 <body>
 	<input type='text' id='empno'>
-	<button onclick='test3()'>·j´M</button>
-	<button onclick='test2()'>©Ò¦³­û¤u</button>
+	<button onclick='test3()'>æœå°‹</button>
+	<button onclick='test2()'>æ‰€æœ‰å“¡å·¥</button>
 
 	<table class='table table-bordered' style='margin: 10px; width: 60%;'>
 		<thead>
 			<tr>
-				<th>­û¤u½s¸¹</th>
-				<th>­û¤u©m¦W</th>
-				<th>Â¾ºÙ</th>
-				<th>¥ôÂ¾¤é´Á</th>
-				<th>¥Í¤é</th>
-				<th>Á~¤ô</th>
-				<th>¼úª÷</th>
-				<th>³¡ªù¦WºÙ</th>
+				<th>å“¡å·¥ç·¨è™Ÿ</th>
+				<th>å“¡å·¥å§“å</th>
+				<th>è·ç¨±</th>
+				<th>ä»»è·æ—¥æœŸ</th>
+				<th>ç”Ÿæ—¥</th>
+				<th>è–ªæ°´</th>
+				<th>çŽé‡‘</th>
+				<th>éƒ¨é–€åç¨±</th>
 			</tr>
 		</thead>
 		<tbody id='body'>

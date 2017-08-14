@@ -64,12 +64,17 @@
 				<div class="form-group">
 					<label for="desc">Deptno</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="deptno" placeholder="Enter Deptno"
-							required>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+						<select
+							class="form-control" name="deptno">
+							<option value="10">財務部</option>
+							<option value="20">業務部</option>
+							<option value="30">研發部</option>
+							<option value="40">生管部</option>
+						</select>
 					</div>
 				</div>
+
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 

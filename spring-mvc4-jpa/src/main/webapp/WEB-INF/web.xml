@@ -65,5 +65,19 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- test 自訂濾器 -->
+	<!-- <filter> -->
+	<!-- <filter-name>charsetEncoding</filter-name> -->
+	<!-- <filter-class>com.iii.filter.CharsetFilter</filter-class> -->
+	<!-- <init-param> -->
+	<!-- <param-name>encoding</param-name> -->
+	<!-- <param-value>UTF-8</param-value> -->
+	<!-- </init-param> -->
+	<!-- </filter> -->
+	<!-- <filter-mapping> -->
+	<!-- <filter-name>charsetEncoding</filter-name> -->
+	<!-- <url-pattern>/*</url-pattern> -->
+	<!-- </filter-mapping> -->
 
 </web-app>
