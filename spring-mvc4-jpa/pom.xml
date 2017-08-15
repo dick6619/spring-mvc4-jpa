@@ -140,7 +140,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
 		</dependency>
-		<!-- spring有與jackson整合要使用MappingJackson2HttpMessageConverter要加入以下兩個不然會噴錯 -->
+		<!-- 使用MappingJackson2HttpMessageConverter做額外設定要加入以下兩個不然會噴錯 -->
 		<!-- jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

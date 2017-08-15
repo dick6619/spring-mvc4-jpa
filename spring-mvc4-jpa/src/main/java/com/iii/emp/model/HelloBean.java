@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.iii.utils.BeanUtil;
+import com.iii.framework.utils.BeanUtil;
 
 public class HelloBean {
 
@@ -47,6 +47,7 @@ public class HelloBean {
 		System.out.println("hello.toMap -> " + hello.toMap());
 		// BeanUtil toMap() test
 		System.out.println("BeanUtil.toMap -> " + BeanUtil.toMap(hello));
+		
 	}
 
 }

@@ -11,8 +11,8 @@
 <link href='<%=contextPath + "/resources/css/bootstrap.min.css"%>' rel="stylesheet">
 <link href='<%=contextPath + "/resources/css/font-awesome.min.css"%>' rel="stylesheet">
 <link href='<%=contextPath + "/resources/css/emp.css"%>' rel="stylesheet">
-<script src="<%=request.getContextPath() + "/resources/js/jquery-3.2.1.min.js"%>"></script>
-<script src="<%=request.getContextPath() + "/resources/js/bootstrap.min.js"%>"></script>
+<script src="<%=contextPath + "/resources/js/jquery-3.2.1.min.js"%>"></script>
+<script src="<%=contextPath + "/resources/js/bootstrap.min.js"%>"></script>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-left">

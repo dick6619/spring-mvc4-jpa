@@ -21,6 +21,14 @@ public interface EmpDAO {
 	 * @return EmpVO
 	 */
 	EmpVO getEmp(Integer empno);
+	
+	/**
+	 * Reed employees by like SQL
+	 * 
+	 * @param Integer
+	 * @return EmpVO
+	 */
+	List<EmpVO> getEmpBySqlLike(String ename);
 
 	/**
 	 * Update selected employee

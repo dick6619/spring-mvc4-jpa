@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iii.dept.model.DeptVO;
 
 @Entity
@@ -26,8 +27,6 @@ public class EmpVO {
 	private String job;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
 	private Date hiredate;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
-	private Date birthday;
 	private Double sal;
 	private Double comm;
 	@ManyToOne
@@ -64,14 +63,6 @@ public class EmpVO {
 
 	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 
 	public Double getSal() {

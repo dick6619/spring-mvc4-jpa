@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
-<!-- include 導致charset編碼吃不到 -->
+<!-- include header編碼吃不到 -->
+<%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container-fluid">
 
 	<div class="row">
@@ -33,15 +34,6 @@
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
 							class="form-control" name="hiredate" placeholder="Enter Hiredate"
-							required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="desc">birthday</label>
-					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="birthday" placeholder="Enter Birthday"
 							required>
 					</div>
 				</div>

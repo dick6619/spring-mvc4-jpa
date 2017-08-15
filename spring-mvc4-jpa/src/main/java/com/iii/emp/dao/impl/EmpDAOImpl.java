@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -47,7 +48,18 @@ public class EmpDAOImpl implements EmpDAO {
 	public EmpVO getEmp(Integer empno) {
 		return entityManager.find(EmpVO.class, empno);
 	}
-
+	
+	@Transactional(readOnly = true)
+	@Override
+	public List<EmpVO> getEmpBySqlLike(String ename) {
+		final String sql = "select * from emp2 where ename like '%" + ename + "%'";
+		// 第二個參數如果沒有加，回傳的集合會無法將EmpVO正確轉換成JSONObject
+		// 猜測應該是程式只能辨別回傳物件只是一包List，但List裡面有什麼不知道
+		// 故在解析List成物件的時候只能轉換成JSONArray
+		Query query = entityManager.createNativeQuery(sql, EmpVO.class);
+		return query.getResultList();
+	}
+	
 	@Transactional(readOnly = false)
 	@Override
 	public EmpVO update(EmpVO empVO) {

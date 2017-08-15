@@ -12,16 +12,22 @@
 
 	<!-- Enable @Controller Annotation support -->
 	<!-- <mvc:annotation-driven /> -->
-	<!--  @Responsebody 回傳的String charset會用到此支的預設用ISO-8859-1 encoding，所以做以下設定-->
 	<mvc:annotation-driven>
+	    <!-- change @ResponseBody default configuration -->
 		<mvc:message-converters register-defaults="true">
-		    <!-- 更改@Requestbody encoding-->
+		    <!-- ResponseBody return String encoding config, default: ISO-8859-1 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
 			</bean>
-			<!-- jackson與spring的整合，直接回傳集合就會幫你轉json，預設用urf-8，可以再多研究些 -->
+			<!-- Jackson的整合,since spring 3.2 -->
+			<!-- ResponseBody return Object contentType cofig, default: charset=UTF-8, application/json -->
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<!-- <property name="supportedMediaTypes"> -->
+				<!-- <list> -->
+				<!-- <value>texl/html;charset=Big5</value> -->
+				<!-- </list> -->
+				<!-- </property> -->
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>

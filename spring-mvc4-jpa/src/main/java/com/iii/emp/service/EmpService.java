@@ -23,6 +23,14 @@ public interface EmpService {
 	EmpVO getEmp(Integer empno);
 
 	/**
+	 * Reed employees by like SQL
+	 * 
+	 * @param Integer
+	 * @return EmpVO
+	 */
+	List<EmpVO> getEmpBySqlLike(String ename);
+
+	/**
 	 * Update selected employee
 	 * 
 	 * @param EmpVO
@@ -39,6 +47,7 @@ public interface EmpService {
 
 	/**
 	 * Read all employee
+	 * 
 	 * @return List<EmpVO>
 	 */
 	List<EmpVO> getEmps();

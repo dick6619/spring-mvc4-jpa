@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container-fluid">
 
 	<div class="row">
@@ -35,15 +36,6 @@
 							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
 							class="form-control" name="hiredate" value="${emp.hiredate}"
 							placeholder="Enter Hiredate" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="desc">birthday</label>
-					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="birthday" value="${emp.birthday}"
-							placeholder="Enter Birthday" required>
 					</div>
 				</div>
 				<div class="form-group">

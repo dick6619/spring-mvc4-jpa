@@ -28,6 +28,11 @@ public class EmpServiceImpl implements EmpService {
 	public EmpVO getEmp(Integer empno) {
 		return empDAO.getEmp(empno);
 	}
+	
+	@Override
+	public List<EmpVO> getEmpBySqlLike(String ename) {
+		return empDAO.getEmpBySqlLike(ename);
+	}
 
 	@Override
 	public EmpVO updateEmp(EmpVO empVO) {

@@ -26,7 +26,7 @@ public class EmployeeWSController {
 	/**
 	 * get all employee : ResponseEntity gson
 	 */
-	@GetMapping(value = "/json1", produces = "application/json")
+	@GetMapping(value = "/json1", produces = "application/json; charset=UTF-8")
 	public ResponseEntity<String> getEmps1() throws Exception {
 		// HttpHeaders headers = new HttpHeaders();
 		Gson gson = new Gson();
@@ -36,26 +36,35 @@ public class EmployeeWSController {
 	/**
 	 * get all employee : ResponseBody gson
 	 */
-	@GetMapping(value = "/json2", produces = "application/json; charset=UTF-8")
+	@GetMapping(value = "/json2")
 	public @ResponseBody String getEmps2() throws Exception {
 		Gson gson = new Gson();
 		return gson.toJson(empService.getEmps());
 	}
 	
 	/**
-	 * get all employee : ResponseBody jackson
+	 * get all employee : ResponseBody
+	 *    spring integrate jackson since spring 3.2, not use any additional config
 	 */
-	@GetMapping(value = "/json3", produces = "application/json")
+	@GetMapping(value = "/json3")
 	public @ResponseBody List<EmpVO> getEmps3() throws Exception {
 		return empService.getEmps();
 	}
-
+	
 	/**
 	 * get employee
 	 */
-	@GetMapping(value = "/json4/{empno}", produces = "application/json")
-	public @ResponseBody String getEmp4(@PathVariable("empno") String empno) {
-		Gson gson = new Gson();
-		return gson.toJson(empService.getEmp(Integer.valueOf(empno)));
+	@GetMapping(value = "/json4/{empno}")
+	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
+		return empService.getEmp(Integer.valueOf(empno));
 	}
+	
+	/**
+	 * get employees by like SQL
+	 */
+	@GetMapping(value = "/json5/{ename}")
+	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
+		return empService.getEmpBySqlLike(ename);
+	}
+	
 }

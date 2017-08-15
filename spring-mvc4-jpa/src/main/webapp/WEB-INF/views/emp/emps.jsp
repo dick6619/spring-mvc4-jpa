@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
-
+<%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container-fluid">
 	<div class="row">
 
@@ -14,7 +14,6 @@
 							<th>ENAME</th>
 							<th>JOB</th>
 							<th>HIREDATE</th>
-							<th>BIRTHDAY</th>
 							<th>SAL</th>
 							<th>COMM</th>
 							<th>DEPTNO</th>
@@ -29,7 +28,6 @@
 								<td>${emp.ename}</td>
 								<td>${emp.job}</td>
 								<td>${emp.hiredate}</td>
-								<td>${emp.birthday}</td>
 								<td>${emp.sal}</td>
 								<td>${emp.comm}</td>
 								<td>${emp.deptVO.dname}</td>
