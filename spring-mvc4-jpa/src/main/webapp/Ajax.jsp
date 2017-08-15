@@ -77,7 +77,7 @@
 </script>
 </head>
 <body>
-<h4>charset = UTF-8:</h4> <p>-->下指令給瀏覽器，用UTF-8解碼．如果response.setCharacterEncoding("UTF-8")
+<h4>charset = UTF-8:</h4> <p>-->下指令給瀏覽器，用UTF-8解碼．如果server response.setCharacterEncoding("UTF-8")
 <h4>pageEncoding = UTF-8:</h4> <p>-->下指令給server，用UTF-8解碼．等於resquest.setCharacterEncoding("UTF-8")
 <h4>Template Data:</h4> <p>-->HTML的部分container不會處理，直接送到client端，charset沒設定編碼預設是用西歐語系解碼
 <h4>Elements:</h4> <p>-->java code的部分container會處理，會使用到編碼濾器

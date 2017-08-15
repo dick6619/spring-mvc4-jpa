@@ -28,9 +28,9 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="<%=contextPath%>/">Home</a></li>
-					<li><a href="<%=contextPath%>/rest/json2">REST1</a></li>
-					<li><a href="<%=contextPath%>/rest/json3">REST2</a></li>
-					<li><a href="<%=contextPath%>/soap">SOAP</a></li>
+					<li><a>待完工</a></li>
+					<li><a>待完工</a></li>
+					<li><a>待完工</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
