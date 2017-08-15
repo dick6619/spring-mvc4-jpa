@@ -19,7 +19,7 @@
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
 			</bean>
-			<!-- jackson與spring的整合，直接回傳集合救回幫你轉json，預設用urf-8，可以再多研究些 -->
+			<!-- jackson與spring的整合，直接回傳集合就會幫你轉json，預設用urf-8，可以再多研究些 -->
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 			</bean>
