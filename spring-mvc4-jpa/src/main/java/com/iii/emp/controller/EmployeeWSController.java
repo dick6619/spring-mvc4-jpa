@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.iii.emp.enumeration.EmpError;
 import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
+import com.iii.framework.exception.ServiceException;
 
 @Controller
 @RequestMapping("/rest")
@@ -41,24 +43,32 @@ public class EmployeeWSController {
 		Gson gson = new Gson();
 		return gson.toJson(empService.getEmps());
 	}
-	
+
 	/**
-	 * get all employee : ResponseBody
-	 *    spring integrate jackson since spring 3.2, not use any additional config
+	 * get all employee : ResponseBody spring integrate jackson since spring 3.2,
+	 * not use any additional config
 	 */
 	@GetMapping(value = "/json3")
 	public @ResponseBody List<EmpVO> getEmps3() throws Exception {
 		return empService.getEmps();
 	}
-	
+
 	/**
 	 * get employee
 	 */
 	@GetMapping(value = "/json4/{empno}")
 	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
-		return empService.getEmp(Integer.valueOf(empno));
+		try {
+			EmpVO empVO = empService.getEmp(Integer.valueOf(empno));
+			if (empVO == null) {
+				throw new ServiceException(EmpError.EMPTY_DATA);
+			}
+			return empVO;
+		} catch (Exception e) {
+			throw new ServiceException(EmpError.UNDEFINED);
+		}
 	}
-	
+
 	/**
 	 * get employees by like SQL
 	 */
@@ -66,5 +76,5 @@ public class EmployeeWSController {
 	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
 		return empService.getEmpBySqlLike(ename);
 	}
-	
+
 }

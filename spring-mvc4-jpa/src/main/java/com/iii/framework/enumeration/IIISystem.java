@@ -1,5 +1,5 @@
 package com.iii.framework.enumeration;
 
-public enum System {
+public enum IIISystem {
 	EMP, DEPT;
 }

@@ -1,4 +1,4 @@
-package com.iii.emp.model.validator;
+package com.iii.framework.validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -10,6 +10,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.iii.framework.validation.validator.SalValidatorJSR303;
 
 // 是否加入javaDocs
 @Documented

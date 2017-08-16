@@ -1,7 +1,9 @@
-package com.iii.emp.model.validator;
+package com.iii.framework.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
+import com.iii.framework.validation.Sal;
 
 //Double為要驗證欄位的型態
 public class SalValidatorJSR303 implements ConstraintValidator<Sal, Double> {
