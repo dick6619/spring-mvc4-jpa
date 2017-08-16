@@ -14,7 +14,7 @@ public class IIIException extends RuntimeException {
 	}
 	
 	public IIIException(IIIError error, Throwable throwable) {
-		super("", throwable);
+		super(getErrorMsg(error), throwable);
 		this.error = error;
 	}
 
