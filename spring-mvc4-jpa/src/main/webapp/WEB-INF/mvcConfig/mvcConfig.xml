@@ -13,14 +13,15 @@
 	<!-- Enable @Controller Annotation support -->
 	<!-- <mvc:annotation-driven /> -->
 	<mvc:annotation-driven>
-	    <!-- change @ResponseBody default configuration -->
-		<mvc:message-converters register-defaults="true">
-		    <!-- ResponseBody return String encoding config, default: ISO-8859-1 -->
+		<!-- change @ResponseBody default configuration -->
+		<mvc:message-converters><!-- register-defaults="true" 註冊自己的converter -->
+			<!-- ResponseBody return String encoding config, default: ISO-8859-1 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
 			</bean>
 			<!-- Jackson的整合,since spring 3.2 -->
-			<!-- ResponseBody return Object contentType cofig, default: charset=UTF-8, application/json -->
+			<!-- ResponseBody return Object contentType cofig, default: charset=UTF-8, 
+				application/json -->
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<!-- <property name="supportedMediaTypes"> -->
