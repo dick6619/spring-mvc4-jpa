@@ -49,6 +49,7 @@
 		$.ajax({
 			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json4/' + $('#empno').val(),
 			type : 'GET',
+// 			data: "empno=7001&ename=ALEX",
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
@@ -63,8 +64,8 @@
 				                   '<td>' + data.deptVO.dname + '</td>' + 
 				                   '</tr>')
 			},
-			error : function() {
-				alert('error');
+			error : function(data) {
+				$('#error').append(data.responseText);
 			}
 		});
 	}
@@ -102,6 +103,7 @@
 	<button onclick='test4()'>姓名模糊搜尋</button>
 	<button onclick='test2()'>所有員工</button>
 
+    <p id='error'>
 	<table class='table table-bordered' style='margin: 10px; width: 60%;'>
 		<thead>
 			<tr>

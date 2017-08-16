@@ -3,7 +3,7 @@ package com.iii.emp.enumeration;
 import com.iii.framework.enumeration.IIIError;
 import com.iii.framework.enumeration.IIISystem;
 /**
- * 
+ * 自定義錯誤代碼，系統別，錯誤訊息
  * */
 public enum EmpError implements IIIError{
 	PARAM_ERROR("10001", IIISystem.EMP, "參數錯誤"),

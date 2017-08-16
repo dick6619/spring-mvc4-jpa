@@ -58,15 +58,17 @@ public class EmployeeWSController {
 	 */
 	@GetMapping(value = "/json4/{empno}")
 	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
+		EmpVO empVO;
 		try {
-			EmpVO empVO = empService.getEmp(Integer.valueOf(empno));
-			if (empVO == null) {
-				throw new ServiceException(EmpError.EMPTY_DATA);
-			}
-			return empVO;
+			empVO = empService.getEmp(Integer.valueOf(empno));
 		} catch (Exception e) {
 			throw new ServiceException(EmpError.UNDEFINED);
 		}
+		if (empVO == null) {
+			throw new ServiceException(EmpError.EMPTY_DATA);
+		}
+		return empVO;
+
 	}
 
 	/**
