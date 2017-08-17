@@ -1,9 +1,6 @@
 package com.iii.emp.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,8 +35,7 @@ public class EmployeeController {
 	@GetMapping("/emps")
 	public ModelAndView getEmps() {
 		ModelAndView model = new ModelAndView("emp/emps");
-		List<EmpVO> list = empService.getEmps();
-		model.addObject("emps", list);
+		model.addObject("emps", empService.getEmps());
 		return model;
 	}
 
@@ -49,8 +45,7 @@ public class EmployeeController {
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("emp/editEmp");
-		EmpVO emp = empService.getEmp(Integer.valueOf(empno));
-		model.addObject("emp", emp);
+		model.addObject("emp", empService.getEmp(Integer.valueOf(empno)));
 		return model;
 	}
 
@@ -59,14 +54,9 @@ public class EmployeeController {
 	 */
 	@RequestMapping(value = "editEmp", method = RequestMethod.POST)
 	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		ModelAndView model = new ModelAndView("emp/emps");
 		empParam.setDeptVO(deptParam);
-		EmpVO empvo = empService.updateEmp(empParam);
-		if (empvo != null) {
-			model.addObject("saveSuccess", "emp Added SuccessFully:" + empvo.getEname());
-		} else {
-			model.addObject("saveError", "emp creation failed");
-		}
+		empService.updateEmp(empParam);
+		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
 	}
@@ -75,15 +65,10 @@ public class EmployeeController {
 	 * Create new employee and go to all employee view
 	 */
 	@RequestMapping(value = "addEmp", method = RequestMethod.POST)
-	public ModelAndView addEmpVO(@ModelAttribute @Valid EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		ModelAndView model = new ModelAndView("emp/emps");
+	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
 		empParam.setDeptVO(deptParam);
-		EmpVO empvo = empService.addEmp(empParam);
-		if (empvo != null) {
-			model.addObject("saveSuccess", "Customer Added SuccessFully:" + empvo.getEname());
-		} else {
-			model.addObject("saveError", "Customer creation failed");
-		}
+		empService.addEmp(empParam);
+		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
 	}
@@ -93,8 +78,8 @@ public class EmployeeController {
 	 */
 	@GetMapping("/deleteEmp/{empno}")
 	public ModelAndView deleteEmp(@PathVariable("empno") String empno) {
-		ModelAndView model = new ModelAndView("emp/emps");
 		empService.delete(Integer.valueOf(empno));
+		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
 	}
