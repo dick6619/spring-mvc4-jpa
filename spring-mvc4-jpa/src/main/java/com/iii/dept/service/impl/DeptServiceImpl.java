@@ -19,7 +19,7 @@ public class DeptServiceImpl implements DeptService {
 	private DeptDAO deptDAO;
 
 	@Override
-	public List<DeptVO> getAll() {
+	public List<DeptVO> getDepts() {
 		return deptDAO.getDepts();
 	}
 

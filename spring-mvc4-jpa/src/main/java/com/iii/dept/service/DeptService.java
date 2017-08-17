@@ -6,6 +6,6 @@ import com.iii.dept.model.DeptVO;
 
 public interface DeptService {
 	
-	List<DeptVO> getAll();
+	List<DeptVO> getDepts();
 
 }
