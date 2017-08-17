@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- <%@ page language="java" contentType="text/html; charset=Big5" pageEncoding="Big5"%> --%>
 <%
 	String contextPath = request.getContextPath();
     String reqEncoding = request.getCharacterEncoding();
@@ -23,10 +22,10 @@
 </script>
 </head>
 <body>
-<h4>charset = UTF-8:</h4> <p>¤U«ü¥Oµ¹ÂsÄı¾¹¡A¥ÎUTF-8¸Ñ½X¡D¦bserver response.setCharacterEncoding("UTF-8")ªºª¬ªp¤U
-<h4>pageEncoding = UTF-8:</h4> <p>¤U«ü¥Oµ¹server¡A¥ÎUTF-8¸Ñ½X¡Dµ¥©óresquest.setCharacterEncoding("UTF-8")
-<h4>Template Data:</h4> <p>HTMLªº³¡¤Àcontainer¤£·|³B²z¡Aª½±µ°e¨ìclientºİ¡Acharset¨S³]©w½s½X¹w³]¬O¥Î¦è¼Ú»y¨t¸Ñ½X
-<h4>Elements:</h4> <p>java codeªº³¡¤Àcontainer·|³B²z¡A·|¨Ï¥Î¨ì½s½XÂo¾¹<br><br>
+<h4>charset = UTF-8:</h4> <p>ä¸‹æŒ‡ä»¤çµ¦ç€è¦½å™¨ï¼Œç”¨UTF-8è§£ç¢¼ï¼åœ¨server response.setCharacterEncoding("UTF-8")çš„ç‹€æ³ä¸‹
+<h4>pageEncoding = UTF-8:</h4> <p>ä¸‹æŒ‡ä»¤çµ¦serverï¼Œç”¨UTF-8è§£ç¢¼ï¼ç­‰æ–¼resquest.setCharacterEncoding("UTF-8")
+<h4>Template Data:</h4> <p>HTMLçš„éƒ¨åˆ†containerä¸æœƒè™•ç†ï¼Œç›´æ¥é€åˆ°clientç«¯ï¼Œcharsetæ²’è¨­å®šç·¨ç¢¼é è¨­æ˜¯ç”¨è¥¿æ­èªç³»è§£ç¢¼
+<h4>Elements:</h4> <p>java codeçš„éƒ¨åˆ†containeræœƒè™•ç†ï¼Œæœƒä½¿ç”¨åˆ°ç·¨ç¢¼æ¿¾å™¨<br><br>
 <button onclick='test1()'>charset</button>
 <button onclick='test2()'>pageEncoding</button>
 </body>
