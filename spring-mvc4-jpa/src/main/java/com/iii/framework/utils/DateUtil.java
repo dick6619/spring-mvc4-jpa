@@ -6,16 +6,17 @@ import java.util.Date;
 public class DateUtil {
 
 	/**
-	 * 是否滿18歲，滿足為true
+	 * 有滿這個歲數了嗎？滿足: true
 	 * 
 	 * @param birthday
+	 * @param year
 	 * @return boolean
 	 */
-	public static boolean isAdult(Date birthday) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(birthday);
-		calendar.add(Calendar.YEAR, +18);
-		return calendar.getTime().before(new Date());
+	public static boolean isMeetTheAge(Date birthday, int age) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(birthday);
+		cal.add(Calendar.YEAR, +age);
+		return cal.getTime().equals(new Date()) || cal.getTime().before(new Date());
 	}
 
 }

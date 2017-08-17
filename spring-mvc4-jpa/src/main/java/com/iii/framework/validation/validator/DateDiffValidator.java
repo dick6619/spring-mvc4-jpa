@@ -9,6 +9,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
+import com.iii.framework.utils.M3DateUtil;
 import com.iii.framework.validation.DateDiff;
 
 public class DateDiffValidator implements ConstraintValidator<DateDiff, Object> {
@@ -53,13 +54,13 @@ public class DateDiffValidator implements ConstraintValidator<DateDiff, Object> 
 			if (StringUtils.isBlank(diff)) {
 				return endDate.isAfter(startDate.plusDays(-1));
 			}
-            // diff = "<1y", y
+			// diff = "<1y", y
 			String diffBase = diff.substring(diff.length() - 1);
-            // diff = "<1y", <
+			// diff = "<1y", <
 			String operator = diff.substring(0, 1);
 			// diff = "<1y", 1
 			Integer diffRange = Integer.valueOf(Integer.parseInt(diff.substring(1, diff.length() - 1)));
-			
+
 			DateTime beSummedDate;
 			if (StringUtils.equals(diffBase, "d")) {
 				beSummedDate = startDate.plusDays(diffRange.intValue());
@@ -70,7 +71,7 @@ public class DateDiffValidator implements ConstraintValidator<DateDiff, Object> 
 					if (StringUtils.equals(diffBase, "y")) {
 						beSummedDate = startDate.plusYears(diffRange.intValue());
 					} else {
-						//diffBase is null
+						// diffBase is null
 						return false;
 					}
 				}
@@ -98,9 +99,9 @@ public class DateDiffValidator implements ConstraintValidator<DateDiff, Object> 
 	private static DateTime getDateTime(Object date) {
 		DateTime dateTime = null;
 		try {
-
 			if (date instanceof String) {
-				// format ..... dateTime = new DateTime(....)
+				// format... M3DateUtil
+				dateTime = new DateTime(M3DateUtil.toDate((String) date));
 			} else if (date instanceof Date) {
 				dateTime = new DateTime((Date) date);
 				dateTime = new DateTime(dateTime.getYear(), dateTime.getMonthOfYear(), dateTime.getDayOfMonth(), 0, 0,
