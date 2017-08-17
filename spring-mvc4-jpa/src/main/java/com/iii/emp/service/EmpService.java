@@ -2,7 +2,7 @@ package com.iii.emp.service;
 
 import java.util.List;
 
-import com.iii.emp.model.EmpVO;
+import com.iii.emp.domain.EmpVO;
 
 public interface EmpService {
 
@@ -12,7 +12,7 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return EmpVO
 	 */
-	EmpVO addEmp(EmpVO empVO);
+	void addEmp(EmpVO empVO);
 
 	/**
 	 * Read selected employee
@@ -23,12 +23,11 @@ public interface EmpService {
 	EmpVO getEmp(Integer empno);
 
 	/**
-	 * Reed employees by like SQL
+	 * Read all employee
 	 * 
-	 * @param Integer
-	 * @return EmpVO
+	 * @return List<EmpVO>
 	 */
-	List<EmpVO> getEmpBySqlLike(String ename);
+	List<EmpVO> getEmps();
 
 	/**
 	 * Update selected employee
@@ -46,12 +45,11 @@ public interface EmpService {
 	void delete(Integer empno);
 
 	/**
-	 * Read all employee
+	 * Reed employees by like SQL
 	 * 
-	 * @return List<EmpVO>
+	 * @param Integer
+	 * @return EmpVO
 	 */
-	List<EmpVO> getEmps();
-
-	void updateCheckedEmpsDeptno(List<EmpVO> empsParam);
+	List<EmpVO> getEmpBySqlLike(String ename);
 
 }

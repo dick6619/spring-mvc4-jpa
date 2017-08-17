@@ -2,7 +2,7 @@ package com.iii.emp.dao;
 
 import java.util.*;
 
-import com.iii.emp.model.EmpVO;
+import com.iii.emp.domain.EmpVO;
 
 public interface EmpDAO {
 
@@ -12,7 +12,7 @@ public interface EmpDAO {
 	 * @param EmpVO
 	 * @return EmpVO
 	 */
-	EmpVO insert(EmpVO empVO);
+	void insert(EmpVO empVO);
 
 	/**
 	 * Reed selected employee
@@ -21,14 +21,13 @@ public interface EmpDAO {
 	 * @return EmpVO
 	 */
 	EmpVO getEmp(Integer empno);
-	
+
 	/**
-	 * Reed employees by like SQL
+	 * Read all employee
 	 * 
-	 * @param Integer
-	 * @return EmpVO
+	 * @return List<EmpVO>
 	 */
-	List<EmpVO> getEmpBySqlLike(String ename);
+	List<EmpVO> getEmps();
 
 	/**
 	 * Update selected employee
@@ -46,15 +45,11 @@ public interface EmpDAO {
 	void delete(Integer empno);
 
 	/**
-	 * Read all employee
+	 * Reed employees by like SQL
 	 * 
-	 * @return List<EmpVO>
+	 * @param Integer
+	 * @return EmpVO
 	 */
-	List<EmpVO> getEmps();
-
-	/**
-	 *
-	 * */
-	void updateCheckedEmpsDeptno(List<EmpVO> empParams);
+	List<EmpVO> getEmpBySqlLike(String ename);
 
 }

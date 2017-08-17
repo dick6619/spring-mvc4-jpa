@@ -1,11 +1,11 @@
 package com.iii.framework.enumeration;
 
 public interface IIIError {
-	// 錯誤代碼
+	// error code
 	String getCode();
-    // 錯誤系統 enum
+    // iii system
 	IIISystem getSystem();
-    // 錯誤訊息
+    // error message
 	String getMessage();
 
 }

@@ -7,11 +7,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.EmpDAO;
-import com.iii.emp.model.EmpVO;
+import com.iii.emp.domain.EmpVO;
 
 @Repository("empDAO")
 @Transactional
@@ -34,13 +33,10 @@ public class EmpDAOImpl implements EmpDAO {
 	@PersistenceContext
 	public EntityManager entityManager;
 
-	// propagation預設就為REQUIRED, 有錯就rollback
-	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Transactional
 	@Override
-	public EmpVO insert(EmpVO empVO) {
+	public void insert(EmpVO empVO) {
 		entityManager.persist(empVO);
-		return empVO;
-
 	}
 
 	@Transactional(readOnly = true)
@@ -48,34 +44,8 @@ public class EmpDAOImpl implements EmpDAO {
 	public EmpVO getEmp(Integer empno) {
 		return entityManager.find(EmpVO.class, empno);
 	}
-	
-	@Transactional(readOnly = true)
-	@Override
-	public List<EmpVO> getEmpBySqlLike(String ename) {
-		final String sql = "select * from emp2 where ename like '%" + ename + "%'";
-		// 第二個參數如果沒有加，回傳的集合會無法將EmpVO正確轉換成JSONObject
-		// 猜測應該是程式只能辨別回傳物件只是一包List，但List裡面有什麼不知道
-		// 故在解析List成物件的時候只能轉換成JSONArray
-		Query query = entityManager.createNativeQuery(sql, EmpVO.class);
-		return query.getResultList();
-	}
-	
-	@Transactional(readOnly = false)
-	@Override
-	public EmpVO update(EmpVO empVO) {
-		entityManager.merge(empVO);
-		// this line entity lifeCycle is managed, not yet commit
-		return empVO;
-	}
 
-	@Transactional(readOnly = false)
-	@Override
-	public void delete(Integer empno) {
-		// if you want delete this employee, entity lifeCycle must be managed
-		EmpVO empVO = entityManager.find(EmpVO.class, empno);
-		entityManager.remove(empVO);
-	}
-
+	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	@Override
 	public List<EmpVO> getEmps() {
@@ -85,19 +55,28 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Transactional
 	@Override
-	public void updateCheckedEmpsDeptno(List<EmpVO> emps) {
-		for (EmpVO emp : emps) {
-			entityManager.merge(emp);
-		}
+	public EmpVO update(EmpVO empVO) {
+		entityManager.merge(empVO);
+		// this line entity lifeCycle is managed, not yet commit
+		return empVO;
 	}
 
-	// 查詢
-	// @Transactional(readOnly = true)
-	// @Override
-	// public EmpVO getEmp(Integer empno) {
-	// // SELECT + Table name FROM Class name + Table name + WHERE Table name.field;
-	// String sql = "select emp2 from EmpVO emp2 where emp2.empno=" + empno;
-	// return (EmpVO) entityManager.createQuery(sql).getSingleResult();
-	//
-	// }
+	@Transactional
+	@Override
+	public void delete(Integer empno) {
+		// if you want delete this employee, entity lifeCycle must be managed
+		EmpVO empVO = entityManager.find(EmpVO.class, empno);
+		entityManager.remove(empVO);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	@Override
+	public List<EmpVO> getEmpBySqlLike(String ename) {
+		final String sql = "select * from emp2 where ename like '%" + ename + "%'";
+		// second param need to add, guess the program can't understand who in List
+		Query query = entityManager.createNativeQuery(sql, EmpVO.class);
+		return query.getResultList();
+	}
+
 }

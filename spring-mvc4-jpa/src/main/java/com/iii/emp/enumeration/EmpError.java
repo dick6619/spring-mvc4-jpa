@@ -8,7 +8,7 @@ import com.iii.framework.enumeration.IIISystem;
 public enum EmpError implements IIIError{
 	PARAM_ERROR("10001", IIISystem.EMP, "參數錯誤"),
 	EMPTY_DATA("10001", IIISystem.EMP, "查無資料"),
-	UNDEFINED("99999", IIISystem.EMP, "未經定義的錯誤");
+	UNDEFINED_ERROR("99999", IIISystem.EMP, "未經定義的錯誤");
 	
 	//
 	private EmpError(String code, IIISystem system, String message) {

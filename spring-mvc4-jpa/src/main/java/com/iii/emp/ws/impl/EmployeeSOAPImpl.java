@@ -5,7 +5,7 @@ import javax.jws.WebService;
 
 import org.springframework.stereotype.Service;
 
-import com.iii.emp.model.EmpVO;
+import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 import com.iii.emp.ws.EmployeeSOAP;
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.EmpDAO;
-import com.iii.emp.model.EmpVO;
+import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 
 @Service("empService")
@@ -20,18 +20,18 @@ public class EmpServiceImpl implements EmpService {
 	private EmpDAO empDAO;
 
 	@Override
-	public EmpVO addEmp(EmpVO empVO) {
-		return empDAO.insert(empVO);
+	public void addEmp(EmpVO empVO) {
+		empDAO.insert(empVO);
 	}
-	
+
 	@Override
 	public EmpVO getEmp(Integer empno) {
 		return empDAO.getEmp(empno);
 	}
-	
+
 	@Override
-	public List<EmpVO> getEmpBySqlLike(String ename) {
-		return empDAO.getEmpBySqlLike(ename);
+	public List<EmpVO> getEmps() {
+		return empDAO.getEmps();
 	}
 
 	@Override
@@ -45,13 +45,8 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public List<EmpVO> getEmps() {
-		return empDAO.getEmps();
-	}
-
-	@Override
-	public void updateCheckedEmpsDeptno(List<EmpVO> empsParams) {
-		empDAO.updateCheckedEmpsDeptno(empsParams);
+	public List<EmpVO> getEmpBySqlLike(String ename) {
+		return empDAO.getEmpBySqlLike(ename);
 	}
 
 }

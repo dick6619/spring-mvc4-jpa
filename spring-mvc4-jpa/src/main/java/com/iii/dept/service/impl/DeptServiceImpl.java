@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.dept.dao.DeptDAO;
-import com.iii.dept.model.DeptVO;
+import com.iii.dept.domain.DeptVO;
 import com.iii.dept.service.DeptService;
 
 @Service("deptService")

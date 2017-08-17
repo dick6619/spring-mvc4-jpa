@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.dept.dao.DeptDAO;
-import com.iii.dept.model.DeptVO;
-import com.iii.emp.model.EmpVO;
+import com.iii.dept.domain.DeptVO;
+import com.iii.emp.domain.EmpVO;
 
 @Repository("deptDAO")
 @Transactional
@@ -31,6 +31,14 @@ public class DeptDAOImpl implements DeptDAO {
 		return entityManager.find(DeptVO.class, deptno);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	@Override
+	public List<DeptVO> getDepts() {
+		final String sql = "select * from dept2";
+		return entityManager.createNativeQuery(sql, DeptVO.class).getResultList();
+	}
+
 	@Override
 	public DeptVO update(DeptVO deptVO) {
 		return entityManager.merge(deptVO);
@@ -40,13 +48,6 @@ public class DeptDAOImpl implements DeptDAO {
 	public void delete(Integer deptno) {
 		DeptVO deptVO = entityManager.find(DeptVO.class, deptno);
 		entityManager.remove(deptVO);
-	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public List<DeptVO> getDepts() {
-		String sql = "select dept2 from DeptVO dept2";
-		return entityManager.createQuery(sql).getResultList();
 	}
 
 	@Override

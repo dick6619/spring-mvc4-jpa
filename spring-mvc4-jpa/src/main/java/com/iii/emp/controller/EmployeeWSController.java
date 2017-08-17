@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.iii.emp.domain.EmpVO;
 import com.iii.emp.enumeration.EmpError;
-import com.iii.emp.model.EmpVO;
 import com.iii.emp.service.EmpService;
 import com.iii.framework.exception.ServiceException;
 
@@ -62,7 +62,7 @@ public class EmployeeWSController {
 		try {
 			empVO = empService.getEmp(Integer.valueOf(empno));
 		} catch (Exception e) {
-			throw new ServiceException(EmpError.UNDEFINED);
+			throw new ServiceException(EmpError.UNDEFINED_ERROR);
 		}
 		if (empVO == null) {
 			throw new ServiceException(EmpError.EMPTY_DATA);

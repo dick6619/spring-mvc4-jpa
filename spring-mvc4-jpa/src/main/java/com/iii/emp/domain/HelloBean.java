@@ -1,4 +1,4 @@
-package com.iii.emp.model;
+package com.iii.emp.domain;
 
 import java.lang.reflect.Field;
 import java.util.Date;

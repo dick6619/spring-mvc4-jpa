@@ -1,4 +1,4 @@
-package com.iii.emp.model;
+package com.iii.emp.domain;
 
 import java.sql.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.iii.dept.model.DeptVO;
+import com.iii.dept.domain.DeptVO;
 
 @Entity
 @Table(name = "emp2")
