@@ -19,16 +19,16 @@ import com.iii.emp.service.EmpService;
 import com.iii.framework.exception.ServiceException;
 
 @Controller
-@RequestMapping("/rest")
+@RequestMapping("/restWS")
 public class EmployeeWSController {
 
 	@Resource(name = "empService")
 	private EmpService empService;
 
 	/**
-	 * get all employee : ResponseEntity gson
+	 * get all employee : ResponseEntity
 	 */
-	@GetMapping(value = "/json1", produces = "application/json; charset=UTF-8")
+	@GetMapping(value = "/getEmps1", produces = "application/json; charset=UTF-8")
 	public ResponseEntity<String> getEmps1() throws Exception {
 		// HttpHeaders headers = new HttpHeaders();
 		Gson gson = new Gson();
@@ -36,19 +36,9 @@ public class EmployeeWSController {
 	}
 
 	/**
-	 * get all employee : ResponseBody gson
+	 * get all employee : jackson converter since spring 3.2
 	 */
-	@GetMapping(value = "/json2")
-	public @ResponseBody String getEmps2() throws Exception {
-		Gson gson = new Gson();
-		return gson.toJson(empService.getEmps());
-	}
-
-	/**
-	 * get all employee : ResponseBody spring integrate jackson since spring 3.2,
-	 * not use any additional config
-	 */
-	@GetMapping(value = "/json3")
+	@GetMapping(value = "/getEmps2")
 	public @ResponseBody List<EmpVO> getEmps3() throws Exception {
 		return empService.getEmps();
 	}
@@ -56,7 +46,7 @@ public class EmployeeWSController {
 	/**
 	 * get employee
 	 */
-	@GetMapping(value = "/json4/{empno}")
+	@GetMapping(value = "/getEmp/{empno}")
 	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
 		EmpVO empVO;
 		try {
@@ -74,7 +64,7 @@ public class EmployeeWSController {
 	/**
 	 * get employees by like SQL
 	 */
-	@GetMapping(value = "/json5/{ename}")
+	@GetMapping(value = "/getEmpLike/{ename}")
 	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
 		return empService.getEmpBySqlLike(ename);
 	}

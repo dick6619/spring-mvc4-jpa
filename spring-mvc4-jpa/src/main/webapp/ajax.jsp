@@ -14,9 +14,9 @@
 <script src="<%=contextPath + "/resources/js/bootstrap.min.js"%>"></script>
 <script>
 	// 	test restful ws use ajax get
-	function test2() {
+	function iiiEmps() {
 		$.ajax({
-			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json2',
+			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmps2',
 			type : 'GET',
 			dataType : 'json',
 			cache : false,
@@ -45,11 +45,9 @@
 			}
 		});
 	}
-	function test3() {
-		$.ajax({
-			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json4/' + $('#empno').val(),
-			type : 'GET',
-// 			data: "empno=7001&ename=ALEX",
+	function iiiEmp() {
+		$.get({
+			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmp/' + $('#empno').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
@@ -69,10 +67,9 @@
 			}
 		});
 	}
-	function test4() {
-		$.ajax({
-			url : 'http://localhost:8080/spring-mvc4-jpa/rest/json5/' + $('#ename').val(),
-			type : 'GET',
+	function iiiEmpLike() {
+		$.get({
+			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmpLike/' + $('#ename').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
@@ -89,8 +86,8 @@
 			                   '</tr>')
 				}
 			},
-			error : function() {
-				alert('error');
+			error : function(data) {
+				$('#error').append(data.responseText);
 			}
 		});
 	}
@@ -98,10 +95,10 @@
 </head>
 <body>
 	<input type='text' id='empno'>
-	<button onclick='test3()'>指定員工編號搜尋</button>
+	<button onclick='iiiEmp()'>指定員工編號搜尋</button>
 	<input type='text' id='ename'>
-	<button onclick='test4()'>姓名模糊搜尋</button>
-	<button onclick='test2()'>所有員工</button>
+	<button onclick='iiiEmpLike()'>姓名模糊搜尋</button>
+	<button onclick='iiiEmps()'>所有員工</button>
 
     <p id='error'>
 	<table class='table table-bordered' style='margin: 10px; width: 60%;'>

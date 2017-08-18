@@ -31,10 +31,14 @@
 								<td>${emp.sal}</td>
 								<td>${emp.comm}</td>
 								<td>${emp.deptVO.dname}</td>
-								<td><a class="btn btn-primary"
-									href="<%=contextPath%>/employee/editEmpView/${emp.empno}">EDIT</a>
-									<a class="btn btn-warning"
-									href="<%=contextPath%>/employee/deleteEmp/${emp.empno}">DELETE</a></td>
+								<td>
+								    <a class="btn btn-primary" href="<%=contextPath%>/employee/editEmpView/${emp.empno}">EDIT</a>
+									
+									<form action="<%=contextPath%>/employee/deleteEmp" method='post'>
+										<input type='hidden' name='empno' value='${emp.empno}'>
+										<button class="btn btn-warning" type='submit'>DELETE</button>
+									</form>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
