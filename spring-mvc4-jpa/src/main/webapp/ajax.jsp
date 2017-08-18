@@ -63,7 +63,8 @@
 				                   '</tr>')
 			},
 			error : function(data) {
-				$('#error').append(data.responseText);
+				alert('error!!!');
+// 				$('#error').append(data.responseText);
 			}
 		});
 	}
@@ -87,7 +88,45 @@
 				}
 			},
 			error : function(data) {
-				$('#error').append(data.responseText);
+				alert('error!!!');
+// 				$('#error').append(data.responseText);
+			}
+		});
+	}
+	function addEmp() {
+		$.post({
+			url : '',
+			data : '',
+			success : function(data) {
+				alert('add ok!!!');
+			},
+			error : function(data) {
+				alert('add error!!!');
+			}
+		});
+	}
+	function updateEmp() {
+		$.put({
+			url : '',
+			data : '',
+			success : function(data) {
+				alert('update ok!!!');
+			},
+			error : function(data) {
+				alert('update error!!!');
+			}
+		});
+	}
+	function deleteEmp() {
+		$.ajax({
+			type : 'delete'
+			url : '',
+			data : '',
+			success : function(data) {
+				alert('delete ok!!!');
+			},
+			error : function(data) {
+				alert('delete error!!!');
 			}
 		});
 	}
