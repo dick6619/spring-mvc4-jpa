@@ -35,6 +35,12 @@
 		<url-pattern>/soap/*</url-pattern>
 	</servlet-mapping>
 
+
+	<!-- test listener -->
+	<listener>
+		<listener-class>com.iii.framework.listener.empListener</listener-class>
+	</listener>
+	
 	<!-- # contextLoaderListener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
