@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+
 	<display-name>spring-mvc4-jpa</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
@@ -48,9 +49,11 @@
 	<!-- # spring encoding filter -->
 	<!-- POST --><!-- spring filter do -->
 	<!-- 1.request.setCharacterEncoding("XXX"), response.setCharacterEncoding("XXX") -->
-	<!-- 2.forceEncoding = true, any request.setCharacterEncoding("XXX") forced coverage -->
+	<!-- 2.forceEncoding = true, any request.setCharacterEncoding("XXX") forced 
+		coverage -->
 	<!-- GET -->
-	<!-- 3. before tomcat8, tomcat5,6,7 default use ISO-8859-1 encoding get URI parameter -->
+	<!-- 3. before tomcat8, tomcat5,6,7 default use ISO-8859-1 encoding get 
+		URI parameter -->
 	<!-- 4. tomcat8 default use utf8，so don't have to deal with -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>

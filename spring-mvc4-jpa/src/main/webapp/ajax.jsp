@@ -119,7 +119,7 @@
 	}
 	function deleteEmp() {
 		$.ajax({
-			type : 'delete'
+			type : 'delete',
 			url : '',
 			data : '',
 			success : function(data) {
