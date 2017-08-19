@@ -68,5 +68,13 @@ public class EmployeeWSController {
 	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
 		return empService.getEmpBySqlLike(ename);
 	}
+	
+	/**
+	 * test RequestMapping default...  is all can
+	 * */
+	@RequestMapping(value = "/testDefault")
+	public String testDefault() {
+		return "hello";
+	}
 
 }
