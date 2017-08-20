@@ -16,7 +16,7 @@
 	// 	test restful ws use ajax get
 	function iiiEmps() {
 		$.ajax({
-			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmps2',
+			url : 'restWS/getEmps2',
 			type : 'GET',
 			dataType : 'json',
 			cache : false,
@@ -47,7 +47,7 @@
 	}
 	function iiiEmp() {
 		$.get({
-			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmp/' + $('#empno').val(),
+			url : 'restWS/getEmp/' + $('#empno').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
@@ -70,7 +70,7 @@
 	}
 	function iiiEmpLike() {
 		$.get({
-			url : 'http://localhost:8080/spring-mvc4-jpa/restWS/getEmpLike/' + $('#ename').val(),
+			url : 'restWS/getEmpLike/' + $('#ename').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
