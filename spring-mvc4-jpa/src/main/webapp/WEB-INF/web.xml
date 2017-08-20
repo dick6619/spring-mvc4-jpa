@@ -40,7 +40,7 @@
 	<listener>
 		<listener-class>com.iii.framework.listener.empListener</listener-class>
 	</listener>
-	
+
 	<!-- # contextLoaderListener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -99,4 +99,10 @@
 	<!-- <page-encoding>UTF-8</page-encoding> -->
 	<!-- </jsp-property-group> -->
 	<!-- </jsp-config> -->
+
+	<!-- <error-page> response sendError(302) -->
+	<!-- <error-code>302</error-code> -->
+	<!-- <location>/...</location> -->
+	<!-- </error-page> -->
+
 </web-app>
