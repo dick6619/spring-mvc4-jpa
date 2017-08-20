@@ -61,8 +61,8 @@
 						<select
 							class="form-control" name="deptno">
 							<option value="10">財務部</option>
-							<option value="20">業務部</option>
-							<option value="30">研發部</option>
+							<option value="20">研發部</option>
+							<option value="30">業務部</option>
 							<option value="40">生管部</option>
 						</select>
 					</div>
