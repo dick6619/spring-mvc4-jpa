@@ -10,8 +10,8 @@
 	    <li><a href="<%=contextPath%>/encoding.jsp">encodig note</a></li>
 		<li><a href="<%=contextPath%>/employee/emps">Spring MVC - JPA(Hibernate) CRUD</a></li>
 		<li><a href="<%=contextPath%>/ajax.jsp">AJAX call WS</a></li>
-		<li><a href="<%=contextPath%>/rest/json2">RESTFULWS-JSON use Gson</a></li>
-		<li><a href="<%=contextPath%>/rest/json3">RESTFULWS-JSON use Jackson</a></li>
+		<li><a href="<%=contextPath%>/restWS/getEmps1">RESTFULWS-JSON use Gson</a></li>
+		<li><a href="<%=contextPath%>/restWS/getEmps2">RESTFULWS-JSON use Jackson</a></li>
 		<li><a href="<%=contextPath%>/soap">soap-XML use Apache CXF</a></li>
 	</ol>
 </body>
