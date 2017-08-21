@@ -1,5 +1,4 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
-<!-- include header編碼吃不到 -->
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container-fluid">
 
@@ -7,59 +6,48 @@
 		<!-- 左邊空格 -->
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
-			<h2>Add Emp</h2>
-			<form class="form-horizontal"
-				action="<%=request.getContextPath()%>/employee/addEmp" method="post"
-				role="form">
+			<h2>新增</h2>
+			<form class="form-horizontal" action="<%=request.getContextPath()%>/employee/addEmp" method="post">
 				<div class="form-group">
-					<label for="title">Ename</label>
+					<label>員工姓名</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-cog"></span></span> <input type="text"
-							class="form-control" name="ename" id="ename"
-							placeholder="Enter Ename" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-cog"></span></span>
+						<input type="text" class="form-control" name="ename" placeholder="Enter Ename" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Job</label>
+					<label>職稱</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="job" placeholder="Enter Job" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="job" placeholder="Enter Job" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Hiredate</label>
+					<label>雇用日期</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="hiredate" placeholder="Enter Hiredate"
-							required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+							<input type="text" class="form-control" name="hiredate" placeholder="Enter Hiredate" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Sal</label>
+					<label>薪水</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="sal" placeholder="Enter Sal" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="sal" placeholder="Enter Sal" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Comm</label>
+					<label>業務獎金</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="comm" placeholder="Enter Comm"
-							required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="comm" placeholder="Enter Comm" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Deptno</label>
+					<label>部門</label>
 					<div class="input-group">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-						<select
-							class="form-control" name="deptno">
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<select class="form-control" name="deptno">
 							<option value="10">財務部</option>
 							<option value="20">研發部</option>
 							<option value="30">業務部</option>
@@ -68,7 +56,7 @@
 					</div>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">送出</button>
 			</form>
 
 		</div>

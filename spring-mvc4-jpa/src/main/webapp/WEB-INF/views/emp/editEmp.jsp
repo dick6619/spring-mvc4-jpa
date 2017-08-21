@@ -1,71 +1,67 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<script>
+	$(document).ready(function() {
+        $("#deptno_selected").val('${emp.deptVO.deptno}');
+	});
+</script>
 <div class="container-fluid">
 
 	<div class="row">
 		<!-- 左邊空格 -->
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
-			<h2>Edit Emp: ${emp.ename}</h2>
-			<form class="form-horizontal"
-				action="<%=request.getContextPath()%>/employee/editEmp" method="post"
-				role="form">
-				<input type="hidden" value="${emp.empno}" name="empno" id="empno">
+			<h2>編輯: ${emp.ename}</h2>
+			<form class="form-horizontal" action="<%=request.getContextPath()%>/employee/editEmp" method="post">
+				<input type="hidden" value="${emp.empno}" name="empno">
 				<div class="form-group">
-					<label for="title">Ename</label>
+					<label>員工姓名</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-cog"></span></span> <input type="text"
-							value="${emp.ename}" class="form-control" name="ename" id="ename"
-							placeholder="Enter Ename" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-cog"></span></span>
+						<input type="text" class="form-control" name="ename" value="${emp.ename}" placeholder="Enter Ename" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Job</label>
+					<label>職稱</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="job" value="${emp.job}"
-							placeholder="Enter Job" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="job" value="${emp.job}" placeholder="Enter Job" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Hiredate</label>
+					<label>雇用日期</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="hiredate" value="${emp.hiredate}"
-							placeholder="Enter Hiredate" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="hiredate" value="${emp.hiredate}" placeholder="Enter Hiredate" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Sal</label>
+					<label>薪水</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="sal" value="${emp.sal}"
-							placeholder="Enter Sal">
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="sal" value="${emp.sal}" placeholder="Enter Sal">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Comm</label>
+					<label>業務獎金</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="comm" value="${emp.comm}"
-							placeholder="Enter Comm" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" class="form-control" name="comm" value="${emp.comm}" placeholder="Enter Comm" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="desc">Deptno</label>
+					<label>部門</label>
 					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-pencil"></span></span> <input type="text"
-							class="form-control" name="deptno" value="${emp.deptVO.deptno}"
-							placeholder="Enter Deptno" required>
+						<span class="input-group-addon"> <span class="glyphicon glyphicon-pencil"></span></span>
+							<select class="form-control" id="deptno_selected" name="deptno">
+							    <c:forEach var="dept" items="${depts}">
+							        <option value="${dept.deptno}">${dept.dname}</option>
+                                     <%-- ${(dept.deptno == emp.deptVO.deptno) ? 'selected' : ''} --%>
+						        </c:forEach>
+						    </select>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Update</button>
+				<button type="submit" class="btn btn-primary">更新</button>
 			</form>
 
 		</div>

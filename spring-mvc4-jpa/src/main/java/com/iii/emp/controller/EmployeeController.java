@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iii.dept.domain.DeptVO;
+import com.iii.dept.service.DeptService;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 
@@ -27,6 +28,8 @@ public class EmployeeController {
 
 	@Resource(name = "empService")
 	private EmpService empService;
+	@Resource(name = "deptService")
+	private DeptService deptService;
 	
 	@GetMapping("/emps")
 	public ModelAndView getEmps() {
@@ -39,6 +42,7 @@ public class EmployeeController {
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("emp/editEmp");
 		model.addObject("emp", empService.getEmp(Integer.valueOf(empno)));
+		model.addObject("depts", deptService.getDepts());
 		return model;
 	}
 
