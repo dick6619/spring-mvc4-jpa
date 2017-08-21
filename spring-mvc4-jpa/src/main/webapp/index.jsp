@@ -7,7 +7,7 @@
 <body>
 	<h1>Hello World! III Employee</h1>
 	<ol>
-	    <li><a href="<%=contextPath%>/encoding.jsp">encodig note</a></li>
+   <%-- <li><a href="<%=contextPath%>/encoding.jsp">encodig note</a></li> --%>
 		<li><a href="<%=contextPath%>/employee/emps">Spring MVC - JPA(Hibernate) CRUD</a></li>
 		<li><a href="<%=contextPath%>/ajax.jsp">AJAX call WS</a></li>
 		<li><a href="<%=contextPath%>/restWS/getEmps1">RESTFULWS-JSON use Gson</a></li>
