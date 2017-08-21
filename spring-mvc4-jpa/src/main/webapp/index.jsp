@@ -7,12 +7,13 @@
 <body>
 	<h1>Hello World! III Employee</h1>
 	<ol>
-   <%-- <li><a href="<%=contextPath%>/encoding.jsp">encodig note</a></li> --%>
 		<li><a href="<%=contextPath%>/employee/emps">Spring MVC - JPA(Hibernate) CRUD</a></li>
-		<li><a href="<%=contextPath%>/ajax.jsp">AJAX call WS</a></li>
-		<li><a href="<%=contextPath%>/restWS/getEmps1">RESTFULWS-JSON use Gson</a></li>
-		<li><a href="<%=contextPath%>/restWS/getEmps2">RESTFULWS-JSON use Jackson</a></li>
+		<li><a href="<%=contextPath%>/ajaxView.jsp">AJAX call RestfulWS</a></li>
+		<li><a href="<%=contextPath%>/restWS/getEmps1">RestfulWS use Gson tool convert json</a></li>
+		<li><a href="<%=contextPath%>/restWS/getEmps2">RestfulWS use default Jackson converter since Spring3.2</a></li>
 		<li><a href="<%=contextPath%>/soap">soap-XML use Apache CXF</a></li>
+		<li><a href="<%=contextPath%>/encodingView.jsp">Encodig view</a></li>
+		<li><a href="<%=contextPath%>/includeVies.jsp">JSP include view</a></li>
 	</ol>
 </body>
 </html>
