@@ -21,8 +21,7 @@ public class EmpDAOImpl implements EmpDAO {
 	 * 
 	 * 1. new : new出的VO, 尚未與資料庫有任何關係
 	 * 
-	 * 2. managed : 使用persist(新增), merge(更新), find(查詢), 會讓 Entity從detached 變為此狀態,
-	 * 此時Entity任一屬性有更動則會一起更動
+	 * 2. managed : 使用persist(新增), merge(更新), find(查詢), 會讓 Entity從detached 變為此狀態
 	 * 
 	 * 3. detached : 使用clear() 可進入此狀態, 已經對應至資料庫, 但為分離狀態, 此時Entity任一屬性不會影響
 	 * 
