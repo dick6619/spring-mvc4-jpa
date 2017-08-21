@@ -3,6 +3,7 @@ package com.iii.emp.controller;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,10 +32,9 @@ public class EmployeeController {
 	private DeptService deptService;
 	
 	@GetMapping("/emps")
-	public ModelAndView getEmps() {
-		ModelAndView model = new ModelAndView("emp/emps");
-		model.addObject("emps", empService.getEmps());
-		return model;
+	public String getEmps(Model model) {
+		model.addAttribute("emps", empService.getEmps());
+		return "emp/emps";
 	}
 
 	@GetMapping("/editEmpView/{empno}")
