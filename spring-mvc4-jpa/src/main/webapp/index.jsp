@@ -5,7 +5,7 @@
 %>
 <html>
 <body>
-	<h1>呵呵呵! III Employee</h1>
+	<h1>Hello World! III Employee</h1>
 	<ol>
 		<li><a href="<%=contextPath%>/employee/emps">Spring MVC - JPA(Hibernate) CRUD</a></li>
 		<li><a href="<%=contextPath%>/ajaxView.jsp">AJAX call RestfulWS</a></li>
