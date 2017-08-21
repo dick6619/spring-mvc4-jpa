@@ -20,7 +20,6 @@ import com.iii.emp.service.EmpService;
  * 1. project root + /employee : call this controller
  * 2. project root + /employee + /... : do URI mapping，call method
  * 3. and this controller access views
- * 4. restful : Get= Read; Post= Create; Put= Update; Delete= delete; but...
  */
 @Controller
 @RequestMapping("/employee")

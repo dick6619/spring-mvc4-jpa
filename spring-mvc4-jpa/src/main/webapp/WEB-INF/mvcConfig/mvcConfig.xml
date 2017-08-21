@@ -10,20 +10,19 @@
 
 	<context:component-scan base-package="com.iii.emp.controller" />
 
-	<!-- Enable @Controller Annotation support -->
+	<!-- Enable @Controller -->
 	<mvc:annotation-driven>
 		<!-- change @ResponseBody converter default configuration -->
 		<!-- register-defaults="true" register own converter -->
-		<mvc:message-converters>
-			<!-- 1. HttpMessageConverter: Encoding default ISO-8859-1 for String-->
+		<mvc:message-converters register-defaults="true">
+			<!-- 1. HttpMessageConverter: encoding default ISO-8859-1 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
 			</bean>
-			<!-- 2. JacksonConverter: since spring 3.2, default charset=UTF-8;application/json for Bean -->
-			<!-- 以下設定都是預設所以不用寫，只是展示．spring載入時converter就會被一併載入 -->
-			<!-- List<MediaType> supportedMediaTypes, 調用set方法並用MimeTypeUtils.parseMimeType(String mimeType)切字串(;為分界符號) -->
-			<bean
-				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+			<!-- 2. JacksonConverter: since spring 3.2 -->
+			<!-- List<MediaType> supportedMediaTypes; MimeTypeUtils.parseMimeType(String mimeType) split -->
+			<!-- 以下設定是預設不用寫，只是展示 -->
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="supportedMediaTypes" value="application/json;charset=UTF-8"/>
 			</bean>
 		</mvc:message-converters>
