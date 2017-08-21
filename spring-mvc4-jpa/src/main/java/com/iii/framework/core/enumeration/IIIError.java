@@ -1,4 +1,4 @@
-package com.iii.framework.enumeration;
+package com.iii.framework.core.enumeration;
 
 public interface IIIError {
 	// error code

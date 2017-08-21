@@ -8,8 +8,8 @@ import java.util.Map;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import com.iii.framework.utils.BeanUtil;
-import com.iii.framework.validation.DateDiff;
+import com.iii.framework.core.tools.utils.BeanUtil;
+import com.iii.framework.core.validation.DateDiff;
 
 @DateDiff(start = "strartDate", end = "endDate", diff = "<1Y")
 public class HelloBean {

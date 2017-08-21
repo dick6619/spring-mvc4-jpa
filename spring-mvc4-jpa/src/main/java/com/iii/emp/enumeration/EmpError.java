@@ -1,7 +1,7 @@
 package com.iii.emp.enumeration;
 
-import com.iii.framework.enumeration.IIIError;
-import com.iii.framework.enumeration.IIISystem;
+import com.iii.framework.core.enumeration.IIIError;
+import com.iii.framework.core.enumeration.IIISystem;
 /**
  * 自定義錯誤代碼，系統別，錯誤訊息
  * */

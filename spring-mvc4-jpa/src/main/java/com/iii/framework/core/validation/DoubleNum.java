@@ -1,4 +1,4 @@
-package com.iii.framework.validation;
+package com.iii.framework.core.validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.iii.framework.validation.validator.DoubleNumValidator;
+import com.iii.framework.core.validation.validator.DoubleNumValidator;
 
 @Documented
 @Constraint(validatedBy = DoubleNumValidator.class)

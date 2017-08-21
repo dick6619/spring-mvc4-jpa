@@ -1,4 +1,4 @@
-package com.iii.framework.validation;
+package com.iii.framework.core.validation;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.TYPE;
@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.iii.framework.validation.validator.DateDiffValidator;
+import com.iii.framework.core.validation.validator.DateDiffValidator;
 
 @Documented
 @Retention(RUNTIME)

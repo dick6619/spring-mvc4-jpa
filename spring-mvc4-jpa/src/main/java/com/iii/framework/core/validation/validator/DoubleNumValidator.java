@@ -1,9 +1,9 @@
-package com.iii.framework.validation.validator;
+package com.iii.framework.core.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.iii.framework.validation.DoubleNum;
+import com.iii.framework.core.validation.DoubleNum;
 
 //Double為要驗證欄位的型態
 public class DoubleNumValidator implements ConstraintValidator<DoubleNum, Double> {

@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.enumeration.EmpError;
 import com.iii.emp.service.EmpService;
-import com.iii.framework.exception.ServiceException;
+import com.iii.framework.core.exception.ServiceException;
 
 @Controller
 @RequestMapping("/restWS")

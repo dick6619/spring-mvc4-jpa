@@ -40,8 +40,9 @@
 				// 					alert(data[i].ename);
 				// 				});
 			},
-			error : function() {
+			error : function(data) {
 				alert('error!!!');
+// 				$('#error').append(data.responseText);
 			}
 		});
 	}

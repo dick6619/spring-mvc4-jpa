@@ -36,7 +36,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-<!-- 	<mvc:view-controller path="/home" view-name="home" /> -->
+<!--<mvc:view-controller path="/home" view-name="home" /> -->
 	<mvc:view-controller path="/addView" view-name="emp/addEmp" />
 
 	<!-- 靜態資源目錄resources，存放如 CSS/JavaScript...等 -->

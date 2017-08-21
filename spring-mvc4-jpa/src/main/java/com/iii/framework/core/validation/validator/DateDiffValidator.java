@@ -1,4 +1,4 @@
-package com.iii.framework.validation.validator;
+package com.iii.framework.core.validation.validator;
 
 import java.util.Date;
 
@@ -9,8 +9,8 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
-import com.iii.framework.utils.M3DateUtil;
-import com.iii.framework.validation.DateDiff;
+import com.iii.framework.core.tools.utils.M3DateUtil;
+import com.iii.framework.core.validation.DateDiff;
 
 public class DateDiffValidator implements ConstraintValidator<DateDiff, Object> {
 

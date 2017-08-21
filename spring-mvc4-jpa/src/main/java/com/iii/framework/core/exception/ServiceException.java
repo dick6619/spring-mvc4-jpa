@@ -1,6 +1,6 @@
-package com.iii.framework.exception;
+package com.iii.framework.core.exception;
 
-import com.iii.framework.enumeration.IIIError;
+import com.iii.framework.core.enumeration.IIIError;
 
 public class ServiceException extends IIIException {
 
