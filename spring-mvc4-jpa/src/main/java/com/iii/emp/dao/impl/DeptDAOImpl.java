@@ -1,4 +1,4 @@
-package com.iii.dept.dao.impl;
+package com.iii.emp.dao.impl;
 
 import java.util.List;
 import java.util.Set;
@@ -9,8 +9,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iii.dept.dao.DeptDAO;
-import com.iii.dept.domain.DeptVO;
+import com.iii.emp.dao.DeptDAO;
+import com.iii.emp.domain.DeptVO;
 import com.iii.emp.domain.EmpVO;
 
 @Repository("deptDAO")

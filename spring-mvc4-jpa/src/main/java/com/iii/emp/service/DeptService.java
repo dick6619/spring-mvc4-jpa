@@ -1,8 +1,8 @@
-package com.iii.dept.service;
+package com.iii.emp.service;
 
 import java.util.List;
 
-import com.iii.dept.domain.DeptVO;
+import com.iii.emp.domain.DeptVO;
 
 public interface DeptService {
 	

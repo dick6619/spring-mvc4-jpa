@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iii.dept.domain.DeptVO;
-import com.iii.dept.service.DeptService;
+import com.iii.emp.domain.DeptVO;
 import com.iii.emp.domain.EmpVO;
+import com.iii.emp.service.DeptService;
 import com.iii.emp.service.EmpService;
 
 /**
