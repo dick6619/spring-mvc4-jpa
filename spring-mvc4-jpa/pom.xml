@@ -6,7 +6,6 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-mvc4-jpa</name>
-	<url>http://maven.apache.org</url>
 	<properties>
 		<jstl.version>1.2</jstl.version>
 		<spring.version>4.3.10.RELEASE</spring.version>
@@ -162,7 +161,12 @@
 		<!-- <artifactId>spring-batch-core</artifactId> -->
 		<!-- <version>3.0.8.RELEASE</version> -->
 		<!-- </dependency> -->
-
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>spring-mvc4-jpa</finalName>
