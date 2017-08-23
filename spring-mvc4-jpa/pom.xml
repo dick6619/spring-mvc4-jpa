@@ -161,6 +161,7 @@
 		<!-- <artifactId>spring-batch-core</artifactId> -->
 		<!-- <version>3.0.8.RELEASE</version> -->
 		<!-- </dependency> -->
+		
 		<!-- log4j -->
 		<!-- <dependency> -->
 		<!-- <groupId>log4j</groupId> -->
@@ -169,16 +170,16 @@
 		<!-- </dependency> -->
 
 		<!-- slf4j-api -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-api</artifactId> -->
-<!-- 			<version>1.7.25</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-api</artifactId> -->
-<!-- 			<version>1.7.25</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-api</artifactId> -->
+		<!-- <version>1.7.25</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-api</artifactId> -->
+		<!-- <version>1.7.25</version> -->
+		<!-- </dependency> -->
 	</dependencies>
 	<build>
 		<finalName>spring-mvc4-jpa</finalName>
