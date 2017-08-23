@@ -143,30 +143,42 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<!-- joda-time -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.9.9</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<!-- commons-beanutils -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.3</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.batch/spring-batch-core -->
+		<!-- spring-batch-core -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.batch</groupId> -->
 		<!-- <artifactId>spring-batch-core</artifactId> -->
 		<!-- <version>3.0.8.RELEASE</version> -->
 		<!-- </dependency> -->
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
+		<!-- log4j -->
+		<!-- <dependency> -->
+		<!-- <groupId>log4j</groupId> -->
+		<!-- <artifactId>log4j</artifactId> -->
+		<!-- <version>1.2.17</version> -->
+		<!-- </dependency> -->
+
+		<!-- slf4j-api -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.slf4j</groupId> -->
+<!-- 			<artifactId>slf4j-api</artifactId> -->
+<!-- 			<version>1.7.25</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.slf4j</groupId> -->
+<!-- 			<artifactId>slf4j-api</artifactId> -->
+<!-- 			<version>1.7.25</version> -->
+<!-- 		</dependency> -->
 	</dependencies>
 	<build>
 		<finalName>spring-mvc4-jpa</finalName>
