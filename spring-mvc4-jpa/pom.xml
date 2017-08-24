@@ -30,9 +30,8 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		<!-- 使用mvn package 打包會噴出package javax.servlet does not exist，
-		故加入，scope為provided： runtime 由container 提供這些lib(貓的lib內已經有), 
-		加這段只用在maven build 建構及編譯的時期．-->
+		<!-- 使用mvn package 打包會噴出package javax.servlet does not exist， 故加入，scope為provided： 
+			runtime 由container 提供這些lib(貓的lib內已經有), 加這段只用在maven build 建構及編譯的時期． -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
