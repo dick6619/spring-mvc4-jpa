@@ -12,7 +12,7 @@ public class ScheduledTestImpl implements ScheduledTest {
 
 	// private static final Logger LOG =
 	// LoggerFactory.getLogger(ScheduledTestImpl.class);
-	private int i;
+	// private int i;
 
 	public ScheduledTestImpl() {
 		// LOG.info("ScheduledTestImpl...START");
@@ -22,7 +22,8 @@ public class ScheduledTestImpl implements ScheduledTest {
 	// seconds
 	@Scheduled(initialDelay = 1000, fixedDelay = 10000)
 	public void print() {
-		System.out.println(++i + "******************************************************");
+		// System.out.println(++i +
+		// "******************************************************");
 	}
 
 }

@@ -10,7 +10,7 @@ import com.iii.emp.service.EmpService;
 import com.iii.emp.ws.EmployeeSOAP;
 
 @Service
-@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP")
+@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP"/*, serviceName = "", targetNamespace = "http://...."*/)
 public class EmployeeSOAPImpl implements EmployeeSOAP {
 
 	@Resource(name = "empService")
