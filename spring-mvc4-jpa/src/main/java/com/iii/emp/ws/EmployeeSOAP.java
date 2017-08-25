@@ -10,4 +10,6 @@ import com.iii.emp.domain.EmpVO;
 public interface EmployeeSOAP {
 	@WebMethod
 	EmpVO getEmp(Integer empno);
+	@WebMethod
+	EmpVO getEmp1(Integer empno);
 }

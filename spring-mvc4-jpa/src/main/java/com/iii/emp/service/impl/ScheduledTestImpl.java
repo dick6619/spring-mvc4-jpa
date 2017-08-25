@@ -10,20 +10,15 @@ import com.iii.emp.service.ScheduledTest;
 @Service
 public class ScheduledTestImpl implements ScheduledTest {
 
-	// private static final Logger LOG =
-	// LoggerFactory.getLogger(ScheduledTestImpl.class);
-	// private int i;
+	// private static final Logger LOG = LoggerFactory.getLogger(ScheduledTestImpl.class);
 
 	public ScheduledTestImpl() {
-		// LOG.info("ScheduledTestImpl...START");
 	}
 
-	// when instance create, delay 1 seconds, this method execute once every 10
-	// seconds
+	// when instance create, delay 1 seconds, this method execute once every 10 seconds
 	@Scheduled(initialDelay = 1000, fixedDelay = 10000)
 	public void print() {
-		// System.out.println(++i +
-		// "******************************************************");
+		 System.out.println("******************************************************");
 	}
 
 }
