@@ -1,11 +1,19 @@
 package com.iii.emp.ws.domain;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class EmpInput {
 	
-	public EmpInput() {
+	public EmpInput() {}
+	
+	private Integer empno;
+	
+	public Integer getEmpno() {
+		return empno;
 	}
+
+	public void setEmpno(Integer empno) {
+		this.empno = empno;
+	}
+	
+	
 
 }

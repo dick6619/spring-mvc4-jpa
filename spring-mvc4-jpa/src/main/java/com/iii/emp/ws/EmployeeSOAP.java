@@ -4,12 +4,11 @@ package com.iii.emp.ws;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import com.iii.emp.domain.EmpVO;
+import com.iii.emp.ws.domain.EmpInput;
+import com.iii.emp.ws.domain.EmpOutput;
 
 @WebService
 public interface EmployeeSOAP {
 	@WebMethod
-	EmpVO getEmp(Integer empno);
-	@WebMethod
-	EmpVO getEmp1(Integer empno);
+	EmpOutput getEmp(EmpInput input);
 }
