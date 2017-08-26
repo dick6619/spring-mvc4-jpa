@@ -1,7 +1,5 @@
 package com.iii.emp.ws.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import javax.annotation.Resource;
 import javax.jws.WebService;
 
