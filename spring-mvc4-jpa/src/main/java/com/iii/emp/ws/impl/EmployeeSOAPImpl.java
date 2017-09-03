@@ -20,11 +20,6 @@ public class EmployeeSOAPImpl implements EmployeeSOAP {
 	@Resource(name = "empService")
 	EmpService empService;
 
-	/**
-	 * 1. 錯誤應該在empService內噴出ServiceException, 在由介接程式將ServiceException轉為錯誤代碼。傳於外機關。
-	 * 2. empService內的錯誤訊息供內部人員除錯。程式須更改。這邊程式碼會在短
-	 * 3. 應該設計為emp為一個module, ws為一個module
-	 * */
 	@Override
 	public EmpOutput getEmp(EmpInput input) {
 		//
