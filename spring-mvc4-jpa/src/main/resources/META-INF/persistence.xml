@@ -3,5 +3,6 @@
 	<persistence-unit name="spring-jpa-unit">
 		<class>com.iii.emp.domain.EmpVO</class>
 		<class>com.iii.emp.domain.DeptVO</class>
+		<class>com.iii.emp.domain.Book</class>
 	</persistence-unit>
 </persistence>
