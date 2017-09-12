@@ -19,7 +19,7 @@ public class TransationAServiceImpl implements TransationAService {
 	@Resource
 	TransationADAO transationADAO;
 	
-	// 測試交易管理
+	// 測試交易管理 aop proxy
 	@Resource
 	TransationBService bService;
 
@@ -28,16 +28,16 @@ public class TransationAServiceImpl implements TransationAService {
 		return transationADAO.readAllA();
 	}
 
-	// 測試交易管理
+	// 測試交易管理, outer method
 	@Override
-	@Transactional(noRollbackFor = RuntimeException.class)
+	@Transactional
 	public void deleteA(Book book) {
+		// outer method delete book ?
 		transationADAO.deleteA(book);
-		
-		// 呼叫b service
+		// inner method delete book 17
 		book.setBookNo(17);
 		bService.deleteB(book);
-
+//		throw new RuntimeException("outer method throw RuntimeException after bService delete book");
 	}
 
 	@Override

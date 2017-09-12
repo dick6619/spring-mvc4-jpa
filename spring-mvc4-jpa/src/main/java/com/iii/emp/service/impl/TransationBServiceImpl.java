@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.TransationBDAO;
@@ -23,12 +24,12 @@ public class TransationBServiceImpl implements TransationBService {
 		return transationBDAO.readAllB();
 	}
 
-	// 測試交易管理，noRollbackFor
+	// 測試交易管理， inner method
 	@Override
-	@Transactional
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void deleteB(Book book) {
 		transationBDAO.deleteB(book);
-		throw new RuntimeException("error*****************");
+		throw new RuntimeException("inner method throw RuntimeException after bDAO delete book");
 	}
 
 	@Override
