@@ -74,12 +74,12 @@ public class EmpVO {
 		this.deptVO = deptVO;
 	}
 	
-	@Override
-	public String toString() {
-		if (deptVO == null)
-			System.out.println("null");
-		return "[empno:" + empno + ", ename:" + ename + ", job:" + job + ", hiredate:" + hiredate + ", sal:" + sal
-				+ ", comm:" + comm + ", deptno:" + deptVO.getDeptno();
-	}
+//	@Override
+//	public String toString() {
+//		if (deptVO == null)
+//			System.out.println("null");
+//		return "[empno:" + empno + ", ename:" + ename + ", job:" + job + ", hiredate:" + hiredate + ", sal:" + sal
+//				+ ", comm:" + comm + ", deptno:" + deptVO.getDeptno();
+//	}
 
 }

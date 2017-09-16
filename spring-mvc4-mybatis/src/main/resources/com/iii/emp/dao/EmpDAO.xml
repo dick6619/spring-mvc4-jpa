@@ -14,6 +14,18 @@
 		comm,
 		deptno
 	</sql>
+	
+	<sql id="allColumnsWithDept">
+		e.empno,
+		e.ename,
+		e.job,
+		e.hiredate,
+		e.sal,
+		e.comm,
+		d.deptno,
+		d.dname,
+		d.loc
+	</sql>
 
 	<resultMap type="com.iii.emp.domain.EmpVO" id="emps">
 		<id property="empno" column="empno" />
@@ -30,7 +42,13 @@
 	</resultMap>
 
 
-	<select id="getEmps" resultMap="emps">
+<!-- 	<select id="getEmps" resultMap="emps"> -->
+<!-- 		SELECT -->
+<!-- 		<include refid="allColumns" /> -->
+<!-- 		FROM EMP2 -->
+<!-- 	</select> -->
+	
+	<select id="getEmps" resultType="com.iii.emp.domain.EmpVO">
 		SELECT
 		<include refid="allColumns" />
 		FROM EMP2
@@ -41,7 +59,7 @@
 		FROM EMP2
 		WHERE empno = #{empno}
 	</select>
-
+	
 	<update id="update" parameterType="com.iii.emp.domain.EmpVO">
 		UPDATE EMP2
 		<set>
