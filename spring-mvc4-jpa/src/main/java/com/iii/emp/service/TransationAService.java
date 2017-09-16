@@ -7,7 +7,5 @@ import com.iii.emp.domain.Book;
 public interface TransationAService {
 	void deleteA(Book book);
 	
-	void updateA(Book book);
-	
 	List<Book> getAllA();
 }

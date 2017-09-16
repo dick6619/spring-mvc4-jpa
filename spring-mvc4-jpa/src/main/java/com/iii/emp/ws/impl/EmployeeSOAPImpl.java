@@ -30,7 +30,9 @@ public class EmployeeSOAPImpl implements EmployeeSOAP {
 		}
 		try {
 			//
-			EmpVO empVO = empService.getEmp(input.getEmpno());
+			EmpVO eParam = new EmpVO();
+			eParam.setEmpno(input.getEmpno());
+			EmpVO empVO = empService.getEmp(eParam);
 			//
 			if (empVO == null) {
 				empOutput.setStatus(EmpError.EMPTY_DATA.getCode());

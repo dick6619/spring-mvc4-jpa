@@ -32,9 +32,4 @@ public class TransationBServiceImpl implements TransationBService {
 		throw new RuntimeException("inner method throw RuntimeException after bDAO delete book");
 	}
 
-	@Override
-	public void updateB(Book book) {
-		transationBDAO.updateB(book);
-	}
-
 }

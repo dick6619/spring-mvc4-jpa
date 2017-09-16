@@ -25,8 +25,8 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public EmpVO getEmp(Integer empno) {
-		return empDAO.getEmp(empno);
+	public EmpVO getEmp(EmpVO empVO) {
+		return empDAO.getEmp(empVO);
 	}
 
 	@Override
@@ -40,13 +40,13 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public void delete(Integer empno) {
-		empDAO.delete(empno);
+	public void delete(EmpVO empVO) {
+		empDAO.delete(empVO);
 	}
 
 	@Override
-	public List<EmpVO> getEmpBySqlLike(String ename) {
-		return empDAO.getEmpBySqlLike(ename);
+	public List<EmpVO> getEmpBySqlLike(EmpVO empVO) {
+		return empDAO.getEmpBySqlLike(empVO);
 	}
 
 }

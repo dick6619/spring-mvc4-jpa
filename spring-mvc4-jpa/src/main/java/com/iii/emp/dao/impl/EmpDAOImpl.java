@@ -40,8 +40,8 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Transactional(readOnly = true)
 	@Override
-	public EmpVO getEmp(Integer empno) {
-		return entityManager.find(EmpVO.class, empno);
+	public EmpVO getEmp(EmpVO ePraram) {
+		return entityManager.find(EmpVO.class, ePraram.getEmpno());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -62,17 +62,17 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Transactional
 	@Override
-	public void delete(Integer empno) {
+	public void delete(EmpVO ePraram) {
 		// if you want delete this employee, entity lifeCycle must be managed
-		EmpVO empVO = entityManager.find(EmpVO.class, empno);
+		EmpVO empVO = entityManager.find(EmpVO.class, ePraram.getEmpno());
 		entityManager.remove(empVO);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	@Override
-	public List<EmpVO> getEmpBySqlLike(String ename) {
-		final String sql = "select * from emp2 where ename like '%" + ename + "%'";
+	public List<EmpVO> getEmpBySqlLike(EmpVO ePraram) {
+		final String sql = "select * from emp2 where ename like '%" + ePraram.getEname() + "%'";
 		// second param need to add, guess the program can't understand who in List
 		Query query = entityManager.createNativeQuery(sql, EmpVO.class);
 		return query.getResultList();

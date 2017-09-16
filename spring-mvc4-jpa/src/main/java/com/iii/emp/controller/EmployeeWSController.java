@@ -37,13 +37,17 @@ public class EmployeeWSController {
 
 	@GetMapping(value = "/getEmp/{empno}")
 	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
-		return empService.getEmp(Integer.valueOf(empno));
+		EmpVO eParam = new EmpVO();
+		eParam.setEmpno(Integer.valueOf(empno));
+		return empService.getEmp(eParam);
 
 	}
 
 	@GetMapping(value = "/getEmpLike/{ename}")
 	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
-		return empService.getEmpBySqlLike(ename);
+		EmpVO eParam = new EmpVO();
+		eParam.setEname(ename);
+		return empService.getEmpBySqlLike(eParam);
 	}
 
 }

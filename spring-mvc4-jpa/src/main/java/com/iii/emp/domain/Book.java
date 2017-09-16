@@ -15,7 +15,7 @@ public class Book {
 	}
 	
 	@Id
-	@Column(name = "book_no")
+	@Column(name = "book_no") // 屬性成員與table欄位名稱一樣時則不需要@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer bookNo;
 	

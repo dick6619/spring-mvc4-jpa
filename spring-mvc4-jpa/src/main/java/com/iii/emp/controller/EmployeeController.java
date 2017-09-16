@@ -2,6 +2,8 @@ package com.iii.emp.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +30,8 @@ public class EmployeeController {
 
 	@Resource(name = "empService")
 	private EmpService empService;
-	@Resource(name = "deptService")
+	@Autowired
+	@Qualifier("deptService")
 	private DeptService deptService;
 	
 	@GetMapping("/emps")
@@ -40,7 +43,9 @@ public class EmployeeController {
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("emp/editEmp");
-		model.addObject("emp", empService.getEmp(Integer.valueOf(empno)));
+		EmpVO eParam = new EmpVO();
+		eParam.setEmpno(Integer.valueOf(empno));
+		model.addObject("emp", empService.getEmp(eParam));
 		model.addObject("depts", deptService.getDepts());
 		return model;
 	}
@@ -65,7 +70,9 @@ public class EmployeeController {
 
 	@PostMapping("/deleteEmp")
 	public ModelAndView deleteEmp(@RequestParam(name = "empno") String empno) {
-		empService.delete(Integer.valueOf(empno));
+		EmpVO eParam = new EmpVO();
+		eParam.setEmpno(Integer.valueOf(empno));
+		empService.delete(eParam);
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;

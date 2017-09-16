@@ -20,7 +20,7 @@ public interface EmpService {
 	 * @param Integer
 	 * @return EmpVO
 	 */
-	EmpVO getEmp(Integer empno);
+	EmpVO getEmp(EmpVO empVO);
 
 	/**
 	 * Read all employee
@@ -42,7 +42,7 @@ public interface EmpService {
 	 * 
 	 * @param empno
 	 */
-	void delete(Integer empno);
+	void delete(EmpVO empVO);
 
 	/**
 	 * Reed employees by like SQL
@@ -50,6 +50,6 @@ public interface EmpService {
 	 * @param Integer
 	 * @return EmpVO
 	 */
-	List<EmpVO> getEmpBySqlLike(String ename);
+	List<EmpVO> getEmpBySqlLike(EmpVO empVO);
 
 }

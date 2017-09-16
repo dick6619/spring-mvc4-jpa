@@ -43,4 +43,9 @@ public class DeptVO {
 		this.loc = loc;
 	}
 
+	@Override
+	public String toString() {
+		return "[deptno:" + deptno + ", dname:" + dname + ", loc:" + loc;
+	}
+
 }

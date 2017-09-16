@@ -40,10 +40,4 @@ public class TransationAServiceImpl implements TransationAService {
 //		throw new RuntimeException("outer method throw RuntimeException after bService delete book");
 	}
 
-	@Override
-	public void updateA(Book book) {
-		transationADAO.updateA(book);
-
-	}
-
 }
