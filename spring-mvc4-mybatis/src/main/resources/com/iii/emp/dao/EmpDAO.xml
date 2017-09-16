@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iii.emp.dao.EmpDAO">
+
+	<sql id="allColumns">
+		empno,
+		ename,
+		job,
+		hiredate,
+		sal,
+		comm,
+		deptno
+	</sql>
+
+	<resultMap type="com.iii.emp.domain.EmpVO" id="emps">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<association property="deptVO" javaType="com.iii.emp.domain.DeptVO">
+			<id property="deptno" column="deptno" />
+			<result property="dname" column="dname" />
+			<result property="loc" column="loc" />
+		</association>
+	</resultMap>
+
+
+	<select id="getEmps" resultMap="emps">
+		SELECT
+		<include refid="allColumns" />
+		FROM EMP2
+	</select>
+	
+	<select id="getEmp" parameterType="com.iii.emp.domain.EmpVO" resultType="com.iii.emp.domain.EmpVO">
+		SELECT *
+		FROM EMP2
+		WHERE empno = #{empno}
+	</select>
+
+	<update id="update" parameterType="com.iii.emp.domain.EmpVO">
+		UPDATE EMP2
+		<set>
+			<if test="ename != null">
+				ename = #{ename},
+			</if>
+			<if test="job != null">
+				job = #{job},
+			</if>
+			<if test="hiredate != null">
+				hiredate = #{hiredate},
+			</if>
+			<if test="sal != null">
+				sal = #{sal},
+			</if>
+			<if test="comm != null">
+				comm = #{comm},
+			</if>
+			<if test="deptVO != null and deptVO.deptno !=null ">
+				deptno = #{deptVO.deptno}
+			</if>
+		</set>
+		WHERE empno = #{empno}
+	</update>
+
+
+	<delete id="delete" parameterType="com.iii.emp.domain.EmpVO">
+		DELETE FROM EMP2
+		WHERE
+		empno =
+		#{empno}
+	</delete>
+
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="empno" parameterType="com.iii.emp.domain.EmpVO">
+		INSERT INTO EMP2 (
+		ename, job, hiredate, sal, comm,
+		deptno
+		) values (
+		#{ename},
+		#{job},
+		#{hiredate},
+		#{sal},
+		#{comm},
+		#{deptVO.deptno}
+		)
+	</insert>
+
+	<select id="getEmpBySqlLike" parameterType="com.iii.emp.domain.EmpVO" resultType="com.iii.emp.domain.EmpVO">
+		SELECT
+		*
+		FROM EMP2
+		<if test="ename != null">
+			Where ename like #{ename}
+		</if>
+	</select>
+
+
+</mapper>
