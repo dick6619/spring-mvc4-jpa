@@ -39,8 +39,6 @@ public class EmployeeWSController {
 	public @ResponseBody EmpVO getEmp4(@PathVariable("empno") String empno) {
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
-		EmpVO see = empService.getEmp(eParam);
-		System.out.println(see);
 		return empService.getEmp(eParam);
 
 	}
@@ -49,6 +47,8 @@ public class EmployeeWSController {
 	public @ResponseBody List<EmpVO> getEmp5(@PathVariable("ename") String ename) {
 		EmpVO eParam = new EmpVO();
 		eParam.setEname(ename);
+		List<EmpVO> see = empService.getEmpBySqlLike(eParam);
+		System.out.println(see);
 		return empService.getEmpBySqlLike(eParam);
 	}
 

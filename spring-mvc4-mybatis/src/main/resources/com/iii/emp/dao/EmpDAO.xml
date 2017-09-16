@@ -27,19 +27,19 @@
 		d.loc
 	</sql>
 
-	<resultMap type="com.iii.emp.domain.EmpVO" id="emps">
-		<id property="empno" column="empno" />
-		<result property="ename" column="ename" />
-		<result property="job" column="job" />
-		<result property="hiredate" column="hiredate" />
-		<result property="sal" column="sal" />
-		<result property="comm" column="comm" />
-		<association property="deptVO" javaType="com.iii.emp.domain.DeptVO">
-			<id property="deptno" column="deptno" />
-			<result property="dname" column="dname" />
-			<result property="loc" column="loc" />
-		</association>
-	</resultMap>
+<!-- 	<resultMap type="com.iii.emp.domain.EmpVO" id="emps"> -->
+<!-- 		<id property="empno" column="empno" /> -->
+<!-- 		<result property="ename" column="ename" /> -->
+<!-- 		<result property="job" column="job" /> -->
+<!-- 		<result property="hiredate" column="hiredate" /> -->
+<!-- 		<result property="sal" column="sal" /> -->
+<!-- 		<result property="comm" column="comm" /> -->
+<!-- 		<association property="deptVO" javaType="com.iii.emp.domain.DeptVO"> -->
+<!-- 			<id property="deptno" column="deptno" /> -->
+<!-- 			<result property="dname" column="dname" /> -->
+<!-- 			<result property="loc" column="loc" /> -->
+<!-- 		</association> -->
+<!-- 	</resultMap> -->
 
 
 <!-- 	<select id="getEmps" resultMap="emps"> -->
@@ -78,8 +78,8 @@
 			<if test="comm != null">
 				comm = #{comm},
 			</if>
-			<if test="deptVO != null and deptVO.deptno !=null ">
-				deptno = #{deptVO.deptno}
+			<if test="deptno != null">
+				deptno = #{deptno}
 			</if>
 		</set>
 		WHERE empno = #{empno}
@@ -104,7 +104,7 @@
 		#{hiredate},
 		#{sal},
 		#{comm},
-		#{deptVO.deptno}
+		#{deptno}
 		)
 	</insert>
 

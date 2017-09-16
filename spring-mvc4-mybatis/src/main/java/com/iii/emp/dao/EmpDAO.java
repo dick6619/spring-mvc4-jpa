@@ -9,7 +9,7 @@ public interface EmpDAO {
 	/**
 	 * Create new employee
 	 * 
-	 * @param EmpVO
+	 * @param EmpVO_
 	 * @return EmpVO
 	 */
 	void insert(EmpVO empVO);
@@ -32,7 +32,7 @@ public interface EmpDAO {
 	/**
 	 * Update selected employee
 	 * 
-	 * @param EmpVO
+	 * @param EmpVO_
 	 * @return EmpVO
 	 */
 	EmpVO update(EmpVO empVO);

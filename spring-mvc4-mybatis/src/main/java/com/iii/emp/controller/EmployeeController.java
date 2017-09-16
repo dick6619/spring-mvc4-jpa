@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iii.emp.domain.DeptVO;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.DeptService;
 import com.iii.emp.service.EmpService;
@@ -52,8 +51,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/editEmp")
-	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		empParam.setDeptVO(deptParam);
+	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam) {
 		empService.updateEmp(empParam);
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
@@ -61,8 +59,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/addEmp")
-	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
-		empParam.setDeptVO(deptParam);
+	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam) {
 		empService.addEmp(empParam);
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());

@@ -13,7 +13,7 @@
 <script src="<%=contextPath + "/resources/js/bootstrap.min.js"%>"></script>
 <script>
 	$(document).ready(function() {
-		$("#deptno_selected").val('${emp.deptVO.deptno}');
+		$("#deptno_selected").val('${emp.deptno}');
 	});
 </script>
 </head>

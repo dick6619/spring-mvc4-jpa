@@ -16,7 +16,7 @@ public class EmpVO {
 	private Date hiredate;
 	private Double sal;
 	private Double comm;
-	private DeptVO deptVO;
+	private Integer deptno;
 
 	public Integer getEmpno() {
 		return empno;
@@ -66,20 +66,18 @@ public class EmpVO {
 		this.comm = comm;
 	}
 
-	public DeptVO getDeptVO() {
-		return deptVO;
+	public Integer getDeptno() {
+		return deptno;
 	}
 
-	public void setDeptVO(DeptVO deptVO) {
-		this.deptVO = deptVO;
+	public void setDeptno(Integer deptno) {
+		this.deptno = deptno;
 	}
-	
-//	@Override
-//	public String toString() {
-//		if (deptVO == null)
-//			System.out.println("null");
-//		return "[empno:" + empno + ", ename:" + ename + ", job:" + job + ", hiredate:" + hiredate + ", sal:" + sal
-//				+ ", comm:" + comm + ", deptno:" + deptVO.getDeptno();
-//	}
+
+	@Override
+	public String toString() {
+		return "[empno:" + empno + ", ename:" + ename + ", job:" + job + ", hiredate:" + hiredate + ", sal:" + sal
+				+ ", comm:" + comm + ", deptno:" + deptno;
+	}
 
 }

@@ -9,7 +9,7 @@ public interface EmpService {
 	/**
 	 * Create new employee
 	 * 
-	 * @param EmpVO
+	 * @param EmpVO_
 	 * @return EmpVO
 	 */
 	void addEmp(EmpVO empVO);
@@ -32,7 +32,7 @@ public interface EmpService {
 	/**
 	 * Update selected employee
 	 * 
-	 * @param EmpVO
+	 * @param EmpVO_
 	 * @return EmpVO
 	 */
 	EmpVO updateEmp(EmpVO empVO);
