@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.iii.emp.dao.TransationBDAO;
 import com.iii.emp.domain.Book;
@@ -17,6 +16,7 @@ public class TransationBDAOImpl implements TransationBDAO {
 	@PersistenceContext
 	public EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Book> readAllB() {
 		final String sql = "select * from book";

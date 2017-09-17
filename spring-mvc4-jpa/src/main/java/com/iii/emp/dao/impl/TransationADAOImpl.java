@@ -16,6 +16,7 @@ public class TransationADAOImpl implements TransationADAO {
 	@PersistenceContext
 	public EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Book> readAllA() {
 		final String sql = "select * from book";
