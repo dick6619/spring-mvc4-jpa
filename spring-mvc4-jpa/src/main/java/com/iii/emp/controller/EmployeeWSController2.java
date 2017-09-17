@@ -17,7 +17,7 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/restWS2")
 public class EmployeeWSController2 {
 
-	@Resource(name = "empService")
+	@Resource
 	private EmpService empService;
 
 	@GetMapping("/getEmps")

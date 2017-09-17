@@ -13,7 +13,7 @@ import com.iii.emp.dao.DeptDAO;
 import com.iii.emp.domain.DeptVO;
 import com.iii.emp.domain.EmpVO;
 
-@Repository("deptDAO")
+@Repository
 @Transactional
 public class DeptDAOImpl implements DeptDAO {
 

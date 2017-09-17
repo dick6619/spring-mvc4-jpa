@@ -49,7 +49,7 @@ public interface EmpDAO {
 	 * Reed employees by like SQL
 	 * 
 	 * @param EmpVO
-	 * @return EmpVO
+	 * @return List<EmpVO>
 	 */
 	List<EmpVO> getEmpBySqlLike(EmpVO empVO);
 

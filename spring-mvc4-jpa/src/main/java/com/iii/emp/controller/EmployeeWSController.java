@@ -20,7 +20,7 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/restWS")
 public class EmployeeWSController {
 
-	@Resource(name = "empService")
+	@Resource
 	private EmpService empService;
 
 	@GetMapping(value = "/getEmps1")

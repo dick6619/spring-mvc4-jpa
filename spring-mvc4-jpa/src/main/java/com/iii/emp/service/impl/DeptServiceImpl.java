@@ -11,11 +11,11 @@ import com.iii.emp.dao.DeptDAO;
 import com.iii.emp.domain.DeptVO;
 import com.iii.emp.service.DeptService;
 
-@Service("deptService")
+@Service
 @Transactional
 public class DeptServiceImpl implements DeptService {
 
-	@Resource(name = "deptDAO")
+	@Resource
 	private DeptDAO deptDAO;
 
 	@Override

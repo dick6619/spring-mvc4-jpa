@@ -28,10 +28,10 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-	@Resource(name = "empService")
+	@Resource
 	private EmpService empService;
 	@Autowired
-	@Qualifier("deptService")
+	@Qualifier
 	private DeptService deptService;
 	
 	@GetMapping("/emps")

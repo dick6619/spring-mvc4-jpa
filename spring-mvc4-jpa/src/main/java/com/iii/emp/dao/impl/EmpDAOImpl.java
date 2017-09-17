@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.iii.emp.dao.EmpDAO;
 import com.iii.emp.domain.EmpVO;
 
-@Repository("empDAO")
+@Repository
 @Transactional
 public class EmpDAOImpl implements EmpDAO {
 

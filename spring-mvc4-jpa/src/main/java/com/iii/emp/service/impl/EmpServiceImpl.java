@@ -11,12 +11,12 @@ import com.iii.emp.dao.EmpDAO;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 
-@Service("empService")
+@Service
 @Transactional
 public class EmpServiceImpl implements EmpService {
 
 	@Autowired(required = true)
-	@Qualifier("empDAO")
+	@Qualifier
 	private EmpDAO empDAO;
 
 	@Override

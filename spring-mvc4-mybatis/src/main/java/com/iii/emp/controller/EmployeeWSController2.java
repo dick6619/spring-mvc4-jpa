@@ -29,8 +29,7 @@ public class EmployeeWSController2 {
 	public EmpVO getEmp(@PathVariable("empno") String empno) {
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
-		EmpVO empVO = empService.getEmp(eParam);
-		return empVO;
+		return empService.getEmp(eParam);
 	}
 	
 	@GetMapping(value = "/getEmpLike/{ename}")

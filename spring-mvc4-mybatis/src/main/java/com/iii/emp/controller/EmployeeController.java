@@ -17,11 +17,6 @@ import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.DeptService;
 import com.iii.emp.service.EmpService;
 
-/**
- * 1. project root + /employee : call this controller
- * 2. project root + /employee + /... : do URI mapping，call method
- * 3. and this controller access views
- */
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -30,7 +25,7 @@ public class EmployeeController {
 	private EmpService empService;
 	@Resource
 	private DeptService deptService;
-	
+
 	@GetMapping("/emps")
 	public String getEmps(Model model) {
 		model.addAttribute("emps", empService.getEmps());
@@ -39,11 +34,11 @@ public class EmployeeController {
 
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
-		ModelAndView model = new ModelAndView("emp/editEmp");
-		//
+		// from view
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
-		//
+		// return edit view(getEmp)
+		ModelAndView model = new ModelAndView("emp/editEmp");
 		model.addObject("emp", empService.getEmp(eParam));
 		model.addObject("depts", deptService.getDepts());
 		return model;
@@ -51,6 +46,7 @@ public class EmployeeController {
 
 	@PostMapping("/editEmp")
 	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO dParam) {
+		// from view
 		empParam.setDeptVO(dParam);
 		// update
 		empService.updateEmp(empParam);
@@ -62,6 +58,7 @@ public class EmployeeController {
 
 	@PostMapping("/addEmp")
 	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO dParam) {
+		// from view
 		empParam.setDeptVO(dParam);
 		// add
 		empService.addEmp(empParam);
@@ -73,9 +70,12 @@ public class EmployeeController {
 
 	@PostMapping("/deleteEmp")
 	public ModelAndView deleteEmp(@RequestParam(name = "empno") String empno) {
+		// from view
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
+		// delete
 		empService.delete(eParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
