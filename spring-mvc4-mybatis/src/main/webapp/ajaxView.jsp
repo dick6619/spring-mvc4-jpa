@@ -16,7 +16,7 @@
 	// 	test restful ws use ajax get
 	function iiiEmps() {
 		$.ajax({
-			url : 'restWS/getEmps2',
+			url : 'restWS2/getEmps',
 			type : 'GET',
 			dataType : 'json',
 			cache : false,
@@ -48,7 +48,7 @@
 	}
 	function iiiEmp() {
 		$.get({
-			url : 'restWS/getEmp/' + $('#empno').val(),
+			url : 'restWS2/getEmp/' + $('#empno').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {
@@ -71,7 +71,7 @@
 	}
 	function iiiEmpLike() {
 		$.get({
-			url : 'restWS/getEmpLike/' + $('#ename').val(),
+			url : 'restWS2/getEmpLike/' + $('#ename').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {

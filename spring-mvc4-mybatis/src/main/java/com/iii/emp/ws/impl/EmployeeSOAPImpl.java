@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.jws.WebService;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.iii.emp.domain.EmpVO;
@@ -12,34 +13,38 @@ import com.iii.emp.service.EmpService;
 import com.iii.emp.ws.EmployeeSOAP;
 import com.iii.emp.ws.domain.EmpInput;
 import com.iii.emp.ws.domain.EmpOutput;
+import com.iii.framework.core.exception.ServiceException;
 
 @Service
-@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP") // , serviceName = "empService", targetNamespace = "http://service.soap"
+@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP") // , serviceName = "empService", targetNamespace =
+																// "http://service.soap"
 public class EmployeeSOAPImpl implements EmployeeSOAP {
 
-	@Resource(name = "empService")
+	private static Logger logger = Logger.getLogger(EmployeeSOAPImpl.class);
+
+	@Resource
 	EmpService empService;
 
 	@Override
 	public EmpOutput getEmp(EmpInput input) {
-		//
+		// protocol output object
 		EmpOutput empOutput = new EmpOutput();
-		//
-		if (input.getEmpno() == null) {
-			empOutput.setStatus(EmpError.PARAM_ERROR.getCode());
-		}
 		try {
-			//
+			// protocol input object convert query parameter
 			EmpVO ePraram = new EmpVO();
 			ePraram.setEmpno(input.getEmpno());
-			EmpVO empVO = empService.getEmp(ePraram);
-			//
-			if (empVO == null) {
-				empOutput.setStatus(EmpError.EMPTY_DATA.getCode());
-			}
-			BeanUtils.copyProperties(empOutput, empVO);
+			// query result convert to protocol output object
+			BeanUtils.copyProperties(empOutput, empService.getEmp(ePraram));
+		} catch (ServiceException e) {
+			// return error code
+			empOutput.setStatus(e.getError().getCode());
+			// record exception
+			logger.debug("EmployeeSOAPImpl..." + e);
 		} catch (Exception e) {
+			// undefined error
 			empOutput.setStatus(EmpError.UNDEFINED_ERROR.getCode());
+			// record exception
+			logger.debug("EmployeeSOAPImpl..." + e);
 		}
 		return empOutput;
 	}

@@ -17,7 +17,7 @@ import com.iii.emp.service.EmpService;
 @RequestMapping("/restWS2")
 public class EmployeeWSController2 {
 
-	@Resource(name = "empService")
+	@Resource
 	private EmpService empService;
 
 	@GetMapping("/getEmps")
@@ -31,7 +31,13 @@ public class EmployeeWSController2 {
 		eParam.setEmpno(Integer.valueOf(empno));
 		EmpVO empVO = empService.getEmp(eParam);
 		return empVO;
-
+	}
+	
+	@GetMapping(value = "/getEmpLike/{ename}")
+	public List<EmpVO> getLikeEmp(@PathVariable("ename") String ename) {
+		EmpVO eParam = new EmpVO();
+		eParam.setEname(ename);
+		return empService.getEmpBySqlLike(eParam);
 	}
 
 }

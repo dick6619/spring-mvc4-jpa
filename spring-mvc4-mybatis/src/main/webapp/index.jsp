@@ -9,8 +9,7 @@
 	<ol>
 		<li><a href="<%=contextPath%>/employee/emps">Spring MVC - JPA(Hibernate) CRUD</a></li>
 		<li><a href="<%=contextPath%>/ajaxView.jsp">AJAX call RestfulWS</a></li>
-		<li><a href="<%=contextPath%>/restWS/getEmps1">RestfulWS use Gson tool convert json</a></li>
-		<li><a href="<%=contextPath%>/restWS/getEmps2">RestfulWS use default Jackson converter since Spring3.2</a></li>
+		<li><a href="<%=contextPath%>/restWS2/getEmps">RestfulWS use default Jackson converter since Spring3.2</a></li>
 		<li><a href="<%=contextPath%>/soap">soap-XML use Apache CXF</a></li>
 <%-- 		<li><a href="<%=contextPath%>/encodingView.jsp">Encodig view</a></li> --%>
 		<li><a href="<%=contextPath%>/includeVies.jsp">JSP include view</a></li>

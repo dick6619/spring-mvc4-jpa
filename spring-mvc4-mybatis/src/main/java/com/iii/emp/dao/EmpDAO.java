@@ -9,15 +9,15 @@ public interface EmpDAO {
 	/**
 	 * Create new employee
 	 * 
-	 * @param EmpVO_
-	 * @return EmpVO
+	 * @param EmpVO
+	 * @return int
 	 */
 	int insert(EmpVO empVO);
 
 	/**
 	 * Reed selected employee
 	 * 
-	 * @param Integer
+	 * @param EmpVO
 	 * @return EmpVO
 	 */
 	EmpVO getEmp(EmpVO empVO);
@@ -32,22 +32,23 @@ public interface EmpDAO {
 	/**
 	 * Update selected employee
 	 * 
-	 * @param EmpVO_
-	 * @return EmpVO
+	 * @param EmpVO
+	 * @return int
 	 */
 	int update(EmpVO empVO);
 
 	/**
 	 * Delete selected employee
 	 * 
-	 * @param Integer
+	 * @param EmpVO
+	 * @return int
 	 */
 	int delete(EmpVO empVO);
 
 	/**
 	 * Reed employees by like SQL
 	 * 
-	 * @param Integer
+	 * @param EmpVO
 	 * @return EmpVO
 	 */
 	List<EmpVO> getEmpBySqlLike(EmpVO empVO);

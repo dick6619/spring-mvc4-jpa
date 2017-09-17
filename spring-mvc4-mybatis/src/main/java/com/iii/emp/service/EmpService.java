@@ -17,7 +17,7 @@ public interface EmpService {
 	/**
 	 * Read selected employee
 	 * 
-	 * @param Integer
+	 * @param EmpVO
 	 * @return EmpVO
 	 */
 	EmpVO getEmp(EmpVO empVO);
@@ -48,7 +48,7 @@ public interface EmpService {
 	/**
 	 * Reed employees by like SQL
 	 * 
-	 * @param Integer
+	 * @param EmpVO
 	 * @return EmpVO
 	 */
 	List<EmpVO> getEmpBySqlLike(EmpVO empVO);

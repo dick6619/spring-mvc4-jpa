@@ -7,7 +7,10 @@ import com.iii.framework.core.enumeration.IIISystem;
  * */
 public enum EmpError implements IIIError{
 	PARAM_ERROR("10001", IIISystem.EMP, "參數錯誤"),
-	EMPTY_DATA("10001", IIISystem.EMP, "查無資料"),
+	EMPTY_DATA("10002", IIISystem.EMP, "查無資料"),
+	UPDATE_ERROR("10003", IIISystem.EMP, "更新錯誤"),
+	INSERT_ERROR("10004", IIISystem.EMP, "新增錯誤"),
+	DELETE_ERROR("10005", IIISystem.EMP, "刪除錯誤"),
 	UNDEFINED_ERROR("99999", IIISystem.EMP, "未經定義的錯誤");
 	
 	//
