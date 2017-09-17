@@ -55,9 +55,11 @@ public class EmpDAOImpl implements EmpDAO {
 	@Transactional
 	@Override
 	public EmpVO update(EmpVO empVO) {
-		entityManager.merge(empVO);
-		// this line entity lifeCycle is managed, not yet commit
-		return empVO;
+		/*
+		 * entityManager.merge(empVO); 
+		 * ... this line entity lifeCycle is managed, not yet commit
+		 */
+		return entityManager.merge(empVO);
 	}
 
 	@Transactional

@@ -12,7 +12,7 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return int
 	 */
-	int addEmp(EmpVO empVO);
+	int addEmp(EmpVO eParam);
 
 	/**
 	 * Read selected employee
@@ -20,7 +20,7 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return EmpVO
 	 */
-	EmpVO getEmp(EmpVO empVO);
+	EmpVO getEmp(EmpVO eParam);
 
 	/**
 	 * Read all employee
@@ -35,7 +35,7 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return int
 	 */
-	int updateEmp(EmpVO empVO);
+	int updateEmp(EmpVO eParam);
 
 	/**
 	 * Delete selected employee
@@ -43,7 +43,7 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return int
 	 */
-	int delete(EmpVO empVO);
+	int delete(EmpVO eParam);
 
 	/**
 	 * Reed employees by like SQL
@@ -51,6 +51,6 @@ public interface EmpService {
 	 * @param EmpVO
 	 * @return EmpVO
 	 */
-	List<EmpVO> getEmpBySqlLike(EmpVO empVO);
+	List<EmpVO> getEmpBySqlLike(EmpVO eParam);
 
 }

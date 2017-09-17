@@ -16,8 +16,7 @@ import com.iii.emp.ws.domain.EmpOutput;
 import com.iii.framework.core.exception.ServiceException;
 
 @Service
-@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP") // , serviceName = "empService", targetNamespace =
-																// "http://service.soap"
+@WebService(endpointInterface = "com.iii.emp.ws.EmployeeSOAP")
 public class EmployeeSOAPImpl implements EmployeeSOAP {
 
 	private static Logger logger = Logger.getLogger(EmployeeSOAPImpl.class);
@@ -39,12 +38,12 @@ public class EmployeeSOAPImpl implements EmployeeSOAP {
 			// return error code
 			empOutput.setStatus(e.getError().getCode());
 			// record exception
-			logger.debug("EmployeeSOAPImpl..." + e);
+			logger.debug("EmployeeSOAPImpl...getEmp(..)" + e);
 		} catch (Exception e) {
 			// undefined error
 			empOutput.setStatus(EmpError.UNDEFINED_ERROR.getCode());
 			// record exception
-			logger.debug("EmployeeSOAPImpl..." + e);
+			logger.debug("EmployeeSOAPImpl...getEmp(..)" + e);
 		}
 		return empOutput;
 	}

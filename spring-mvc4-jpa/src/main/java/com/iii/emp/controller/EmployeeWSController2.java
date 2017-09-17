@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 
-
+// @ResponseBody + Controller
 @RestController
 @RequestMapping("/restWS2")
 public class EmployeeWSController2 {
@@ -27,10 +27,10 @@ public class EmployeeWSController2 {
 
 	@GetMapping("/getEmp/{empno}")
 	public EmpVO getEmp(@PathVariable("empno") String empno) {
+		//
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
-		EmpVO empVO = empService.getEmp(eParam);
-		return empVO;
+		return empService.getEmp(eParam);
 
 	}
 

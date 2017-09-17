@@ -2,8 +2,6 @@ package com.iii.emp.controller;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +28,7 @@ public class EmployeeController {
 
 	@Resource
 	private EmpService empService;
-	@Autowired
-	@Qualifier
+	@Resource
 	private DeptService deptService;
 	
 	@GetMapping("/emps")
@@ -42,9 +39,11 @@ public class EmployeeController {
 
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
-		ModelAndView model = new ModelAndView("emp/editEmp");
+		// from view
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
+		// query command and return edit model
+		ModelAndView model = new ModelAndView("emp/editEmp");
 		model.addObject("emp", empService.getEmp(eParam));
 		model.addObject("depts", deptService.getDepts());
 		return model;
@@ -52,8 +51,11 @@ public class EmployeeController {
 
 	@PostMapping("/editEmp")
 	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+		// from view
 		empParam.setDeptVO(deptParam);
+		// update command
 		empService.updateEmp(empParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
@@ -61,8 +63,11 @@ public class EmployeeController {
 
 	@PostMapping("/addEmp")
 	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO deptParam) {
+		// from view
 		empParam.setDeptVO(deptParam);
+		// add command
 		empService.addEmp(empParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
@@ -70,9 +75,12 @@ public class EmployeeController {
 
 	@PostMapping("/deleteEmp")
 	public ModelAndView deleteEmp(@RequestParam(name = "empno") String empno) {
+		// from view
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
+		// delete command
 		empService.delete(eParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;

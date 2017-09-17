@@ -2,7 +2,9 @@ package com.iii.emp.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,12 +16,20 @@ import com.iii.emp.service.DeptService;
 @Transactional
 public class DeptServiceImpl implements DeptService {
 
-	@Autowired
+	private static Logger logger = Logger.getLogger(DeptServiceImpl.class);
+
+	@Resource
 	private DeptDAO deptDAO;
 
 	@Override
 	public List<DeptVO> getDepts() {
-		return deptDAO.getDepts();
+		try {
+			return deptDAO.getDepts();
+		} catch (Exception e) {
+			logger.debug("DeptServiceImpl...getDepts()" + e);
+			throw e;
+		}
+
 	}
 
 }

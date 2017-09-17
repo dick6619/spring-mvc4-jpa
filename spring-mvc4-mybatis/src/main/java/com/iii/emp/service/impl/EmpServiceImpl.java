@@ -2,8 +2,10 @@ package com.iii.emp.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,14 +19,16 @@ import com.iii.framework.core.exception.ServiceException;
 @Transactional
 public class EmpServiceImpl implements EmpService {
 
-	@Autowired
+	private static Logger logger = Logger.getLogger(EmpServiceImpl.class);
+
+	@Resource
 	private EmpDAO empDAO;
 
 	@Override
 	public int addEmp(EmpVO eParam) {
 		try {
 			// parameter is correct?
-			if (eParam == null) {
+			if (eParam == null || eParam.getEmpno() == 0) {
 				throw new ServiceException(EmpError.PARAM_ERROR);
 			}
 			// add command
@@ -36,6 +40,7 @@ public class EmpServiceImpl implements EmpService {
 			return success;
 
 		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...addEmp(..)" + e);
 			throw e;
 		}
 
@@ -55,20 +60,27 @@ public class EmpServiceImpl implements EmpService {
 			}
 			return emp;
 		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...getEmp(..)" + e);
 			throw e;
 		}
 	}
 
 	@Override
 	public List<EmpVO> getEmps() {
-		return empDAO.getEmps();
+		try {
+			return empDAO.getEmps();
+		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...getEmps()" + e);
+			throw e;
+		}
+
 	}
 
 	@Override
 	public int updateEmp(EmpVO eParam) {
 		try {
 			// parameter is correct?
-			if (eParam == null) {
+			if (eParam == null || eParam.getEmpno() == 0) {
 				throw new ServiceException(EmpError.PARAM_ERROR);
 			}
 			// update command
@@ -80,6 +92,7 @@ public class EmpServiceImpl implements EmpService {
 			return success;
 
 		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...update(..)" + e);
 			throw e;
 		}
 	}
@@ -98,6 +111,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 			return success;
 		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...delete(..)" + e);
 			throw e;
 		}
 	}
@@ -110,6 +124,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 			return empDAO.getEmpBySqlLike(eParam);
 		} catch (Exception e) {
+			logger.debug("EmpServiceImpl...getEmpBySqlLike(..)" + e);
 			throw e;
 		}
 
