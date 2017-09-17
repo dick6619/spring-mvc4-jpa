@@ -71,7 +71,7 @@
 	}
 	function iiiEmpLike() {
 		$.get({
-			url : 'restWS2/getEmpLike/' + $('#ename').val(),
+			url : 'restWS2/getLikeEmp/' + $('#ename').val(),
 			dataType : 'json',
 			cache : false,
 			success : function(data) {

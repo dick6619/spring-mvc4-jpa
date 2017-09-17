@@ -32,7 +32,7 @@ public class EmployeeWSController2 {
 		return empService.getEmp(eParam);
 	}
 	
-	@GetMapping(value = "/getEmpLike/{ename}")
+	@GetMapping(value = "/getLikeEmp/{ename}")
 	public List<EmpVO> getLikeEmp(@PathVariable("ename") String ename) {
 		EmpVO eParam = new EmpVO();
 		eParam.setEname(ename);

@@ -98,12 +98,12 @@
 		)
 	</insert>
 
-	<select id="getEmpBySqlLike" parameterType="com.iii.emp.domain.EmpVO" resultType="com.iii.emp.domain.EmpVO">
+	<select id="getEmpBySqlLike" parameterType="com.iii.emp.domain.EmpVO" resultMap="emps">
 		SELECT
 		*
 		FROM EMP2
 		<if test="ename != null">
-			Where ename like #{ename}
+			WHERE ename like concat('%', #{ename}, '%') 
 		</if>
 	</select>
 
