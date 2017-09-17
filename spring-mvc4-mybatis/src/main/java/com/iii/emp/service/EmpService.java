@@ -9,10 +9,10 @@ public interface EmpService {
 	/**
 	 * Create new employee
 	 * 
-	 * @param EmpVO_
-	 * @return EmpVO
+	 * @param EmpVO
+	 * @return int
 	 */
-	void addEmp(EmpVO empVO);
+	int addEmp(EmpVO empVO);
 
 	/**
 	 * Read selected employee
@@ -32,17 +32,18 @@ public interface EmpService {
 	/**
 	 * Update selected employee
 	 * 
-	 * @param EmpVO_
-	 * @return EmpVO
+	 * @param EmpVO
+	 * @return int
 	 */
-	EmpVO updateEmp(EmpVO empVO);
+	int updateEmp(EmpVO empVO);
 
 	/**
 	 * Delete selected employee
 	 * 
-	 * @param empno
+	 * @param EmpVO
+	 * @return int
 	 */
-	void delete(EmpVO empVO);
+	int delete(EmpVO empVO);
 
 	/**
 	 * Reed employees by like SQL

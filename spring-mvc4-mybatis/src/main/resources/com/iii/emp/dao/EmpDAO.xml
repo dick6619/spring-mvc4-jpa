@@ -15,46 +15,36 @@
 		deptno
 	</sql>
 	
-	<sql id="allColumnsWithDept">
-		e.empno,
-		e.ename,
-		e.job,
-		e.hiredate,
-		e.sal,
-		e.comm,
-		d.deptno,
-		d.dname,
-		d.loc
-	</sql>
+	<resultMap type="com.iii.emp.domain.EmpVO" id="emps">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<association property="deptVO" javaType="com.iii.emp.domain.DeptVO">
+			<id property="deptno" column="deptno" />
+			<result property="dname" column="dname" />
+			<result property="loc" column="loc" />
+		</association>
+	</resultMap>
 
-<!-- 	<resultMap type="com.iii.emp.domain.EmpVO" id="emps"> -->
-<!-- 		<id property="empno" column="empno" /> -->
-<!-- 		<result property="ename" column="ename" /> -->
-<!-- 		<result property="job" column="job" /> -->
-<!-- 		<result property="hiredate" column="hiredate" /> -->
-<!-- 		<result property="sal" column="sal" /> -->
-<!-- 		<result property="comm" column="comm" /> -->
-<!-- 		<association property="deptVO" javaType="com.iii.emp.domain.DeptVO"> -->
-<!-- 			<id property="deptno" column="deptno" /> -->
-<!-- 			<result property="dname" column="dname" /> -->
-<!-- 			<result property="loc" column="loc" /> -->
-<!-- 		</association> -->
-<!-- 	</resultMap> -->
-
-
-<!-- 	<select id="getEmps" resultMap="emps"> -->
-<!-- 		SELECT -->
-<!-- 		<include refid="allColumns" /> -->
-<!-- 		FROM EMP2 -->
-<!-- 	</select> -->
-	
-	<select id="getEmps" resultType="com.iii.emp.domain.EmpVO">
+    <!-- 星號也行 -->
+	<select id="getEmps" resultMap="emps">
 		SELECT
 		<include refid="allColumns" />
 		FROM EMP2
 	</select>
 	
-	<select id="getEmp" parameterType="com.iii.emp.domain.EmpVO" resultType="com.iii.emp.domain.EmpVO">
+<!-- 如bean 命名規則與table欄位定義一致並不用額外撰寫resultMap -->	
+<!-- 	<select id="getEmps" resultType="com.iii.emp.domain.EmpVO"> -->
+<!-- 		SELECT -->
+<!-- 		* -->
+<!-- 		FROM EMP2 -->
+<!-- 	</select> -->
+
+	<!-- 因有inner bean deptVO, 相關關聯設定在resultMap內，需要使用否則deptVO會是null -->
+	<select id="getEmp" parameterType="com.iii.emp.domain.EmpVO"  resultMap="emps">
 		SELECT *
 		FROM EMP2
 		WHERE empno = #{empno}
@@ -78,8 +68,8 @@
 			<if test="comm != null">
 				comm = #{comm},
 			</if>
-			<if test="deptno != null">
-				deptno = #{deptno}
+			<if test="deptVO != null and deptVO.deptno !=null ">
+				deptno = #{deptVO.deptno}
 			</if>
 		</set>
 		WHERE empno = #{empno}
@@ -104,7 +94,7 @@
 		#{hiredate},
 		#{sal},
 		#{comm},
-		#{deptno}
+		#{deptVO.deptno}
 		)
 	</insert>
 

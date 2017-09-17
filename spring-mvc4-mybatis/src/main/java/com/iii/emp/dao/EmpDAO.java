@@ -12,7 +12,7 @@ public interface EmpDAO {
 	 * @param EmpVO_
 	 * @return EmpVO
 	 */
-	void insert(EmpVO empVO);
+	int insert(EmpVO empVO);
 
 	/**
 	 * Reed selected employee
@@ -20,7 +20,7 @@ public interface EmpDAO {
 	 * @param Integer
 	 * @return EmpVO
 	 */
-	EmpVO getEmp(EmpVO empno);
+	EmpVO getEmp(EmpVO empVO);
 
 	/**
 	 * Read all employee
@@ -35,14 +35,14 @@ public interface EmpDAO {
 	 * @param EmpVO_
 	 * @return EmpVO
 	 */
-	EmpVO update(EmpVO empVO);
+	int update(EmpVO empVO);
 
 	/**
 	 * Delete selected employee
 	 * 
 	 * @param Integer
 	 */
-	void delete(EmpVO empVO);
+	int delete(EmpVO empVO);
 
 	/**
 	 * Reed employees by like SQL

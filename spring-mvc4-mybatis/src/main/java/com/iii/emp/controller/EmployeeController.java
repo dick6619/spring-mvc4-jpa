@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iii.emp.domain.DeptVO;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.DeptService;
 import com.iii.emp.service.EmpService;
@@ -42,25 +43,32 @@ public class EmployeeController {
 	@GetMapping("/editEmpView/{empno}")
 	public ModelAndView getEditEmpForm(@PathVariable("empno") String empno) {
 		ModelAndView model = new ModelAndView("emp/editEmp");
+		//
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
-		model.addObject("emp", empService.getEmp(eParam));
 		//
+		model.addObject("emp", empService.getEmp(eParam));
 		model.addObject("depts", deptService.getDepts());
 		return model;
 	}
 
 	@PostMapping("/editEmp")
-	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam) {
+	public ModelAndView editEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO dParam) {
+		empParam.setDeptVO(dParam);
+		// update
 		empService.updateEmp(empParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;
 	}
 
 	@PostMapping("/addEmp")
-	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam) {
+	public ModelAndView addEmpVO(@ModelAttribute EmpVO empParam, @ModelAttribute DeptVO dParam) {
+		empParam.setDeptVO(dParam);
+		// add
 		empService.addEmp(empParam);
+		// return model
 		ModelAndView model = new ModelAndView("emp/emps");
 		model.addObject("emps", empService.getEmps());
 		return model;

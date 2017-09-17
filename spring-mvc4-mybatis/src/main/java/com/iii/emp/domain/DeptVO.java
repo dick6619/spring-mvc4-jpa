@@ -1,6 +1,10 @@
 package com.iii.emp.domain;
 
-public class DeptVO {
+import java.io.Serializable;
+
+public class DeptVO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public DeptVO() {
 	}
@@ -32,10 +36,10 @@ public class DeptVO {
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	
-//	@Override
-//	public String toString() {
-//		return "[deptno:" + deptno + ", dname:" + dname + ", loc:" + loc;
-//	}
+
+	 @Override
+	 public String toString() {
+	 return "[deptno:" + deptno + ", dname:" + dname + ", loc:" + loc;
+	 }
 
 }
