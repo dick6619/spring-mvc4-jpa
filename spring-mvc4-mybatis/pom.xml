@@ -195,6 +195,13 @@
 		<!-- <artifactId>slf4j-api</artifactId> -->
 		<!-- <version>1.7.25</version> -->
 		<!-- </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.4.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>spring-mvc4-mybatis</finalName>
