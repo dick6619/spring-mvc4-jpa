@@ -3,6 +3,8 @@ package com.iii.emp.domain;
 import java.io.Serializable;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class EmpVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +15,7 @@ public class EmpVO implements Serializable {
 	private Integer empno;
 	private String ename;
 	private String job;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
 	private Date hiredate;
 	private Double sal;
 	private Double comm;

@@ -15,6 +15,18 @@
 		deptno
 	</sql>
 	
+	<sql id="allColumnsWithDept">
+		e.empno,
+		e.ename,
+		e.job,
+		e.hiredate,
+		e.sal,
+		e.comm,
+		d.deptno,
+		d.dname,
+		d.loc
+	</sql>
+	
 	<resultMap type="com.iii.emp.domain.EmpVO" id="emps">
 		<id property="empno" column="empno" />
 		<result property="ename" column="ename" />
@@ -32,8 +44,9 @@
     <!-- 星號也行 -->
 	<select id="getEmps" resultMap="emps">
 		SELECT
-		<include refid="allColumns" />
-		FROM EMP2
+		<include refid="allColumnsWithDept" />
+		FROM EMP2 e, DEPT2 d
+		WHERE e.deptno = d.deptno
 	</select>
 	
 <!-- 如bean 命名規則與table欄位定義一致並不用額外撰寫resultMap -->	
@@ -43,11 +56,13 @@
 <!-- 		FROM EMP2 -->
 <!-- 	</select> -->
 
-	<!-- 因有inner bean deptVO, 相關關聯設定在resultMap內，需要使用否則deptVO會是null -->
+	<!-- 1. 因有inner bean deptVO, 相關關聯設定在resultMap內，需要使用否則deptVO會是null -->
+	<!-- 2. 對應以上，mybatis不像hibernate會自動去搜尋整個部門資訊， 故這邊用JOIN語法，否則dname, loc會null-->
 	<select id="getEmp" parameterType="com.iii.emp.domain.EmpVO"  resultMap="emps">
-		SELECT *
-		FROM EMP2
-		WHERE empno = #{empno}
+		SELECT
+		<include refid="allColumnsWithDept" />
+		FROM EMP2 e JOIN DEPT2 d ON e.deptno = d.deptno
+		WHERE e.empno = #{empno}
 	</select>
 	
 	<update id="update" parameterType="com.iii.emp.domain.EmpVO">
@@ -100,8 +115,8 @@
 
 	<select id="getEmpBySqlLike" parameterType="com.iii.emp.domain.EmpVO" resultMap="emps">
 		SELECT
-		*
-		FROM EMP2
+		<include refid="allColumnsWithDept" />
+		FROM EMP2 e INNER JOIN DEPT2 d ON e.deptno = d.deptno
 		<if test="ename != null">
 			WHERE ename like concat('%', #{ename}, '%') 
 		</if>

@@ -65,7 +65,7 @@
 									<td>${emp.hiredate}</td>
 									<td>${emp.sal}</td>
 									<td>${emp.comm}</td>
-									<td>${emp.deptVO.deptno}</td>
+									<td>${emp.deptVO.dname}</td>
 									<td>
 									    <a class="btn btn-primary" href="<%=contextPath%>/employee/editEmpView/${emp.empno}">編輯</a>
 										<form action="<%=contextPath%>/employee/deleteEmp" method='post'>

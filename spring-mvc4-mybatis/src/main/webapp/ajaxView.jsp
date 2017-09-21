@@ -30,7 +30,7 @@
 			                   '<td>' + data[i].hiredate + '</td>' + 
 			                   '<td>' + data[i].sal + '</td>' + 
 			                   '<td>' + data[i].comm + '</td>' + 
-			                   '<td>' + data[i].deptVO.deptno + '</td>' + 
+			                   '<td>' + data[i].deptVO.dname + '</td>' + 
 			                   '</tr>')
 				}
 				// 				$.each(data, function() {
@@ -60,7 +60,7 @@
 				                   '<td>' + data.hiredate + '</td>' + 
 				                   '<td>' + data.sal + '</td>' + 
 				                   '<td>' + data.comm + '</td>' + 
-				                   '<td>' + data.deptVO.deptno + '</td>' + 
+				                   '<td>' + data.deptVO.dname + '</td>' + 
 				                   '</tr>')
 			},
 			error : function(data) {
@@ -84,7 +84,7 @@
 			                   '<td>' + data[i].hiredate + '</td>' + 
 			                   '<td>' + data[i].sal + '</td>' + 
 			                   '<td>' + data[i].comm + '</td>' + 
-			                   '<td>' + data[i].deptVO.deptno + '</td>' + 
+			                   '<td>' + data[i].deptVO.dname + '</td>' + 
 			                   '</tr>')
 				}
 			},
