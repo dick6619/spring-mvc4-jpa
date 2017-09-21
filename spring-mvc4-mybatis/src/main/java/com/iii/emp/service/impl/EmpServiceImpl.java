@@ -28,7 +28,7 @@ public class EmpServiceImpl implements EmpService {
 	public int addEmp(EmpVO eParam) {
 		try {
 			// parameter is correct?
-			if (eParam == null || eParam.getEmpno() == 0) {
+			if (eParam == null) {
 				throw new ServiceException(EmpError.PARAM_ERROR);
 			}
 			// add command

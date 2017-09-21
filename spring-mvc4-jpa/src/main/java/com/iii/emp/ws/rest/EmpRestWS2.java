@@ -1,4 +1,4 @@
-package com.iii.emp.controller;
+package com.iii.emp.ws.rest;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iii.emp.domain.EmpVO;
 import com.iii.emp.service.EmpService;
 
-
+// @ResponseBody + Controller
 @RestController
 @RequestMapping("/restWS2")
-public class EmployeeWSController2 {
+public class EmpRestWS2 {
 
 	@Resource
 	private EmpService empService;
@@ -27,16 +27,11 @@ public class EmployeeWSController2 {
 
 	@GetMapping("/getEmp/{empno}")
 	public EmpVO getEmp(@PathVariable("empno") String empno) {
+		//
 		EmpVO eParam = new EmpVO();
 		eParam.setEmpno(Integer.valueOf(empno));
 		return empService.getEmp(eParam);
-	}
-	
-	@GetMapping(value = "/getLikeEmp/{ename}")
-	public List<EmpVO> getLikeEmp(@PathVariable("ename") String ename) {
-		EmpVO eParam = new EmpVO();
-		eParam.setEname(ename);
-		return empService.getEmpBySqlLike(eParam);
+
 	}
 
 }

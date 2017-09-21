@@ -18,7 +18,7 @@ import com.iii.emp.service.EmpService;
 
 @Controller
 @RequestMapping("/restWS")
-public class EmpWS {
+public class EmpRestWS {
 
 	@Resource
 	private EmpService empService;

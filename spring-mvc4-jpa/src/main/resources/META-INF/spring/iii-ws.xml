@@ -14,7 +14,7 @@
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
     <!-- web services -->
-	<jaxws:endpoint id="ws001" implementor="com.iii.emp.ws.soap.impl.EmployeeSOAPImpl"
+	<jaxws:endpoint id="ws001" implementor="com.iii.emp.ws.soap.impl.EmpSOAPImpl"
 		address="/iii/emp/ws001" />
 
 </beans>

@@ -1,4 +1,4 @@
-package com.iii.emp.ws.domain;
+package com.iii.emp.ws.soap.domain;
 
 import java.sql.Date;
 

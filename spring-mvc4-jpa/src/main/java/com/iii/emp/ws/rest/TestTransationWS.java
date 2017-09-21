@@ -15,7 +15,7 @@ import com.iii.emp.service.TransationBService;
 
 @RestController
 @RequestMapping("/test")
-public class TestWS {
+public class TestTransationWS {
 
 	@Resource
 	TransationAService aService;

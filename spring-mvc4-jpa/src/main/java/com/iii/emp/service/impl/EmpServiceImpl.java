@@ -27,12 +27,12 @@ public class EmpServiceImpl implements EmpService {
 	private EmpDAO empDAO;
 
 	@Override
-	public void addEmp(EmpVO empVO) {
+	public void addEmp(EmpVO eParam) {
 		try {
-			if (empVO == null) {
+			if (eParam == null) {
 				throw new ServiceException(EmpError.PARAM_ERROR);
 			}
-			empDAO.insert(empVO);
+			empDAO.insert(eParam);
 		} catch (Exception e) {
 			logger.debug("EmpServiceImpl...addEmp(..)" + e);
 			throw e;
