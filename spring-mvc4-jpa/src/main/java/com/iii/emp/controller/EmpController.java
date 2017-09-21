@@ -24,7 +24,7 @@ import com.iii.emp.service.EmpService;
  */
 @Controller
 @RequestMapping("/employee")
-public class EmployeeController {
+public class EmpController {
 
 	@Resource
 	private EmpService empService;

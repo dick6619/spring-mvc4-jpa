@@ -1,4 +1,4 @@
-package com.iii.emp.controller;
+package com.iii.emp.ws.rest;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import com.iii.emp.service.EmpService;
 // @ResponseBody + Controller
 @RestController
 @RequestMapping("/restWS2")
-public class EmployeeWSController2 {
+public class EmpWS2 {
 
 	@Resource
 	private EmpService empService;

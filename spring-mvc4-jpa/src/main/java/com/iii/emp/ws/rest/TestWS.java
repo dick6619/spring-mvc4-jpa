@@ -1,4 +1,4 @@
-package com.iii.emp.controller;
+package com.iii.emp.ws.rest;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import com.iii.emp.service.TransationBService;
 
 @RestController
 @RequestMapping("/test")
-public class TestWSController {
+public class TestWS {
 
 	@Resource
 	TransationAService aService;
